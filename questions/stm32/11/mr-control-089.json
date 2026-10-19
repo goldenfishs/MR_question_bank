@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-089",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "09 时钟与GPIO实践",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 089 · 开漏释放之后为何仍然读低",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nSDA配置为开漏输出，写入1使本端输出管释放；板上有已确认正常的上拉，静态测得 SDA 仍接近0 V。忽略测量误差，下列哪些情况能解释这个现象？\n\n作答约定：选择所有正确项；至少两项正确。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "09 时钟与GPIO实践",
+      "开漏故障定位"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "另一器件正在主动拉低SDA",
+        "SDA线路存在到GND的低阻短接",
+        "开漏写1必然由本端强推高，因此测量不可能正确",
+        "仅靠改变CPU主频，就必然能消除这个静态低电平"
+      ],
+      "answers": [
+        "0",
+        "1"
+      ],
+      "explanation": "开漏写1表示关闭下拉管而不是强推高。正常上拉仍不能使线路升高时，要检查其他器件持续下拉或短路；CPU主频不直接排除此类静态电气原因。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-089",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "09 时钟与GPIO实践",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第164页，9.1.8 Output configuration，核查关键词“Open-drain”。适用限制：给定上拉正常、静态直流测量且无本端下拉；不从单个读数推断唯一故障。"
+  }
+}

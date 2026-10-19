@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-004",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 004 · 批次采样的存储量",
+    "description": "每批记录先写 h 字节批头，随后有 n 条采样记录，每条 b 字节。批头无论 n 是否为0都必须保存。\n输入：一行 h n b，0≤h≤10^6，0≤n≤10^9，1≤b≤10^6。\n输出：整批所需字节数，一个整数。\n\n示例 1 输入\n24 1000 6\n示例 1 输出\n6024\n\n\n示例 2 输入\n17 123 5\n示例 2 输出\n632\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "01 输入输出与表达式",
+      "乘法与固定开销"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "24 1000 6\n",
+          "expectedOutput": "6024\n",
+          "hidden": false
+        },
+        {
+          "input": "17 123 5\n",
+          "expectedOutput": "632\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000 0 1000000\n",
+          "expectedOutput": "1000000\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000 1000000000 1000000\n",
+          "expectedOutput": "1000000001000000\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1 1\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "24 0 6\n",
+          "expectedOutput": "24\n",
+          "hidden": true
+        },
+        {
+          "input": "0 999999999 7\n",
+          "expectedOutput": "6999999993\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-004",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "01 输入输出与表达式",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long h,n,b;if(scanf(\"%lld%lld%lld\",&h,&n,&b)!=3)return 0;printf(\"%lld\\n\",h+n*b);\nreturn 0;\n}\n",
+    "oracleNotes": "独立计算固定项+重复项，n=0仍保留批头。"
+  }
+}

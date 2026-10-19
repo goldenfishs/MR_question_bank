@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-019",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "算法：先进先出的结构",
+    "description": "按到达顺序处理机器人消息，先收到的消息先处理，应选择哪种基本数据结构？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "算法",
+      "队列"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "二叉搜索树",
+        "队列",
+        "无序集合",
+        "栈"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "队列遵循先进先出（FIFO）；栈遵循后进先出。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-019",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

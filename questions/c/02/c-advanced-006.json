@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-advanced-006",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言进阶",
+  "visibility": "public",
+  "task": {
+    "title": "读取结构体成员",
+    "description": "已有 struct Motor { int rpm; }; struct Motor m = {120}; struct Motor *p = &m;，哪一个表达式可通过 p 读取 rpm？",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "C语言进阶",
+      "结构体"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_member_access.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "p.rpm",
+        "p->rpm",
+        "p::rpm",
+        "p[rpm]"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "通过指向结构体的指针访问成员使用 ->；p->rpm 等价于 (*p).rpm。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_member_access.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-advanced-006",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

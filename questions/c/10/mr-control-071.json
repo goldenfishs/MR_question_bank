@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-071",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "08 位运算与通信数据",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 071 · 保留其他位的字段更新",
+    "description": "在逻辑32位无符号字x中，最低位编号为0。把从start开始连续width个位整体替换为value的width位二进制值，其余位保持不变。value可能包含0，因此不能只做按位或。\n\n输入格式\n一行 x start width value，全部以十进制给出。\n范围与边界\n0≤x≤4294967295；0≤start≤31；1≤width≤32-start；0≤value<2^width。包括替换全部32位。\n输出格式\n更新后0～4294967295的十进制无符号值。\n\n示例 1 输入\n255 2 3 0\n示例 1 输出\n227\n\n示例 2 输入\n305419896 8 8 171\n示例 2 输出\n305441656\n\n使用 C11 标准输入输出，不输出提示文字。判题只检查结果，不检查是否采用函数、递归、指针、结构体或动态分配等特定写法。\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "08 位运算与通信数据",
+      "位字段整体替换"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "255 2 3 0\n",
+          "expectedOutput": "227\n",
+          "hidden": false
+        },
+        {
+          "input": "305419896 8 8 171\n",
+          "expectedOutput": "305441656\n",
+          "hidden": false
+        },
+        {
+          "input": "4294967295 0 32 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 32 4294967295\n",
+          "expectedOutput": "4294967295\n",
+          "hidden": true
+        },
+        {
+          "input": "2147483648 31 1 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "0 31 1 1\n",
+          "expectedOutput": "2147483648\n",
+          "hidden": true
+        },
+        {
+          "input": "2863311530 0 1 1\n",
+          "expectedOutput": "2863311531\n",
+          "hidden": true
+        },
+        {
+          "input": "1431655765 12 12 2048\n",
+          "expectedOutput": "1434453333\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-071",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "08 位运算与通信数据",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <stddef.h>\n#include <limits.h>\nint main(void){unsigned long long x,value;unsigned int start,width;if(scanf(\"%llu%u%u%llu\",&x,&start,&width,&value)!=4)return 0;unsigned long long mask=((1ULL<<width)-1ULL)<<start;unsigned long long result=(x&~mask)|(value<<start);printf(\"%llu\\n\",result);return 0;}\n",
+    "oracleNotes": "Independent 32-character binary-string field replacement; full-width masks and top-bit changes."
+  }
+}

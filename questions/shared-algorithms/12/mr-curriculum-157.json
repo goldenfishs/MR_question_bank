@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-157",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 157 · 固定个数的数字组合",
+    "description": "从 1 到 n 中选恰好 k 个不同数字，要求总和等于 S。选择顺序不影响方案，求方案数。k=0 时只有空组合。\n\n输入格式\n一行 n k S。\n范围与边界\n1≤n≤20；0≤k≤n；0≤S≤210。\n输出格式\n组合数。\n\n示例 1 输入\n6 3 10\n示例 1 输出\n3\n\n\n示例 2 输入\n2 1 3\n示例 2 输出\n0\n\n建议复杂度：O(2^n) 最坏时间。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "组合枚举"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "6 3 10\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "2 1 3\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "3 2 6\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 3 9\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "5 4 12\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "6 5 15\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "7 6 18\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "8 7 21\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "20 10 105\n",
+          "expectedOutput": "5448\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-157",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n,k,S;cin>>n>>k>>S;function<ll(int,int,int)>f=[&](int x,int left,int sum)->ll{if(left==0)return sum==0;if(x>n||n-x+1<left||sum<0)return 0;return f(x+1,left-1,sum-x)+f(x+1,left,sum);};cout<<f(1,k,S)<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    n,k,S=map(int,data.split())\n    def f(x,left,s):\n        if left==0:return int(s==0)\n        if x>n or n-x+1<left or s<0:return 0\n        return f(x+1,left-1,s-x)+f(x+1,left,s)\n    return f(1,k,S)\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

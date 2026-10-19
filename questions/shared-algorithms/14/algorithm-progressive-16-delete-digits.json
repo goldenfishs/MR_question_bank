@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "algorithm-progressive-16-delete-digits",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "算法阶梯 16 · 精简数字编号",
+    "description": "机器人日志中有数字字符串 s。请恰好删除 k 个字符，其余字符顺序不变，使剩余数字表示的非负整数最小。输出去掉多余前导零；剩余为空或全零时输出 0。输入允许前导零，不要将整个编号转成整数。\n\n输入格式\n第一行数字字符串 s，第二行整数 k。\n范围：1 ≤ len(s) ≤ 2000，0 ≤ k ≤ len(s)。\n输出格式\n最小非负整数的规范十进制表示。\n\n示例 1 输入\n530271\n2\n示例 1 输出\n271\n说明：删除 5、3，剩余 0271。\n示例 2 输入\n10200\n1\n示例 2 输出\n200\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3。\n原创说明：题面、样例和测试数据由本站围绕机器人训练独立编写。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "tags": [
+      "算法阶梯",
+      "第三阶段·贪心与搜索",
+      "单调栈",
+      "贪心",
+      "字符串"
+    ],
+    "required": false,
+    "fileIds": [],
+    "team": "",
+    "dueAt": "",
+    "resourcesUrl": "",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "530271\n2\n",
+          "expectedOutput": "271\n",
+          "hidden": false
+        },
+        {
+          "input": "10200\n1\n",
+          "expectedOutput": "200\n",
+          "hidden": false
+        },
+        {
+          "input": "9\n1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "00012\n0\n",
+          "expectedOutput": "12\n",
+          "hidden": true
+        },
+        {
+          "input": "123456789\n4\n",
+          "expectedOutput": "12345\n",
+          "hidden": true
+        },
+        {
+          "input": "987654321\n4\n",
+          "expectedOutput": "54321\n",
+          "hidden": true
+        },
+        {
+          "input": "111111\n3\n",
+          "expectedOutput": "111\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000\n1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-advanced.json",
+    "key": "algorithm-progressive-16-delete-digits",
+    "fileSha256": "3926a35202e5fc8211cb6d21421170a7ff4eb4644b74088f33b78f29686d75fd"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <functional>\n#include <utility>\nusing namespace std;\nint main(){string s;int k;cin>>s>>k;string st;for(char c:s){while(k>0&&!st.empty()&&st.back()>c){st.pop_back();--k;}st+=c;}while(k-->0)st.pop_back();auto p=st.find_first_not_of('0');cout<<(p==string::npos?\"0\":st.substr(p))<<'\\n';}\n",
+    "pythonReference": "import sys\ns,k=sys.stdin.read().split()\nk=int(k)\nstack=[]\nfor digit in s:\n    while k and stack and stack[-1]>digit:\n        stack.pop()\n        k-=1\n    stack.append(digit)\nif k:\n    del stack[-k:]\nprint(''.join(stack).lstrip('0') or '0')\n"
+  }
+}

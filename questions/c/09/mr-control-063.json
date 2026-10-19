@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-063",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "07 结构体与内存",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 063 · 最低编号空闲槽",
+    "description": "固定对象池有 n 个槽，编号 0～n-1，初始全空。ALLOC 占用当前最低编号空槽并输出其编号，无空槽输出 FULL；FREE i 释放占用槽并输出 OK，若本来就空输出 EMPTY。失败操作不改变状态。\n\n输入格式\n第一行 n q；随后 q 行命令 ALLOC 或 FREE i。\n范围与边界\n1≤n≤200；1≤q≤500；0≤i<n。不会产生实际内存地址，也不把重复释放映射到 C 的 free。\n输出格式\n每条命令一行结果。\n\n示例 1 输入\n3 8\nALLOC\nALLOC\nFREE 0\nALLOC\nALLOC\nALLOC\nFREE 2\nFREE 2\n示例 1 输出\n0\n1\nOK\n0\n2\nFULL\nOK\nEMPTY\n\n示例 2 输入\n2 6\nFREE 1\nALLOC\nALLOC\nFREE 1\nALLOC\nFREE 0\n示例 2 输出\nEMPTY\n0\n1\nOK\n1\nOK\n\n使用 C11 标准输入输出，不输出提示文字。判题只检查结果，不检查是否采用函数、递归、指针、结构体或动态分配等特定写法。\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "07 结构体与内存",
+      "对象池状态"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/memory/malloc.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 8\nALLOC\nALLOC\nFREE 0\nALLOC\nALLOC\nALLOC\nFREE 2\nFREE 2\n",
+          "expectedOutput": "0\n1\nOK\n0\n2\nFULL\nOK\nEMPTY\n",
+          "hidden": false
+        },
+        {
+          "input": "2 6\nFREE 1\nALLOC\nALLOC\nFREE 1\nALLOC\nFREE 0\n",
+          "expectedOutput": "EMPTY\n0\n1\nOK\n1\nOK\n",
+          "hidden": false
+        },
+        {
+          "input": "1 3\nALLOC\nALLOC\nFREE 0\n",
+          "expectedOutput": "0\nFULL\nOK\n",
+          "hidden": true
+        },
+        {
+          "input": "1 2\nFREE 0\nFREE 0\n",
+          "expectedOutput": "EMPTY\nEMPTY\n",
+          "hidden": true
+        },
+        {
+          "input": "200 500\nFREE 41\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 181\nALLOC\nALLOC\nFREE 145\nFREE 192\nFREE 123\nALLOC\nFREE 62\nALLOC\nFREE 38\nALLOC\nALLOC\nALLOC\nFREE 110\nFREE 193\nFREE 184\nFREE 89\nFREE 54\nALLOC\nALLOC\nFREE 78\nFREE 106\nFREE 88\nFREE 114\nALLOC\nALLOC\nFREE 94\nALLOC\nALLOC\nFREE 107\nALLOC\nALLOC\nFREE 57\nALLOC\nALLOC\nFREE 85\nFREE 99\nALLOC\nFREE 77\nALLOC\nFREE 40\nALLOC\nFREE 146\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 32\nFREE 147\nFREE 158\nALLOC\nFREE 58\nALLOC\nALLOC\nFREE 158\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 70\nALLOC\nFREE 165\nFREE 104\nALLOC\nFREE 61\nFREE 183\nFREE 28\nFREE 63\nFREE 137\nFREE 73\nFREE 9\nFREE 172\nALLOC\nALLOC\nFREE 31\nALLOC\nFREE 69\nALLOC\nFREE 86\nFREE 11\nFREE 44\nALLOC\nALLOC\nFREE 194\nFREE 172\nALLOC\nALLOC\nFREE 193\nFREE 49\nALLOC\nFREE 160\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 152\nALLOC\nFREE 22\nFREE 52\nFREE 135\nFREE 26\nFREE 87\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 16\nALLOC\nALLOC\nALLOC\nFREE 122\nALLOC\nALLOC\nFREE 131\nFREE 160\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 26\nFREE 102\nALLOC\nFREE 195\nALLOC\nALLOC\nALLOC\nFREE 190\nALLOC\nFREE 116\nFREE 119\nALLOC\nALLOC\nFREE 109\nALLOC\nALLOC\nFREE 62\nFREE 125\nFREE 70\nALLOC\nALLOC\nFREE 88\nALLOC\nFREE 161\nFREE 198\nFREE 183\nFREE 143\nFREE 186\nALLOC\nFREE 102\nFREE 142\nFREE 76\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 78\nALLOC\nFREE 124\nALLOC\nFREE 94\nALLOC\nALLOC\nALLOC\nFREE 161\nFREE 5\nFREE 51\nALLOC\nFREE 187\nFREE 144\nALLOC\nALLOC\nFREE 194\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 15\nFREE 84\nFREE 177\nFREE 113\nALLOC\nFREE 174\nALLOC\nFREE 159\nFREE 132\nFREE 120\nALLOC\nALLOC\nALLOC\nFREE 178\nALLOC\nALLOC\nALLOC\nFREE 58\nFREE 76\nFREE 154\nFREE 139\nFREE 77\nFREE 133\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 191\nFREE 69\nALLOC\nFREE 69\nALLOC\nALLOC\nFREE 63\nFREE 116\nALLOC\nALLOC\nFREE 156\nALLOC\nFREE 32\nFREE 43\nFREE 143\nALLOC\nFREE 75\nALLOC\nALLOC\nFREE 32\nFREE 83\nFREE 71\nFREE 184\nALLOC\nFREE 82\nALLOC\nFREE 9\nFREE 98\nFREE 137\nALLOC\nALLOC\nALLOC\nFREE 25\nFREE 8\nALLOC\nFREE 195\nFREE 178\nALLOC\nALLOC\nFREE 24\nALLOC\nFREE 184\nFREE 166\nALLOC\nFREE 197\nALLOC\nALLOC\nFREE 163\nFREE 54\nFREE 42\nFREE 190\nFREE 31\nFREE 170\nFREE 143\nALLOC\nFREE 132\nALLOC\nFREE 178\nFREE 162\nALLOC\nFREE 77\nALLOC\nFREE 70\nALLOC\nALLOC\nALLOC\nFREE 119\nALLOC\nALLOC\nFREE 171\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 96\nFREE 121\nFREE 59\nALLOC\nALLOC\nFREE 66\nALLOC\nFREE 66\nALLOC\nALLOC\nFREE 108\nALLOC\nALLOC\nFREE 17\nFREE 35\nALLOC\nFREE 88\nALLOC\nFREE 34\nALLOC\nFREE 75\nALLOC\nFREE 33\nALLOC\nFREE 73\nFREE 29\nALLOC\nALLOC\nFREE 25\nALLOC\nALLOC\nFREE 199\nFREE 112\nALLOC\nALLOC\nFREE 14\nFREE 128\nALLOC\nFREE 24\nFREE 47\nALLOC\nALLOC\nFREE 195\nALLOC\nALLOC\nFREE 73\nFREE 30\nFREE 22\nALLOC\nFREE 130\nALLOC\nFREE 34\nALLOC\nALLOC\nFREE 154\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 0\nFREE 2\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 159\nALLOC\nALLOC\nFREE 99\nALLOC\nFREE 120\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 124\nALLOC\nFREE 180\nFREE 109\nFREE 71\nFREE 57\nFREE 101\nALLOC\nFREE 126\nFREE 169\nALLOC\nFREE 151\nFREE 194\nFREE 165\nFREE 36\nALLOC\nFREE 88\nALLOC\nALLOC\nFREE 28\nALLOC\nALLOC\nFREE 110\nALLOC\nALLOC\nFREE 46\nALLOC\nFREE 35\nFREE 111\nFREE 152\nFREE 148\nALLOC\nALLOC\nALLOC\nFREE 163\nALLOC\nALLOC\nFREE 14\nFREE 34\nFREE 133\nALLOC\nALLOC\nFREE 174\nFREE 78\nALLOC\nFREE 36\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 164\nALLOC\nALLOC\nALLOC\nFREE 171\nFREE 75\nFREE 113\nFREE 18\nFREE 100\nFREE 47\nFREE 144\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 142\nALLOC\nFREE 83\nFREE 84\nFREE 21\nFREE 154\nALLOC\nFREE 179\nALLOC\nALLOC\nFREE 70\nFREE 70\nALLOC\nFREE 156\nALLOC\nALLOC\nFREE 147\nALLOC\nALLOC\nALLOC\nFREE 133\nFREE 86\nALLOC\nALLOC\nFREE 80\nALLOC\nFREE 5\nALLOC\nALLOC\nFREE 61\nALLOC\nALLOC\nFREE 67\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 70\nALLOC\nFREE 120\nALLOC\nALLOC\nALLOC\nFREE 59\nFREE 80\nFREE 133\nFREE 3\nALLOC\nALLOC\nFREE 1\nALLOC\nFREE 144\nFREE 154\nALLOC\nALLOC\nFREE 143\nALLOC\nFREE 118\nALLOC\nALLOC\nALLOC\nFREE 3\nFREE 42\n",
+          "expectedOutput": "EMPTY\n0\n1\n2\n3\nEMPTY\n4\n5\nEMPTY\nEMPTY\nEMPTY\n6\nEMPTY\n7\nEMPTY\n8\n9\n10\nEMPTY\nEMPTY\nEMPTY\nEMPTY\nEMPTY\n11\n12\nEMPTY\nEMPTY\nEMPTY\nEMPTY\n13\n14\nEMPTY\n15\n16\nEMPTY\n17\n18\nEMPTY\n19\n20\nEMPTY\nEMPTY\n21\nEMPTY\n22\nEMPTY\n23\nEMPTY\n24\n25\n26\n27\nEMPTY\nEMPTY\nEMPTY\n28\nEMPTY\n29\n30\nEMPTY\n31\n32\n33\n34\nEMPTY\n35\nEMPTY\nEMPTY\n36\nEMPTY\nEMPTY\nOK\nEMPTY\nEMPTY\nEMPTY\nOK\nEMPTY\n9\n28\nOK\n31\nEMPTY\n37\nEMPTY\nOK\nEMPTY\n11\n38\nEMPTY\nEMPTY\n39\n40\nEMPTY\nEMPTY\n41\nEMPTY\n42\n43\n44\n45\n46\n47\nEMPTY\n48\nOK\nEMPTY\nEMPTY\nOK\nEMPTY\n22\n26\n49\n50\n51\n52\nOK\n16\n53\n54\nEMPTY\n55\n56\nEMPTY\nEMPTY\n57\n58\n59\n60\nOK\nEMPTY\n26\nEMPTY\n61\n62\n63\nEMPTY\n64\nEMPTY\nEMPTY\n65\n66\nEMPTY\n67\n68\nOK\nEMPTY\nEMPTY\n62\n69\nEMPTY\n70\nEMPTY\nEMPTY\nEMPTY\nEMPTY\nEMPTY\n71\nEMPTY\nEMPTY\nEMPTY\n72\n73\n74\n75\nEMPTY\n76\nEMPTY\n77\nEMPTY\n78\n79\n80\nEMPTY\nOK\nOK\n5\nEMPTY\nEMPTY\n51\n81\nEMPTY\n82\n83\n84\n85\n86\n87\n88\nOK\nOK\nEMPTY\nEMPTY\n15\nEMPTY\n84\nEMPTY\nEMPTY\nEMPTY\n89\n90\n91\nEMPTY\n92\n93\n94\nOK\nOK\nEMPTY\nEMPTY\nOK\nEMPTY\n58\n76\n77\n95\n96\n97\n98\n99\n100\nEMPTY\nOK\n69\nOK\n69\n101\nOK\nEMPTY\n63\n102\nEMPTY\n103\nOK\nOK\nEMPTY\n32\nOK\n43\n75\nOK\nOK\nOK\nEMPTY\n32\nOK\n71\nOK\nOK\nEMPTY\n9\n82\n83\nOK\nOK\n8\nEMPTY\nEMPTY\n25\n98\nOK\n24\nEMPTY\nEMPTY\n104\nEMPTY\n105\n106\nEMPTY\nOK\nOK\nEMPTY\nOK\nEMPTY\nEMPTY\n31\nEMPTY\n42\nEMPTY\nEMPTY\n54\nOK\n77\nOK\n70\n107\n108\nEMPTY\n109\n110\nEMPTY\n111\n112\n113\n114\nOK\nEMPTY\nOK\n59\n96\nOK\n66\nOK\n66\n115\nOK\n108\n116\nOK\nOK\n17\nOK\n35\nOK\n34\nOK\n75\nOK\n33\nOK\nOK\n29\n73\nOK\n25\n88\nEMPTY\nOK\n112\n117\nOK\nEMPTY\n14\nOK\nOK\n24\n47\nEMPTY\n118\n119\nOK\nOK\nOK\n22\nEMPTY\n30\nOK\n34\n73\nEMPTY\n120\n121\n122\n123\nOK\nOK\n0\n2\n124\n125\nEMPTY\n126\n127\nOK\n99\nOK\n120\n128\n129\n130\nOK\n124\nEMPTY\nOK\nOK\nOK\nOK\n57\nOK\nEMPTY\n71\nEMPTY\nEMPTY\nEMPTY\nOK\n36\nOK\n88\n101\nOK\n28\n109\nOK\n110\n126\nOK\n46\nOK\nOK\nEMPTY\nEMPTY\n35\n111\n131\nEMPTY\n132\n133\nOK\nOK\nOK\n14\n34\nEMPTY\nOK\n78\nOK\n36\n133\n134\n135\nEMPTY\n136\n137\n138\nEMPTY\nOK\nOK\nOK\nOK\nOK\nEMPTY\n18\n47\n75\n100\n113\nEMPTY\n139\nOK\nOK\nOK\nEMPTY\n21\nEMPTY\n83\n84\nOK\nEMPTY\n70\nEMPTY\n140\n141\nEMPTY\n142\n143\n144\nOK\nOK\n86\n133\nOK\n80\nOK\n5\n145\nOK\n61\n146\nOK\n67\n147\n148\n149\n150\n151\nOK\n70\nOK\n120\n152\n153\nOK\nOK\nOK\nOK\n3\n59\nOK\n1\nOK\nEMPTY\n80\n133\nOK\n143\nOK\n118\n144\n154\nOK\nOK\n",
+          "hidden": true
+        },
+        {
+          "input": "2 5\nALLOC\nALLOC\nFREE 0\nFREE 1\nALLOC\n",
+          "expectedOutput": "0\n1\nOK\nOK\n0\n",
+          "hidden": true
+        },
+        {
+          "input": "1 30\nALLOC\nFREE 0\nFREE 0\nFREE 0\nALLOC\nFREE 0\nFREE 0\nALLOC\nALLOC\nFREE 0\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 0\nALLOC\nFREE 0\nALLOC\nFREE 0\nALLOC\nALLOC\nALLOC\nFREE 0\nFREE 0\nFREE 0\nFREE 0\nALLOC\nFREE 0\nALLOC\nALLOC\n",
+          "expectedOutput": "0\nOK\nEMPTY\nEMPTY\n0\nOK\nEMPTY\n0\nFULL\nOK\n0\nFULL\nFULL\nFULL\nOK\n0\nOK\n0\nOK\n0\nFULL\nFULL\nOK\nEMPTY\nEMPTY\nEMPTY\n0\nOK\n0\nFULL\n",
+          "hidden": true
+        },
+        {
+          "input": "20 80\nFREE 14\nALLOC\nALLOC\nFREE 5\nALLOC\nFREE 13\nFREE 19\nALLOC\nFREE 18\nFREE 6\nFREE 1\nFREE 0\nALLOC\nALLOC\nALLOC\nFREE 1\nFREE 14\nALLOC\nFREE 7\nALLOC\nFREE 16\nALLOC\nALLOC\nALLOC\nFREE 1\nFREE 12\nALLOC\nFREE 6\nFREE 14\nFREE 19\nFREE 16\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 14\nALLOC\nFREE 1\nFREE 1\nFREE 12\nALLOC\nALLOC\nFREE 15\nFREE 2\nALLOC\nFREE 1\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 2\nALLOC\nALLOC\nALLOC\nALLOC\nALLOC\nFREE 15\nFREE 7\nFREE 14\nFREE 1\nFREE 0\nFREE 5\nALLOC\nFREE 8\nALLOC\nFREE 14\nALLOC\nALLOC\nALLOC\nFREE 1\nFREE 14\nALLOC\nFREE 6\nALLOC\nFREE 3\nFREE 6\nFREE 12\nFREE 3\n",
+          "expectedOutput": "EMPTY\n0\n1\nEMPTY\n2\nEMPTY\nEMPTY\n3\nEMPTY\nEMPTY\nOK\nOK\n0\n1\n4\nOK\nEMPTY\n1\nEMPTY\n5\nEMPTY\n6\n7\n8\nOK\nEMPTY\n1\nOK\nEMPTY\nEMPTY\nEMPTY\n6\n9\n10\n11\n12\n13\nEMPTY\n14\nOK\nEMPTY\nOK\n1\n12\nEMPTY\nOK\n2\nOK\n1\n15\n16\n17\nOK\n2\n18\n19\nFULL\nFULL\nOK\nOK\nOK\nOK\nOK\nOK\n0\nOK\n1\nEMPTY\n5\n7\n8\nOK\nEMPTY\n1\nOK\n6\nOK\nOK\nOK\nEMPTY\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/memory/malloc.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-063",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "07 结构体与内存",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <stddef.h>\n#include <limits.h>\ntypedef struct{int used;}Slot;int main(void){int n,q;Slot*a;if(scanf(\"%d%d\",&n,&q)!=2)return 0;a=calloc((size_t)n,sizeof *a);if(!a)return 1;while(q--){char op[8];if(scanf(\"%7s\",op)!=1){free(a);return 0;}if(!strcmp(op,\"ALLOC\")){int i;for(i=0;i<n&&a[i].used;i++);if(i==n)puts(\"FULL\");else{a[i].used=1;printf(\"%d\\n\",i);}}else{int i;if(scanf(\"%d\",&i)!=1){free(a);return 0;}if(a[i].used){a[i].used=0;puts(\"OK\");}else puts(\"EMPTY\");}}free(a);return 0;}\n",
+    "oracleNotes": "Independent set-complement model verifies smallest-index reuse, exhausted pool and idempotent empty-slot release."
+  }
+}

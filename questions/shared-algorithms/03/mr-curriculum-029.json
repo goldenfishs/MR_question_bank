@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-029",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "02 分支判断",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 029 · ASCII 字符的类别",
+    "description": "判断单个可见 ASCII 字符的类别。\n输入：一个字符，其 ASCII 编码在 33～126，不含空白。\n输出：数字 0～9 输出 DIGIT，大写 A～Z 输出 UPPER，小写 a～z 输出 LOWER，其余输出 OTHER。\n\n示例 1 输入\n8\n示例 1 输出\nDIGIT\n\n\n示例 2 输入\na\n示例 2 输出\nLOWER\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "02 分支判断",
+      "字符区间判断"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "8\n",
+          "expectedOutput": "DIGIT\n",
+          "hidden": false
+        },
+        {
+          "input": "a\n",
+          "expectedOutput": "LOWER\n",
+          "hidden": false
+        },
+        {
+          "input": "Z\n",
+          "expectedOutput": "UPPER\n",
+          "hidden": true
+        },
+        {
+          "input": "@\n",
+          "expectedOutput": "OTHER\n",
+          "hidden": true
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "DIGIT\n",
+          "hidden": true
+        },
+        {
+          "input": "9\n",
+          "expectedOutput": "DIGIT\n",
+          "hidden": true
+        },
+        {
+          "input": "A\n",
+          "expectedOutput": "UPPER\n",
+          "hidden": true
+        },
+        {
+          "input": "z\n",
+          "expectedOutput": "LOWER\n",
+          "hidden": true
+        },
+        {
+          "input": "[\n",
+          "expectedOutput": "OTHER\n",
+          "hidden": true
+        },
+        {
+          "input": "_\n",
+          "expectedOutput": "OTHER\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-029",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nchar c;cin>>c;if(c>='0'&&c<='9')cout<<\"DIGIT\";else if(c>='A'&&c<='Z')cout<<\"UPPER\";else if(c>='a'&&c<='z')cout<<\"LOWER\";else cout<<\"OTHER\";cout<<\"\\n\";\n}\n",
+    "pythonReference": "c=input().strip()\nprint(\"DIGIT\" if \"0\"<=c<=\"9\" else \"UPPER\" if \"A\"<=c<=\"Z\" else \"LOWER\" if \"a\"<=c<=\"z\" else \"OTHER\")\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

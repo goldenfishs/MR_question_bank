@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-094",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "10 中断与定时器应用",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 094 · 把周期参数留到边界生效",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nTIM3正常向上计数，UDIS=0、ARPE=1；只讨论ARR更新，其他寄存器保持不变。下列哪些说法正确？\n\n作答约定：选择所有正确项；至少两项正确。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "10 中断与定时器应用",
+      "ARR预装载"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "写ARR先进入预装载值，实际自动重装值在更新事件时刷新",
+        "正常计数时可以利用周期边界的更新事件切换周期",
+        "ARPE=1会把任意一次普通读ARR变成更新事件",
+        "ARPE=1保证修改ARR时所有PWM比较寄存器也自动改成相同比例"
+      ],
+      "answers": [
+        "0",
+        "1"
+      ],
+      "explanation": "ARPE控制ARR的预装载与影子传递，更新事件是生效边界；普通读不产生更新，ARR改变也不会自动按比例重算CCR，占空比策略须单独处理。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-094",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "10 中断与定时器应用",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第368页，15.3.1 Time-base unit，核查关键词“ARPE”；RM0008 Rev 21, February 2021，第404页，15.4.1 TIMx_CR1 ARPE，核查关键词“TIMx_ARR register is buffered”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

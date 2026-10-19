@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-088",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "06 函数与递归",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 088 · 选取互不相邻位置",
+    "description": "从 1～n 中恰好选择 k 个位置，任意两个所选位置不能相邻。只按选择集合区分方案，不考虑选择顺序。\n\n输入格式\n一行 n k。\n数据范围与边界\n0 ≤ n ≤ 20；0 ≤ k ≤ n；答案不取余。\n输出格式\n合法方案数。k=0 时空集合算 1 种。\n\n示例 1 输入\n5 2\n示例 1 输出\n6\n\n示例 2 输入\n4 3\n示例 2 输出\n0\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。本章用于练习函数与递归，但判题仅检查输入输出结果，不强制使用函数、递归或任何特定语法。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "06 函数与递归",
+      "约束枚举"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5 2\n",
+          "expectedOutput": "6\n",
+          "hidden": false
+        },
+        {
+          "input": "4 3\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "20 10\n",
+          "expectedOutput": "11\n",
+          "hidden": true
+        },
+        {
+          "input": "20 5\n",
+          "expectedOutput": "4368\n",
+          "hidden": true
+        },
+        {
+          "input": "10 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "2 2\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-088",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nlong long dfs(int n,int k){if(!k)return 1;if(n<=0||k>(n+1)/2)return 0;return dfs(n-1,k)+dfs(n-2,k-1);}int main(){int n,k;cin>>n>>k;cout<<dfs(n,k)<<'\\n';}\n",
+    "pythonReference": "n,k=map(int,input().split())\ndef count(n,k):\n    if k==0:return 1\n    if n<=0 or k>(n+1)//2:return 0\n    return count(n-1,k)+count(n-2,k-1)\nprint(count(n,k))\n"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-005",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 005 · 两次控制偏差的平方代价",
+    "description": "目标值为 r，两次采样值为 x、y。定义整数代价为 (x-r)^2+(y-r)^2。\n输入：一行 r x y，各数在-10^8～10^8。\n输出：一个非负整数；最大结果不超过8×10^16，可用long long。\n\n示例 1 输入\n10 7 14\n示例 1 输出\n25\n\n\n示例 2 输入\n-5 2 -9\n示例 2 输出\n65\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "01 输入输出与表达式",
+      "64位乘法"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "10 7 14\n",
+          "expectedOutput": "25\n",
+          "hidden": false
+        },
+        {
+          "input": "-5 2 -9\n",
+          "expectedOutput": "65\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-100000000 100000000 100000000\n",
+          "expectedOutput": "80000000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "100000000 -100000000 -100000000\n",
+          "expectedOutput": "80000000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1 2\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "0 -3 4\n",
+          "expectedOutput": "25\n",
+          "hidden": true
+        },
+        {
+          "input": "100 -100 0\n",
+          "expectedOutput": "50000\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-005",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "01 输入输出与表达式",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long r,x,y;if(scanf(\"%lld%lld%lld\",&r,&x,&y)!=3)return 0;long long a=x-r,b=y-r;printf(\"%lld\\n\",a*a+b*b);\nreturn 0;\n}\n",
+    "oracleNotes": "独立展开为x²+y²-2r(x+y)+2r²核对并测试64位量级。"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-060",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "06 指针与字符串",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 060 · 截断后仍报告所需长度",
+    "description": "C11 中 char b[5]; int r=snprintf(b,sizeof b,\"%s\",\"CONTROL\");，调用成功且无编码错误。依次输出 b 作为字符串的内容、一个空格、r。只填这行精确输出。\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "06 指针与字符串",
+      "有界格式化"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/io/fprintf.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "CONT 7"
+      ],
+      "explanation": "snprintf 的容量 5 包含结尾空字符，所以保存前 4 个可见字符 CONT。成功时返回若容量充足本应写出的字符数（不包括结尾空字符），即 7，而非实际保存的 4。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/io/fprintf.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-060",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "06 指针与字符串",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

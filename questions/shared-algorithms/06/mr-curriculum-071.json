@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-071",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "05 字符串处理",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 071 · 比较分段版本号",
+    "description": "版本由点分隔的非负整数段组成。按段从左到右比较数值，缺少的末尾段视为 0，段内前导零不影响数值。\n\n输入格式\n两行版本号。\n数据范围与边界\n每版本 1～30 段；每段 1～9 位数字；不存在空段。\n输出格式\n第一行版本更小输出 -1，相等输出 0，更大输出 1。\n\n示例 1 输入\n1.10\n1.2\n示例 1 输出\n1\n\n示例 2 输入\n01.0.000\n1\n示例 2 输出\n0\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "05 字符串处理",
+      "结构化解析"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "1.10\n1.2\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "01.0.000\n1\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n0.0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1\n1.0.1\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "2.0\n1.999999999\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1.000000002\n1.2\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "999999999\n999999998.9\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1\n0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-071",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nvector<long long>parse(string s){replace(s.begin(),s.end(),'.',' ');istringstream in(s);vector<long long>a;long long x;while(in>>x)a.push_back(x);return a;}int main(){string x,y;cin>>x>>y;auto a=parse(x),b=parse(y);a.resize(max(a.size(),b.size()));b.resize(a.size());cout<<(a==b?0:a<b?-1:1)<<'\\n';}\n",
+    "pythonReference": "a=list(map(int,input().split('.')));b=list(map(int,input().split('.')))\nn=max(len(a),len(b));a += [0]*(n-len(a));b += [0]*(n-len(b))\nprint((a>b)-(a<b))\n"
+  }
+}

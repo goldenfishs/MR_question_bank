@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-013",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "02 条件与状态判断",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 013 · 急停优先的启动联锁",
+    "description": "输入四个0/1标志：急停e、保护门已关g、准备完成r、启动请求b。e=1时输出STOP；否则g=0或r=0时输出LOCKED；否则b=1输出RUN，b=0输出IDLE。急停优先于所有其他状态。\n输入：一行e g r b，每项均为0或1。\n输出：上述四个大写单词之一。\n\n示例 1 输入\n0 1 1 1\n示例 1 输出\nRUN\n\n\n示例 2 输入\n0 1 0 1\n示例 2 输出\nLOCKED\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "02 条件与状态判断",
+      "条件优先级"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/if.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "0 1 1 1\n",
+          "expectedOutput": "RUN\n",
+          "hidden": false
+        },
+        {
+          "input": "0 1 0 1\n",
+          "expectedOutput": "LOCKED\n",
+          "hidden": false
+        },
+        {
+          "input": "1 1 1 1\n",
+          "expectedOutput": "STOP\n",
+          "hidden": true
+        },
+        {
+          "input": "0 1 1 0\n",
+          "expectedOutput": "IDLE\n",
+          "hidden": true
+        },
+        {
+          "input": "1 0 0 0\n",
+          "expectedOutput": "STOP\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 1 1\n",
+          "expectedOutput": "LOCKED\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 0 0\n",
+          "expectedOutput": "LOCKED\n",
+          "hidden": true
+        },
+        {
+          "input": "1 0 1 1\n",
+          "expectedOutput": "STOP\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/if.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-013",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "02 条件与状态判断",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nint e,g,r,b;if(scanf(\"%d%d%d%d\",&e,&g,&r,&b)!=4)return 0;if(e)puts(\"STOP\");else if(!g||!r)puts(\"LOCKED\");else if(b)puts(\"RUN\");else puts(\"IDLE\");\nreturn 0;\n}\n",
+    "oracleNotes": "独立枚举全部16种输入标志并根据优先级表查结果。"
+  }
+}

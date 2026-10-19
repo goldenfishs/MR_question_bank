@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-145",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "10 贪心与动态规划",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 145 · 字符串校正的最少操作",
+    "description": "将字符串 A 变成 B，每次可以插入一个字符、删除一个字符或替换一个字符，代价均为 1。求最小总代价。字符仅为小写字母。\n\n输入格式\n两行分别为 A 与 B，均非空。\n范围与边界\n1≤|A|,|B|≤700。\n输出格式\n最少操作数。\n\n示例 1 输入\nkitten\nsitting\n示例 1 输出\n3\n\n\n示例 2 输入\nbb\nacca\n示例 2 输出\n4\n\n建议复杂度：O(|A||B|) 时间，O(|B|) 辅助空间。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "10 贪心与动态规划",
+      "编辑距离"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "kitten\nsitting\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "bb\nacca\n",
+          "expectedOutput": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "acc\nbbabbaa\n",
+          "expectedOutput": "6\n",
+          "hidden": true
+        },
+        {
+          "input": "acbb\nab\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "cbaac\ncabaa\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "acbacc\nbacaaaab\n",
+          "expectedOutput": "5\n",
+          "hidden": true
+        },
+        {
+          "input": "ccacbac\naba\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "cabccbbc\ncccbab\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n",
+          "expectedOutput": "700\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-145",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nstring a,b;cin>>a>>b;vector<int>d(b.size()+1);iota(d.begin(),d.end(),0);for(int i=1;i<=(int)a.size();i++){vector<int>e(b.size()+1);e[0]=i;for(int j=1;j<=(int)b.size();j++)e[j]=min({d[j]+1,e[j-1]+1,d[j-1]+(a[i-1]!=b[j-1])});d=e;}cout<<d.back()<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    a,b=data.split();d=list(range(len(b)+1))\n    for i,x in enumerate(a,1):\n        e=[i]+[0]*len(b)\n        for j,y in enumerate(b,1):e[j]=min(d[j]+1,e[j-1]+1,d[j-1]+(x!=y))\n        d=e\n    return d[-1]\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

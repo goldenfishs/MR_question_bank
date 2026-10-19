@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-basic-004",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言基础",
+  "visibility": "public",
+  "task": {
+    "title": "先转换再相除",
+    "description": "已有 int total = 7, count = 2;，哪个表达式的值是 3.5？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "C语言基础",
+      "类型转换"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/conversion.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "total / count",
+        "(double)(total / count)",
+        "(double)total / count",
+        "total % count"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "转换必须在除法前发生。(double)total 使除法按浮点运算进行；除完再转换只能把 3 转成 3.0。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/conversion.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-basic-004",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

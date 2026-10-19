@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-006",
+  "revision": 1,
+  "subject": "cpp",
+  "chapter": "基础语法",
+  "visibility": "public",
+  "task": {
+    "title": "C++：传值参数",
+    "description": "下面函数被调用后，主函数变量 a 的值是多少？\nvoid change(int x) { x = 9; }\n// 主函数中：\nint a = 2;\nchange(a);",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "C++",
+      "函数"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/cpp/language/function.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "9",
+        "不能编译",
+        "2",
+        "0"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "int 参数按值传递，x 是副本。修改 x 不会修改实参 a。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/cpp/language/function.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-006",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

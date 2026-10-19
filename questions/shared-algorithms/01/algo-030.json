@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-030",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "编程：连续区间的最大和",
+    "description": "输入：第一行 n（1≤n≤100000）；第二行n个整数（-10⁹≤ai≤10⁹）。选择一个非空连续区间，使其元素之和最大，输出最大和。要求O(n)时间。\n示例输入：\n5\n-2 3 -1 4 -5\n示例输出：\n6\n\n支持使用 C++17 或 Python 3 编写程序，采用标准输入输出。不要输出额外提示文字。",
+    "direction": "视觉算法",
+    "difficulty": "进阶",
+    "tags": [
+      "C++",
+      "Python",
+      "动态规划",
+      "数组"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://github.com/TheAlgorithms/Python/tree/master/dynamic_programming",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5\n-2 3 -1 4 -5\n",
+          "expectedOutput": "6\n",
+          "hidden": false
+        },
+        {
+          "input": "3\n-5 -2 -9\n",
+          "expectedOutput": "-2\n",
+          "hidden": true
+        },
+        {
+          "input": "1\n0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n1000000000 1000000000 1000000000 1000000000\n",
+          "expectedOutput": "4000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n2 -1 2 -1\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://github.com/TheAlgorithms/Python/tree/master/dynamic_programming"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-030",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-090",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "09 时钟与GPIO实践",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 090 · GPIO速度选项不是波形发生器",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n把普通输出引脚的 MODE 配为“max speed 50 MHz”，之后软件不再写它，也没有外设接管。以下理解哪项正确？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "09 时钟与GPIO实践",
+      "输出速度字段"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "引脚自动输出50 MHz方波",
+        "引脚自动输出25 MHz方波",
+        "这是输出级速度配置，不会自行产生周期信号",
+        "它保证任意负载下都能得到50 MHz理想方波"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "MODE的2/10/50 MHz选项描述输出驱动的速度等级，不是独立振荡器或PWM源。实际波形还受驱动方式、负载和电气条件限制。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-090",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "09 时钟与GPIO实践",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第171页，9.2.1 GPIOx_CRL MODEy，核查关键词“Output mode, max speed 50 MHz”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

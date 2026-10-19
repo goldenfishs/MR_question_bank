@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "c-advanced-012",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言进阶",
+  "visibility": "public",
+  "task": {
+    "title": "编程：统计二进制中的 1",
+    "description": "输入：一个非负十进制整数 x（0≤x≤65535）。\n输出：x 的二进制表示中 1 的个数，并换行。前导零不影响结果。可使用 unsigned int 和位运算处理。\n示例输入：\n13\n示例输出：\n3\n说明：13 的二进制为 1101。\n\n使用 C 语言，通过标准输入读入，向标准输出写结果。不要输出输入提示或其他文字。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "C语言进阶",
+      "位运算"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "13\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "65535\n",
+          "expectedOutput": "16\n",
+          "hidden": true
+        },
+        {
+          "input": "32768\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "21845\n",
+          "expectedOutput": "8\n",
+          "hidden": true
+        },
+        {
+          "input": "255\n",
+          "expectedOutput": "8\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-advanced-012",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

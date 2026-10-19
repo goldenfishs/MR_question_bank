@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-049",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "05 函数与模块化",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 049 · 避免宏实参被重复求值",
+    "description": "已有 #define SQUARE(x) ((x)*(x))。要求参数表达式恰好求值一次且结果为该参数值的平方；参数值保证 -100≤值≤100。哪些替代设计满足要求？只讨论下列定义，不调用有副作用的原宏。（多选）\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "05 函数与模块化",
+      "宏与求值次数"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/preprocessor/replace.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "static int square(int x){ return x*x; }，并调用 square(next_value())。",
+        "仅给 SQUARE 的每处 x 再加一层括号。",
+        "先执行 int v=next_value();，再计算 SQUARE(v)。",
+        "把宏改成 #define SQUARE(x) x*x。"
+      ],
+      "answers": [
+        "0",
+        "2"
+      ],
+      "explanation": "函数调用会先取得一次实参值，再在形参上计算。先把表达式结果存入普通局部变量同样只调用一次 next_value。括号解决优先级问题，不能减少宏展开中实参的出现次数；题目没有执行未定义的多次自增表达式。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/preprocessor/replace.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-049",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "05 函数与模块化",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

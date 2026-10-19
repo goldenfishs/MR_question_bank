@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-083",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "09 时钟与GPIO实践",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 083 · 把ADC时钟限制在规格内",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nPCLK2=72 MHz，ADC 时钟必须不超过本型号规格的14 MHz。ADCPRE 可选除以2、4、6、8。若要求在合规选择中 ADC 时钟尽可能高，应选哪一个？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "09 时钟与GPIO实践",
+      "ADC预分频"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "除以2",
+        "除以4",
+        "除以6",
+        "除以8"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "四个候选依次为36、18、12、9 MHz；前两个超出14 MHz，12 MHz是剩下的最大值，因此选择除以6。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "https://www.st.com/resource/en/datasheet/stm32f103c8.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-083",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "09 时钟与GPIO实践",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第93页，7.2 Figure 8 ADC prescaler，核查关键词“14 MHz max”；RM0008 Rev 21, February 2021，第102页，7.3.2 ADCPRE，核查关键词“PCLK2 divided by 2”；DS5319 Rev 20, July 2025，第74页，Table 47 ADC characteristics — fADC，核查关键词“14”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

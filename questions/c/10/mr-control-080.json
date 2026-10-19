@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-080",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "08 位运算与通信数据",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 080 · 两次异或还原字节",
+    "description": "unsigned int x=0x5Au; unsigned int key=0xA5u; x^=key; x^=key;。执行后x是多少？仅填十进制整数。不假定unsigned int的精确位宽，只需它能表示0～255。\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "08 位运算与通信数据",
+      "异或的可逆性"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "90"
+      ],
+      "explanation": "异或满足 (x异或key)异或key=x。0x5A的十进制值为90；两次使用同一掩码还原原值，与unsigned int具体宽度无关。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-080",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "08 位运算与通信数据",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

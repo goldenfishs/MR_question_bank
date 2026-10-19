@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-118",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "12 调试与可靠控制",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 118 · 向饱和方向的积分抑制",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n采用题设模型：v=P+I，u=clamp(v,−100,100)。本周期P=80、I=50、误差e=10；若不防饱和，积分将增加20。规则规定：若v已超过上限且e>0，冻结本次积分；其他情况才执行原积分增量。应得到哪组(u,I_next)？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "12 调试与可靠控制",
+      "控制输出限幅"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "(130,70)",
+        "(100,70)",
+        "(100,50)",
+        "(80,50)"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "v=80+50=130，输出先限幅到100。v超过上限且e为正，满足题设的冻结条件，I_next保持50而不是70。控制公式与防饱和规则已明确给出，不要求猜测某个实际库的PID实现。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-118",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "12 调试与可靠控制",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第388页，15.3.9 PWM generation hardware context，核查关键词“PWM”。适用限制：clamp和条件积分规则均为题面自定义模型；来源仅支持PWM执行背景，不声称手册定义这套控制律。"
+  }
+}

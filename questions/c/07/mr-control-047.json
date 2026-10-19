@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-047",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "05 函数与模块化",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 047 · 跨调用保留的计数",
+    "description": "以下 C11 程序打印什么？只填写一行输出，数字间恰好一个空格。\n#include <stdio.h>\nstatic int next(void){ static int n=4; n+=3; return n; }\nint main(void){int a=next(); int b=next(); printf(\"%d %d\",a,b);return 0;}\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "05 函数与模块化",
+      "静态局部对象"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/storage_duration.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "7 10"
+      ],
+      "explanation": "静态存储期局部对象只初始化一次，并在多次调用之间保留值。两个调用分别在独立完整表达式中执行，因此结果确定为 7 和 10。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/storage_duration.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-047",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "05 函数与模块化",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

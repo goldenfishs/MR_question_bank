@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-114",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "12 调试与可靠控制",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 114 · 独立看门狗的名义超时",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n按题设把LSI精确视为40 kHz，IWDG预分频为64，重装值RLR=624。采用超时模型t=(RLR+1)×预分频/LSI，求名义超时毫秒数。\n\n作答格式：填一个十进制整数，不写单位或其他文字。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "12 调试与可靠控制",
+      "IWDG时钟"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "1000"
+      ],
+      "explanation": "(624+1)×64/40000=1秒=1000毫秒。IWDG由LSI驱动，不能把HCLK或APB1频率代入；真实LSI有容差，所以名义值不是保证的精确超时。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-114",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "12 调试与可靠控制",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第494页，19.1 IWDG clock，核查关键词“dedicated low-speed clock”；RM0008 Rev 21, February 2021，第496页，Table 96 IWDG timeout; 19.4 IWDG registers，核查关键词“timeout”。适用限制：40kHz是题设精确模型；实际需使用数据手册LSI上下界做最早/最晚超时预算。"
+  }
+}

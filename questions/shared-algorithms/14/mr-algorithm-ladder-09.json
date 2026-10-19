@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-09",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "状态日志：连续字符压缩",
+    "description": "日志仅包含大写英文字母。将每段连续相同字符表示为“字母 次数”，各段按原顺序逐行输出。不同位置的不连续相同字母不能合并。\n输入：一行非空字符串，长度 1～2000，仅含 A～Z。\n输出：每段一行，先输出字母，再输出次数，中间一个空格。\n\n示例输入：\nAAABBAC\n示例输出：\nA 3\nB 2\nA 1\nC 1\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第二阶段·数组与容器",
+      "数组与字符串",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "AAABBAC\n",
+          "expectedOutput": "A 3\nB 2\nA 1\nC 1\n",
+          "hidden": false
+        },
+        {
+          "input": "Z\n",
+          "expectedOutput": "Z 1\n",
+          "hidden": true
+        },
+        {
+          "input": "AAAAAA\n",
+          "expectedOutput": "A 6\n",
+          "hidden": true
+        },
+        {
+          "input": "ABAB\n",
+          "expectedOutput": "A 1\nB 1\nA 1\nB 1\n",
+          "hidden": true
+        },
+        {
+          "input": "AABBAA\n",
+          "expectedOutput": "A 2\nB 2\nA 2\n",
+          "hidden": true
+        },
+        {
+          "input": "XYZ\n",
+          "expectedOutput": "X 1\nY 1\nZ 1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-09",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <string>\nusing namespace std;\nint main(){string s;cin>>s;for(size_t i=0;i<s.size();){size_t j=i+1;while(j<s.size()&&s[j]==s[i])j++;cout<<s[i]<<' '<<j-i<<endl;i=j;}}\n",
+    "pythonReference": "from itertools import groupby\nfor c,g in groupby(input().strip()):print(c,sum(1 for _ in g))\n"
+  }
+}

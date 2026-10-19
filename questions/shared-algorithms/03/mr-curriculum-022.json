@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-022",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "02 分支判断",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 022 · 二次方程的实根数量",
+    "description": "方程 a*x^2+b*x+c=0 的 a 不为 0，计算不同实数根的数量，不需要求根。\n输入：一行 a b c，各为 -10^6～10^6 的整数，a ≠ 0。\n输出：0、1 或 2。判别式 b^2-4ac 小于、等于、大于 0 时分别对应这三种数量。\n\n示例 1 输入\n1 -3 2\n示例 1 输出\n2\n\n\n示例 2 输入\n1 2 1\n示例 2 输出\n1\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "02 分支判断",
+      "判别式比较"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "1 -3 2\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "1 2 1\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "1 0 1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-1 0 1\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000 1000000 1000000\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-1000000 1000000 1000000\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "1 0 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1000000 1\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-022",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long a,b,c;cin>>a>>b>>c;long long d=b*b-4*a*c;cout<<(d<0?0:d==0?1:2)<<\"\\n\";\n}\n",
+    "pythonReference": "a,b,c=map(int,input().split())\nd=b*b-4*a*c\nprint(0 if d<0 else 1 if d==0 else 2)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

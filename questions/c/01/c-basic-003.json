@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "c-basic-003",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言基础",
+  "visibility": "public",
+  "task": {
+    "title": "整数除法的结果",
+    "description": "执行 int a = 7, b = 2; int result = a / b; 后，result 的值是多少？填一个十进制整数。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "C语言基础",
+      "算术运算"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "3"
+      ],
+      "explanation": "两个操作数都是 int，执行整数除法，结果的小数部分被截去。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-basic-003",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-048",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "05 函数与模块化",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 048 · 头文件与实现文件",
+    "description": "一个普通 C11 项目包含 filter.h、filter.c、main.c，main.c 与 filter.c 都包含 filter.h。关于可维护且避免重复定义的组织方式，哪些说法正确？（多选）\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "05 函数与模块化",
+      "模块接口"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/preprocessor/include.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "头文件可放函数原型，filter.c 提供相应函数定义。",
+        "给头文件设置包含保护可避免同一翻译单元内重复展开。",
+        "把同一个具有外部链接的非 inline 函数完整定义放入头文件，任意多源文件包含都必然安全。",
+        "包含保护会阻止同一头文件在不同翻译单元中分别被包含。"
+      ],
+      "answers": [
+        "0",
+        "1"
+      ],
+      "explanation": "函数原型适合作为模块接口；包含保护只对当前预处理翻译单元生效。它不把多个翻译单元中的外部函数定义合并，也不会跨翻译单元禁止包含。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/preprocessor/include.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-048",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "05 函数与模块化",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "stm32-basic-001",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "STM32单片机基础",
+  "visibility": "public",
+  "task": {
+    "title": "STM32F103 的 GPIO 时钟",
+    "description": "在 STM32F103 上通过 GPIOA 寄存器配置 PA0 前，应先在 RCC 中启用什么？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "STM32单片机基础",
+      "RCC"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "GPIOA 对应的 APB2 外设时钟",
+        "仅 USART1 的时钟",
+        "仅 DMA1 的时钟",
+        "不需要任何外设时钟"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "RM0008 的 RCC_APB2ENR 中 IOPAEN 控制 GPIOA 时钟。应查具体型号的时钟树，不能把其他 STM32 系列的 AHB GPIO 时钟位置直接套用。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "stm32-basic-001",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

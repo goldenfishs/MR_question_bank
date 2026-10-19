@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-137",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "10 贪心与动态规划",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 137 · 整数通道最少覆盖",
+    "description": "通道包含整数位置 1 到 L。每张贴片能覆盖闭区间 [l,r] 内的所有整数位置，可重叠。求覆盖所有位置所需最少贴片数；无法覆盖输出 −1。\n\n输入格式\n第一行 n L；随后 n 行 l r。\n范围与边界\n0≤n≤100000；1≤L≤10^9；1≤l≤r≤L。相邻贴片如 [1,2] 与 [3,4] 不留空缺。\n输出格式\n最少数量或 −1。\n\n示例 1 输入\n4 8\n1 3\n3 5\n5 8\n1 8\n示例 1 输出\n1\n\n\n示例 2 输入\n1 2\n1 2\n示例 2 输出\n1\n\n建议复杂度：O(n log n)。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "挑战",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "10 贪心与动态规划",
+      "区间覆盖贪心"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4 8\n1 3\n3 5\n5 8\n1 8\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "1 2\n1 2\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "2 3\n1 2\n1 2\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "3 4\n1 3\n2 3\n1 4\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "4 5\n3 3\n3 5\n2 4\n1 3\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "5 6\n3 6\n2 5\n3 6\n5 5\n2 4\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "6 7\n1 2\n6 7\n1 5\n3 3\n5 7\n2 7\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "7 8\n2 8\n3 7\n2 7\n3 4\n2 6\n1 8\n6 7\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "3 1000000000\n1 400000000\n400000001 800000000\n800000001 1000000000\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-137",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;ll L;cin>>n>>L;vector<pair<ll,ll>>a(n);for(auto &p:a)cin>>p.first>>p.second;sort(a.begin(),a.end());ll x=1;int i=0,ans=0;while(x<=L){ll far=x-1;while(i<n&&a[i].first<=x){far=max(far,a[i].second);i++;}if(far<x){cout<<-1<<'\\n';return 0;}x=far+1;ans++;}cout<<ans<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    a=list(map(int,data.split()));n,L=a[:2];v=sorted(zip(a[2::2],a[3::2]));x=1;i=ans=0\n    while x<=L:\n        far=x-1\n        while i<n and v[i][0]<=x:far=max(far,v[i][1]);i+=1\n        if far<x:return -1\n        x=far+1;ans+=1\n    return ans\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

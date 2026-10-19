@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-109",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "08 栈队列与集合",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 109 · 可撤销的简单编辑",
+    "description": "从空文本开始读取命令串。小写字母表示追加该字母；# 删除末尾字符，文本为空时无事发生；! 撤销最近一次仍未撤销且实际改变文本的追加或删除。撤销本身不写入历史，无历史时 ! 无事发生。\n\n输入格式\n一行非空命令串。\n数据范围与边界\n长度 1～1000，只含 a～z、#、!；删除空文本不产生可撤销记录。\n输出格式\n最终文本；为空输出 EMPTY。\n\n示例 1 输入\nab#c!\n示例 1 输出\na\n\n示例 2 输入\na#!\n示例 2 输出\na\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "08 栈队列与集合",
+      "撤销栈"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "ab#c!\n",
+          "expectedOutput": "a\n",
+          "hidden": false
+        },
+        {
+          "input": "a#!\n",
+          "expectedOutput": "a\n",
+          "hidden": false
+        },
+        {
+          "input": "!!!\n",
+          "expectedOutput": "EMPTY\n",
+          "hidden": true
+        },
+        {
+          "input": "###\n",
+          "expectedOutput": "EMPTY\n",
+          "hidden": true
+        },
+        {
+          "input": "abc!!!\n",
+          "expectedOutput": "EMPTY\n",
+          "hidden": true
+        },
+        {
+          "input": "a!!b#!!\n",
+          "expectedOutput": "EMPTY\n",
+          "hidden": true
+        },
+        {
+          "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa#!#\n",
+          "expectedOutput": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
+          "hidden": true
+        },
+        {
+          "input": "##ab#!c!!\n",
+          "expectedOutput": "a\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-109",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nint main(){string s,t;vector<pair<char,char>>h;cin>>s;for(char c:s){if(c=='!'){if(!h.empty()){auto p=h.back();h.pop_back();if(p.first=='A')t.pop_back();else t+=p.second;}}else if(c=='#'){if(!t.empty()){h.push_back({'D',t.back()});t.pop_back();}}else{t+=c;h.push_back({'A',c});}}cout<<(t.empty()?\"EMPTY\":t)<<'\\n';}\n",
+    "pythonReference": "s=input();text=[];history=[]\nfor c in s:\n    if c=='!':\n        if history:\n            op,ch=history.pop()\n            if op=='A':text.pop()\n            else:text.append(ch)\n    elif c=='#':\n        if text:history.append(('D',text.pop()))\n    else:text.append(c);history.append(('A',c))\nprint(''.join(text) or 'EMPTY')\n"
+  }
+}

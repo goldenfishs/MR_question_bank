@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "id": "shared-algorithms",
+  "name": "C++ / Python 共用算法",
+  "chapters": [
+    {
+      "order": 1,
+      "name": "算法入门",
+      "questions": [
+        "algo-017",
+        "algo-018",
+        "algo-019",
+        "algo-020",
+        "algo-021",
+        "algo-022",
+        "algo-023",
+        "algo-024",
+        "algo-025",
+        "algo-026",
+        "algo-027",
+        "algo-028",
+        "algo-029",
+        "algo-030",
+        "algo-031",
+        "algo-032"
+      ]
+    },
+    {
+      "order": 2,
+      "name": "01 输入输出与表达式",
+      "questions": [
+        "mr-curriculum-001",
+        "mr-curriculum-002",
+        "mr-curriculum-003",
+        "mr-curriculum-004",
+        "mr-curriculum-005",
+        "mr-curriculum-006",
+        "mr-curriculum-007",
+        "mr-curriculum-008",
+        "mr-curriculum-009",
+        "mr-curriculum-010",
+        "mr-curriculum-011",
+        "mr-curriculum-012",
+        "mr-curriculum-013",
+        "mr-curriculum-014",
+        "mr-curriculum-015"
+      ]
+    },
+    {
+      "order": 3,
+      "name": "02 分支判断",
+      "questions": [
+        "mr-curriculum-016",
+        "mr-curriculum-017",
+        "mr-curriculum-018",
+        "mr-curriculum-019",
+        "mr-curriculum-020",
+        "mr-curriculum-021",
+        "mr-curriculum-022",
+        "mr-curriculum-023",
+        "mr-curriculum-024",
+        "mr-curriculum-025",
+        "mr-curriculum-026",
+        "mr-curriculum-027",
+        "mr-curriculum-028",
+        "mr-curriculum-029",
+        "mr-curriculum-030"
+      ]
+    },
+    {
+      "order": 4,
+      "name": "03 循环与数论入门",
+      "questions": [
+        "mr-curriculum-031",
+        "mr-curriculum-032",
+        "mr-curriculum-033",
+        "mr-curriculum-034",
+        "mr-curriculum-035",
+        "mr-curriculum-036",
+        "mr-curriculum-037",
+        "mr-curriculum-038",
+        "mr-curriculum-039",
+        "mr-curriculum-040",
+        "mr-curriculum-041",
+        "mr-curriculum-042",
+        "mr-curriculum-043",
+        "mr-curriculum-044",
+        "mr-curriculum-045"
+      ]
+    },
+    {
+      "order": 5,
+      "name": "04 数组与矩阵",
+      "questions": [
+        "mr-curriculum-046",
+        "mr-curriculum-047",
+        "mr-curriculum-048",
+        "mr-curriculum-049",
+        "mr-curriculum-050",
+        "mr-curriculum-051",
+        "mr-curriculum-052",
+        "mr-curriculum-053",
+        "mr-curriculum-054",
+        "mr-curriculum-055",
+        "mr-curriculum-056",
+        "mr-curriculum-057",
+        "mr-curriculum-058",
+        "mr-curriculum-059",
+        "mr-curriculum-060"
+      ]
+    },
+    {
+      "order": 6,
+      "name": "05 字符串处理",
+      "questions": [
+        "mr-curriculum-061",
+        "mr-curriculum-062",
+        "mr-curriculum-063",
+        "mr-curriculum-064",
+        "mr-curriculum-065",
+        "mr-curriculum-066",
+        "mr-curriculum-067",
+        "mr-curriculum-068",
+        "mr-curriculum-069",
+        "mr-curriculum-070",
+        "mr-curriculum-071",
+        "mr-curriculum-072",
+        "mr-curriculum-073",
+        "mr-curriculum-074",
+        "mr-curriculum-075"
+      ]
+    },
+    {
+      "order": 7,
+      "name": "06 函数与递归",
+      "questions": [
+        "mr-curriculum-076",
+        "mr-curriculum-077",
+        "mr-curriculum-078",
+        "mr-curriculum-079",
+        "mr-curriculum-080",
+        "mr-curriculum-081",
+        "mr-curriculum-082",
+        "mr-curriculum-083",
+        "mr-curriculum-084",
+        "mr-curriculum-085",
+        "mr-curriculum-086",
+        "mr-curriculum-087",
+        "mr-curriculum-088",
+        "mr-curriculum-089",
+        "mr-curriculum-090"
+      ]
+    },
+    {
+      "order": 8,
+      "name": "07 排序与二分",
+      "questions": [
+        "mr-curriculum-091",
+        "mr-curriculum-092",
+        "mr-curriculum-093",
+        "mr-curriculum-094",
+        "mr-curriculum-095",
+        "mr-curriculum-096",
+        "mr-curriculum-097",
+        "mr-curriculum-098",
+        "mr-curriculum-099",
+        "mr-curriculum-100",
+        "mr-curriculum-101",
+        "mr-curriculum-102",
+        "mr-curriculum-103",
+        "mr-curriculum-104",
+        "mr-curriculum-105"
+      ]
+    },
+    {
+      "order": 9,
+      "name": "08 栈队列与集合",
+      "questions": [
+        "mr-curriculum-106",
+        "mr-curriculum-107",
+        "mr-curriculum-108",
+        "mr-curriculum-109",
+        "mr-curriculum-110",
+        "mr-curriculum-111",
+        "mr-curriculum-112",
+        "mr-curriculum-113",
+        "mr-curriculum-114",
+        "mr-curriculum-115",
+        "mr-curriculum-116",
+        "mr-curriculum-117",
+        "mr-curriculum-118",
+        "mr-curriculum-119",
+        "mr-curriculum-120"
+      ]
+    },
+    {
+      "order": 10,
+      "name": "09 前缀和与双指针",
+      "questions": [
+        "mr-curriculum-121",
+        "mr-curriculum-122",
+        "mr-curriculum-123",
+        "mr-curriculum-124",
+        "mr-curriculum-125",
+        "mr-curriculum-126",
+        "mr-curriculum-127",
+        "mr-curriculum-128",
+        "mr-curriculum-129",
+        "mr-curriculum-130",
+        "mr-curriculum-131",
+        "mr-curriculum-132",
+        "mr-curriculum-133",
+        "mr-curriculum-134",
+        "mr-curriculum-135"
+      ]
+    },
+    {
+      "order": 11,
+      "name": "10 贪心与动态规划",
+      "questions": [
+        "mr-curriculum-136",
+        "mr-curriculum-137",
+        "mr-curriculum-138",
+        "mr-curriculum-139",
+        "mr-curriculum-140",
+        "mr-curriculum-141",
+        "mr-curriculum-142",
+        "mr-curriculum-143",
+        "mr-curriculum-144",
+        "mr-curriculum-145",
+        "mr-curriculum-146",
+        "mr-curriculum-147",
+        "mr-curriculum-148",
+        "mr-curriculum-149",
+        "mr-curriculum-150"
+      ]
+    },
+    {
+      "order": 12,
+      "name": "11 搜索与回溯",
+      "questions": [
+        "mr-curriculum-151",
+        "mr-curriculum-152",
+        "mr-curriculum-153",
+        "mr-curriculum-154",
+        "mr-curriculum-155",
+        "mr-curriculum-156",
+        "mr-curriculum-157",
+        "mr-curriculum-158",
+        "mr-curriculum-159",
+        "mr-curriculum-160",
+        "mr-curriculum-161",
+        "mr-curriculum-162",
+        "mr-curriculum-163",
+        "mr-curriculum-164",
+        "mr-curriculum-165"
+      ]
+    },
+    {
+      "order": 13,
+      "name": "12 图论与综合应用",
+      "questions": [
+        "mr-curriculum-166",
+        "mr-curriculum-167",
+        "mr-curriculum-168",
+        "mr-curriculum-169",
+        "mr-curriculum-170",
+        "mr-curriculum-171",
+        "mr-curriculum-172",
+        "mr-curriculum-173",
+        "mr-curriculum-174",
+        "mr-curriculum-175",
+        "mr-curriculum-176",
+        "mr-curriculum-177",
+        "mr-curriculum-178",
+        "mr-curriculum-179",
+        "mr-curriculum-180"
+      ]
+    },
+    {
+      "order": 14,
+      "name": "算法阶梯补充练习",
+      "questions": [
+        "mr-algorithm-ladder-01",
+        "mr-algorithm-ladder-02",
+        "mr-algorithm-ladder-03",
+        "mr-algorithm-ladder-04",
+        "mr-algorithm-ladder-05",
+        "mr-algorithm-ladder-06",
+        "mr-algorithm-ladder-07",
+        "mr-algorithm-ladder-08",
+        "mr-algorithm-ladder-09",
+        "mr-algorithm-ladder-10",
+        "mr-algorithm-ladder-11",
+        "mr-algorithm-ladder-12",
+        "algorithm-progressive-13-intervals",
+        "algorithm-progressive-14-pairs",
+        "algorithm-progressive-15-waiting",
+        "algorithm-progressive-16-delete-digits",
+        "algorithm-progressive-17-stairs",
+        "algorithm-progressive-18-knapsack01",
+        "algorithm-progressive-19-knapsack-complete",
+        "algorithm-progressive-20-knapsack-bounded",
+        "algorithm-progressive-21-coin-combinations",
+        "algorithm-progressive-22-lis",
+        "algorithm-progressive-23-components",
+        "algorithm-progressive-24-topological"
+      ]
+    }
+  ],
+  "includes": []
+}

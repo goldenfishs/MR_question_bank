@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-086",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "06 函数与递归",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 086 · 受限的二叉生成树",
+    "description": "从值 0 开始，恰好进行 n 次选择。每次可将 v 变为 2v 或 2v+1，所有中间值都不能超过 L。不同选择序列分别计数。\n\n输入格式\n一行 n L。\n数据范围与边界\n0 ≤ n ≤ 30；0 ≤ L ≤ 1000。\n输出格式\n合法的长度 n 选择序列数。n=0 时空序列算 1 种。\n\n示例 1 输入\n3 4\n示例 1 输出\n5\n\n示例 2 输入\n0 0\n示例 2 输出\n1\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。本章用于练习函数与递归，但判题仅检查输入输出结果，不强制使用函数、递归或任何特定语法。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "06 函数与递归",
+      "递归剪枝"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 4\n",
+          "expectedOutput": "5\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "1 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "30 1000\n",
+          "expectedOutput": "1001\n",
+          "hidden": true
+        },
+        {
+          "input": "10 1000\n",
+          "expectedOutput": "1001\n",
+          "hidden": true
+        },
+        {
+          "input": "30 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "5 31\n",
+          "expectedOutput": "32\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-086",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nlong long dfs(int n,int v,int L){if(v>L)return 0;if(!n)return 1;return dfs(n-1,2*v,L)+dfs(n-1,2*v+1,L);}int main(){int n,L;cin>>n>>L;cout<<dfs(n,0,L)<<'\\n';}\n",
+    "pythonReference": "n,L=map(int,input().split())\ndef count(n,v):\n    if v>L:return 0\n    if n==0:return 1\n    return count(n-1,2*v)+count(n-1,2*v+1)\nprint(count(n,0))\n"
+  }
+}

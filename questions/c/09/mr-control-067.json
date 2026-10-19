@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-067",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "07 结构体与内存",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 067 · 指针成员仍指向同一对象",
+    "description": "struct Box { int *p; int tag; }; int x=5; struct Box a={&x,1}; struct Box b=a; b.tag=9; *b.p=8;。以下哪些结论正确？（多选）各语句依次执行，x仍在生存期内。\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "07 结构体与内存",
+      "结构体复制"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/struct.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "a.tag 仍为1。",
+        "a.p 与 b.p 都指向 x。",
+        "结构体赋值自动复制了一个独立 int 对象，供 b.p 指向。",
+        "执行后 x 等于8。"
+      ],
+      "answers": [
+        "0",
+        "1",
+        "3"
+      ],
+      "explanation": "结构体赋值复制各成员的值；tag是独立成员值，指针成员复制的是同一个地址，没有递归克隆指向的对象。通过b.p修改的仍是x。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/struct.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-067",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "07 结构体与内存",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

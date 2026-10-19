@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-018",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "02 分支判断",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 018 · 三个数的中间值",
+    "description": "给定三个整数，按从小到大排列后的第二个值叫中间值，相等的值也占位置。\n输入：一行 a b c，各数在 -10^12～10^12。\n输出：中间值，一个整数。\n\n示例 1 输入\n7 1 4\n示例 1 输出\n4\n\n\n示例 2 输入\n2 2 9\n示例 2 输出\n2\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "02 分支判断",
+      "比较与重复值"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "7 1 4\n",
+          "expectedOutput": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "2 2 9\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-1000000000000 0 1000000000000\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "3 2 1\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "-3 -2 -1\n",
+          "expectedOutput": "-2\n",
+          "hidden": true
+        },
+        {
+          "input": "9 2 9\n",
+          "expectedOutput": "9\n",
+          "hidden": true
+        },
+        {
+          "input": "1 3 2\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-018",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long a,b,c;cin>>a>>b>>c;if(a>b)swap(a,b);if(b>c)swap(b,c);if(a>b)swap(a,b);cout<<b<<\"\\n\";\n}\n",
+    "pythonReference": "a,b,c=map(int,input().split())\nprint(max(min(a,b),min(max(a,b),c)))\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

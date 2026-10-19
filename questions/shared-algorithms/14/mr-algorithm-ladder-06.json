@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-06",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "连续跟踪：最长有效片段",
+    "description": "每一帧用 1 表示检测有效，用 0 表示检测失效。求连续有效帧的最长长度。没有有效帧时输出 0。\n输入：第一行 n（1 ≤ n ≤ 2000），第二行 n 个 0 或 1，以空格隔开。\n输出：一个整数，即最长连续 1 的长度。\n\n示例输入：\n9\n1 1 0 1 1 1 0 1 1\n示例输出：\n3\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第二阶段·数组与容器",
+      "数组与字符串",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "9\n1 1 0 1 1 1 0 1 1\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1\n1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n1 1 1 1 1\n",
+          "expectedOutput": "5\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n0 0 0 0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "8\n0 1 0 1 0 1 1 1\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-06",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <algorithm>\nusing namespace std;\nint main(){int n,x,c=0,b=0;cin>>n;while(n--){cin>>x;c=x?c+1:0;b=max(b,c);}cout<<b<<endl;}\n",
+    "pythonReference": "import sys\ns=''.join(sys.stdin.read().split()[1:])\nprint(max(map(len,s.split('0'))))\n"
+  }
+}

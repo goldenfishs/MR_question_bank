@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "id": "c-basic-016",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言基础",
+  "visibility": "public",
+  "task": {
+    "title": "编程：电量状态分类",
+    "description": "输入：一个整数 p（0≤p≤100），表示电量百分比。\n输出：p<20 时输出 LOW；20≤p<80 时输出 NORMAL；80≤p≤100 时输出 HIGH。末尾换行，区分大小写。\n示例输入：\n20\n示例输出：\nNORMAL\n\n使用 C 语言，通过标准输入读入，向标准输出写结果。不要输出输入提示或其他文字。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "C语言基础",
+      "条件分支"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/if.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "20\n",
+          "expectedOutput": "NORMAL\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "LOW\n",
+          "hidden": true
+        },
+        {
+          "input": "19\n",
+          "expectedOutput": "LOW\n",
+          "hidden": true
+        },
+        {
+          "input": "79\n",
+          "expectedOutput": "NORMAL\n",
+          "hidden": true
+        },
+        {
+          "input": "80\n",
+          "expectedOutput": "HIGH\n",
+          "hidden": true
+        },
+        {
+          "input": "100\n",
+          "expectedOutput": "HIGH\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/if.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-basic-016",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

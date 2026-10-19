@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-080",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "06 函数与递归",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 080 · 搬盘过程的第 k 步",
+    "description": "三根柱 A、B、C，n 个圆盘从小到大叠在 A 上。标准最少步数过程：先把上方 n-1 个从 A 借 C 搬到 B，再把最大盘从 A 搬到 C，再把 n-1 个从 B 借 A 搬到 C；n=1 时直接搬。输出此确定过程的第 k 步。\n\n输入格式\n一行 n k。\n数据范围与边界\n1 ≤ n ≤ 60；1 ≤ k ≤ 2^n-1。只输出一条移动，不展开全部步骤。\n输出格式\n起点柱名和终点柱名，以空格分隔。\n\n示例 1 输入\n3 4\n示例 1 输出\nA C\n\n示例 2 输入\n2 1\n示例 2 输出\nA B\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。本章用于练习函数与递归，但判题仅检查输入输出结果，不强制使用函数、递归或任何特定语法。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "06 函数与递归",
+      "递归定位"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 4\n",
+          "expectedOutput": "A C\n",
+          "hidden": false
+        },
+        {
+          "input": "2 1\n",
+          "expectedOutput": "A B\n",
+          "hidden": false
+        },
+        {
+          "input": "1 1\n",
+          "expectedOutput": "A C\n",
+          "hidden": true
+        },
+        {
+          "input": "3 7\n",
+          "expectedOutput": "A C\n",
+          "hidden": true
+        },
+        {
+          "input": "60 576460752303423488\n",
+          "expectedOutput": "A C\n",
+          "hidden": true
+        },
+        {
+          "input": "60 1152921504606846975\n",
+          "expectedOutput": "B C\n",
+          "hidden": true
+        },
+        {
+          "input": "4 5\n",
+          "expectedOutput": "C A\n",
+          "hidden": true
+        },
+        {
+          "input": "5 16\n",
+          "expectedOutput": "A C\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-080",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nvoid moveAt(int n,unsigned long long k,char a,char b,char c){unsigned long long m=1ULL<<(n-1);if(k==m)cout<<a<<' '<<c<<'\\n';else if(k<m)moveAt(n-1,k,a,c,b);else moveAt(n-1,k-m,b,a,c);}int main(){int n;unsigned long long k;cin>>n>>k;moveAt(n,k,'A','B','C');}\n",
+    "pythonReference": "n,k=map(int,input().split())\ndef at(n,k,a,b,c):\n    m=1<<(n-1)\n    if k==m:return a,c\n    if k<m:return at(n-1,k,a,c,b)\n    return at(n-1,k-m,b,a,c)\nprint(*at(n,k,'A','B','C'))\n"
+  }
+}

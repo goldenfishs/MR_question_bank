@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-102",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "11 采样与通信外设",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 102 · 扫描序列的转换时间预算",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nADC时钟为12 MHz。规则扫描序列恰好含3个通道，每个通道采样时间55.5个ADC周期；本ADC每次采样后还需12.5个转换周期。不计触发延迟、DMA和软件开销，完整一轮扫描最少用多少微秒？\n\n作答格式：填一个十进制整数，不写单位或其他文字。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "11 采样与通信外设",
+      "ADC转换周期"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "17"
+      ],
+      "explanation": "每通道55.5+12.5=68个周期，3通道共204周期；12 MHz表示每微秒12周期，因此204/12=17微秒。只计采样时间会低估一轮序列长度。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-102",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "11 采样与通信外设",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第225页，11.6 Programmable channel sampling time，核查关键词“12.5 cycles”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

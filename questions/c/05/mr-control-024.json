@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-024",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "03 循环与数值处理",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 024 · 编号的十进制数字逆序",
+    "description": "将非负整数n的十进制数字顺序反过来，并作为整数输出。反转后的前导零全部去掉，n=0仍输出0。\n输入：一个整数n，0≤n≤10^15，输入没有多余前导零。\n输出：逆序后的整数。\n\n示例 1 输入\n1203400\n示例 1 输出\n43021\n\n\n示例 2 输入\n9876501\n示例 2 输出\n1056789\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "03 循环与数值处理",
+      "循环拆位重组"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/while.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "1203400\n",
+          "expectedOutput": "43021\n",
+          "hidden": false
+        },
+        {
+          "input": "9876501\n",
+          "expectedOutput": "1056789\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "999999999999999\n",
+          "expectedOutput": "999999999999999\n",
+          "hidden": true
+        },
+        {
+          "input": "101010101010101\n",
+          "expectedOutput": "101010101010101\n",
+          "hidden": true
+        },
+        {
+          "input": "10010\n",
+          "expectedOutput": "1001\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/while.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-024",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "03 循环与数值处理",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long n;if(scanf(\"%lld\",&n)!=1)return 0;long long r=0;while(n>0){r=r*10+n%10;n/=10;}printf(\"%lld\\n\",r);\nreturn 0;\n}\n",
+    "oracleNotes": "独立反转十进制字符串并转回整数；验证末尾零和最大位数。"
+  }
+}

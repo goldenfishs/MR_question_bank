@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-099",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "10 中断与定时器应用",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 099 · 捕获时间跨过计数器回绕",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nTIM2向上计数，ARR=999，所以计数值按0到999循环；计数时钟1 MHz。两次同类边沿捕获值依次为950和75，已知二者之间恰好跨过一次回绕、真实间隔小于一个完整计数周期。间隔多少微秒？\n\n作答格式：填一个十进制整数，不写单位或其他文字。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "10 中断与定时器应用",
+      "模计数时间差"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "125"
+      ],
+      "explanation": "模数为ARR+1=1000，时间差=(75−950) mod1000=125个计数时钟。1 MHz下每计数1微秒，所以为125微秒。只有题面给出的回绕次数/间隔限制，才能从两个捕获值唯一恢复时间。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-099",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "10 中断与定时器应用",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第369页，15.3.2 Upcounting mode，核查关键词“auto-reload value”；RM0008 Rev 21, February 2021，第384页，15.3.5 Input capture mode，核查关键词“TIMx_CCRx”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

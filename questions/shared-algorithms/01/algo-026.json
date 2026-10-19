@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-026",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "编程：最大公约数",
+    "description": "输入一行两个整数 a,b（0≤a,b≤10⁹，且不同时为0），输出它们的最大公约数。\n示例输入：\n48 18\n示例输出：\n6\n\n支持使用 C++17 或 Python 3 编写程序，采用标准输入输出。不要输出额外提示文字。",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "C++",
+      "Python",
+      "数论",
+      "循环"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://github.com/TheAlgorithms/Python/blob/master/maths/greatest_common_divisor.py",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "48 18\n",
+          "expectedOutput": "6\n",
+          "hidden": false
+        },
+        {
+          "input": "0 25\n",
+          "expectedOutput": "25\n",
+          "hidden": true
+        },
+        {
+          "input": "17 13\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 250000000\n",
+          "expectedOutput": "250000000\n",
+          "hidden": true
+        },
+        {
+          "input": "9 0\n",
+          "expectedOutput": "9\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://github.com/TheAlgorithms/Python/blob/master/maths/greatest_common_divisor.py"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-026",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

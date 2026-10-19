@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-022",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "03 循环与数值处理",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 022 · 十进制位数与零",
+    "description": "输出非负整数n的规范十进制表示有几位；0的表示为一个字符0，因此位数为1。不允许多余前导零。\n输入：一个整数n，0≤n≤10^18。\n输出：位数，一个正整数。\n\n示例 1 输入\n987654321\n示例 1 输出\n9\n\n\n示例 2 输入\n100000000001\n示例 2 输出\n12\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "03 循环与数值处理",
+      "循环终止边界"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/do.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "987654321\n",
+          "expectedOutput": "9\n",
+          "hidden": false
+        },
+        {
+          "input": "100000000001\n",
+          "expectedOutput": "12\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "9\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "10\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "999999999999999999\n",
+          "expectedOutput": "18\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000000000\n",
+          "expectedOutput": "19\n",
+          "hidden": true
+        },
+        {
+          "input": "1000\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/do.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-022",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "03 循环与数值处理",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long n;if(scanf(\"%lld\",&n)!=1)return 0;int count=0;do{count++;n/=10;}while(n>0);printf(\"%d\\n\",count);\nreturn 0;\n}\n",
+    "oracleNotes": "独立按输入数值的规范字符串长度判断，覆盖0与10的各次幂。"
+  }
+}

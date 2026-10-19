@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-013",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 013 · 三角形的两倍面积",
+    "description": "给出平面三个整数坐标点，求三角形面积的两倍。共线或重合时为 0。\n输入：一行 x1 y1 x2 y2 x3 y3，各数在 -10^8～10^8。\n输出：一个非负整数，不输出小数。\n\n示例 1 输入\n0 0 3 0 0 4\n示例 1 输出\n12\n\n\n示例 2 输入\n1 1 2 2 3 3\n示例 2 输出\n0\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "01 输入输出与表达式",
+      "行列式表达式"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "0 0 3 0 0 4\n",
+          "expectedOutput": "12\n",
+          "hidden": false
+        },
+        {
+          "input": "1 1 2 2 3 3\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 0 0 1 2\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-100000000 -100000000 100000000 -100000000 0 100000000\n",
+          "expectedOutput": "40000000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "0 4 3 0 0 0\n",
+          "expectedOutput": "12\n",
+          "hidden": true
+        },
+        {
+          "input": "-3 2 4 6 1 -5\n",
+          "expectedOutput": "65\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 1 0 0 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "2 3 5 8 2 3\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-013",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long a,b,c,d,e,f;cin>>a>>b>>c>>d>>e>>f;cout<<abs((c-a)*(f-b)-(d-b)*(e-a))<<\"\\n\";\n}\n",
+    "pythonReference": "a,b,c,d,e,f=map(int,input().split())\nprint(abs((c-a)*(f-b)-(d-b)*(e-a)))\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

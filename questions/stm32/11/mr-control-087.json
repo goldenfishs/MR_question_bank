@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-087",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "09 时钟与GPIO实践",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 087 · F1输入上拉还需要哪一位",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n某引脚已配置为 MODE=00、CNF=10，即F1的输入上拉/下拉模式。要启用内部上拉而非下拉，相关 GPIOx_ODR 位应怎样设置？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "09 时钟与GPIO实践",
+      "输入上下拉选择"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "写0，0表示上拉",
+        "写1，1选择上拉",
+        "ODR对输入模式永远无效",
+        "必须改成推挽输出高电平"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "F1在输入上拉/下拉模式下，ODR相应位选择方向：1为上拉，0为下拉。ODR在此处是配置选择，并非把引脚变成推挽输出。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-087",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "09 时钟与GPIO实践",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第161页，9.1.2 Port bit configuration Table 20，核查关键词“Input pull-up”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

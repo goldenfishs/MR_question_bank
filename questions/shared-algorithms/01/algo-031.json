@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-031",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "编程：栅格地图的最短路",
+    "description": "输入：第一行 h,w（1≤h,w≤100），之后h行每行w个字符，.为可通行，#为障碍。机器人从左上角(0,0)走到右下角(h-1,w-1)，只能上下左右移动，每步代价1。输出最少步数；任一端点为障碍或无法到达时输出-1。\n示例输入：\n3 3\n...\n.#.\n...\n示例输出：\n4\n\n支持使用 C++17 或 Python 3 编写程序，采用标准输入输出。不要输出额外提示文字。",
+    "direction": "视觉算法",
+    "difficulty": "进阶",
+    "tags": [
+      "C++",
+      "Python",
+      "BFS",
+      "机器人导航"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://github.com/TheAlgorithms/Python/blob/master/graphs/breadth_first_search.py",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 3\n...\n.#.\n...\n",
+          "expectedOutput": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "1 1\n.\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "2 2\n.#\n#.\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1\n#\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "2 3\n...\n##.\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://github.com/TheAlgorithms/Python/blob/master/graphs/breadth_first_search.py"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-031",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

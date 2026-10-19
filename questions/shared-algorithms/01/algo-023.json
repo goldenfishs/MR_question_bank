@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-023",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "算法：最大公约数",
+    "description": "使用欧几里得算法，gcd(48,18) 等于多少？只填写十进制整数。",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "算法",
+      "数论"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://github.com/TheAlgorithms/Python/blob/master/maths/greatest_common_divisor.py",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "6"
+      ],
+      "explanation": "48 mod 18=12，18 mod 12=6，12 mod 6=0，所以最大公约数为6。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://github.com/TheAlgorithms/Python/blob/master/maths/greatest_common_divisor.py"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-023",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

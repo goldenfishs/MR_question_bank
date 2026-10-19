@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-028",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "编程：括号序列检查",
+    "description": "输入一行仅包含 ()[]{} 的非空字符串，长度不超过100000。若每个右括号都与最近的未匹配左括号类型相同，且最终全部匹配，输出 YES，否则输出 NO。\n示例输入：\n{[()]}\n示例输出：\nYES\n\n支持使用 C++17 或 Python 3 编写程序，采用标准输入输出。不要输出额外提示文字。",
+    "direction": "视觉算法",
+    "difficulty": "进阶",
+    "tags": [
+      "C++",
+      "Python",
+      "栈",
+      "字符串"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "{[()]}\n",
+          "expectedOutput": "YES\n",
+          "hidden": false
+        },
+        {
+          "input": "([)]\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": ")\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "((\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "()[]{}\n",
+          "expectedOutput": "YES\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-028",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-039",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 039 · 十进制转换到指定进制",
+    "description": "把非负整数 n 转换为 b 进制。数字 10～15 分别写作大写 A～F，不输出前导零。\n输入：一行 n b，0 ≤ n ≤ 10^18，2 ≤ b ≤ 16。\n输出：一行转换结果，n=0 时输出 0。\n\n示例 1 输入\n31 16\n示例 1 输出\n1F\n\n\n示例 2 输入\n0 2\n示例 2 输出\n0\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "余数收集与逆序"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "31 16\n",
+          "expectedOutput": "1F\n",
+          "hidden": false
+        },
+        {
+          "input": "0 2\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "1 2\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000000000 2\n",
+          "expectedOutput": "110111100000101101101011001110100111011001000000000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "255 16\n",
+          "expectedOutput": "FF\n",
+          "hidden": true
+        },
+        {
+          "input": "100 3\n",
+          "expectedOutput": "10201\n",
+          "hidden": true
+        },
+        {
+          "input": "123456789 7\n",
+          "expectedOutput": "3026236221\n",
+          "hidden": true
+        },
+        {
+          "input": "16 16\n",
+          "expectedOutput": "10\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-039",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long n;int b;cin>>n>>b;string a,d=\"0123456789ABCDEF\";do{a+=d[n%b];n/=b;}while(n);reverse(a.begin(),a.end());cout<<a<<\"\\n\";\n}\n",
+    "pythonReference": "n,b=map(int,input().split())\na=[]\nwhile n:a.append(\"0123456789ABCDEF\"[n%b]);n//=b\nprint(\"\".join(a[::-1]) if a else \"0\")\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

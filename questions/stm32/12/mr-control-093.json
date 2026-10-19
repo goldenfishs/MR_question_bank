@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-093",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "10 中断与定时器应用",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 093 · 写入PSC后为何尚未变频",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nTIM2停止计数、UDIS=0，程序刚把PSC写成新值，但尚未发生更新事件。希望在开始计数前把新预分频装入实际工作值。哪项正确？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "10 中断与定时器应用",
+      "预分频影子寄存器"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "PSC写入后任何情况下立即生效，不存在影子装载",
+        "在TIM2_EGR写UG，产生更新并初始化计数器/预分频器，再按需要清状态和启动",
+        "连续读PSC两次即可触发预分频更新",
+        "只修改GPIO速度字段即可装载PSC"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "PSC是带缓冲的，新的分频比在更新事件时装载；UG能产生软件更新并初始化计数器及预分频器。UG还可能影响状态/中断，因此题面限定停止初始化，并要求按需清状态。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-093",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "10 中断与定时器应用",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第368页，15.3.1 Prescaler description，核查关键词“next update event”；RM0008 Rev 21, February 2021，第369页，15.3.2 Update event，核查关键词“UG bit”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

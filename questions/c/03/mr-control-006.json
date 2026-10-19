@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-006",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 006 · 乘法之前就扩大类型",
+    "description": "C11中假设int能表示50000，但不能表示2500000000。已有 int a=50000,b=50000;。哪些表达式一定以long long完成乘法，并得到2500000000？（多选；long long至少能表示该结果。）\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "01 输入输出与表达式",
+      "中间表达式类型"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/conversion.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "(long long)a * b",
+        "(long long)(a * b)",
+        "1LL * a * b",
+        "a * (long long)b"
+      ],
+      "answers": [
+        "0",
+        "2",
+        "3"
+      ],
+      "explanation": "转换必须发生在有风险的乘法之前。A、C、D的乘法按long long进行；B先按int相乘，发生有符号溢出后再转换，不能挽救。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/conversion.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-006",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "01 输入输出与表达式",
+    "oracleNotes": "独立复核C11语义；verify_basic.py用单独的答案表和可执行C语义探针检查。"
+  }
+}

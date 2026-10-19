@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-036",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "04 数组与采样序列",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 036 · 数组只写部分初始化值",
+    "description": "在函数内执行 int samples[5]={4,-2};，哪些判断正确？（多选）\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "04 数组与采样序列",
+      "剩余元素零初始化"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/array_initialization.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "samples[0]等于4",
+        "samples[1]等于-2",
+        "samples[2]、samples[3]、samples[4]都等于0",
+        "后三个元素的值不确定"
+      ],
+      "answers": [
+        "0",
+        "1",
+        "2"
+      ],
+      "explanation": "数组有初始化器但只列出前两个元素时，剩余元素按零初始化，不是未初始化的自动对象；因此后三项都是0。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/array_initialization.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-036",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "04 数组与采样序列",
+    "oracleNotes": "独立复核C11语义；verify_basic.py用单独的答案表和可执行C语义探针检查。"
+  }
+}

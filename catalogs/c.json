@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "id": "c",
+  "name": "C语言题库",
+  "chapters": [
+    {
+      "order": 1,
+      "name": "C语言基础",
+      "questions": [
+        "c-basic-001",
+        "c-basic-002",
+        "c-basic-003",
+        "c-basic-004",
+        "c-basic-005",
+        "c-basic-006",
+        "c-basic-007",
+        "c-basic-008",
+        "c-basic-009",
+        "c-basic-010",
+        "c-basic-011",
+        "c-basic-012",
+        "c-basic-013",
+        "c-basic-014",
+        "c-basic-015",
+        "c-basic-016"
+      ]
+    },
+    {
+      "order": 2,
+      "name": "C语言进阶",
+      "questions": [
+        "c-advanced-001",
+        "c-advanced-002",
+        "c-advanced-003",
+        "c-advanced-004",
+        "c-advanced-005",
+        "c-advanced-006",
+        "c-advanced-007",
+        "c-advanced-008",
+        "c-advanced-009",
+        "c-advanced-010",
+        "c-advanced-011",
+        "c-advanced-012"
+      ]
+    },
+    {
+      "order": 3,
+      "name": "01 输入输出与表达式",
+      "questions": [
+        "mr-control-001",
+        "mr-control-002",
+        "mr-control-003",
+        "mr-control-004",
+        "mr-control-005",
+        "mr-control-006",
+        "mr-control-007",
+        "mr-control-008",
+        "mr-control-009",
+        "mr-control-010"
+      ]
+    },
+    {
+      "order": 4,
+      "name": "02 条件与状态判断",
+      "questions": [
+        "mr-control-011",
+        "mr-control-012",
+        "mr-control-013",
+        "mr-control-014",
+        "mr-control-015",
+        "mr-control-016",
+        "mr-control-017",
+        "mr-control-018",
+        "mr-control-019",
+        "mr-control-020"
+      ]
+    },
+    {
+      "order": 5,
+      "name": "03 循环与数值处理",
+      "questions": [
+        "mr-control-021",
+        "mr-control-022",
+        "mr-control-023",
+        "mr-control-024",
+        "mr-control-025",
+        "mr-control-026",
+        "mr-control-027",
+        "mr-control-028",
+        "mr-control-029",
+        "mr-control-030"
+      ]
+    },
+    {
+      "order": 6,
+      "name": "04 数组与采样序列",
+      "questions": [
+        "mr-control-031",
+        "mr-control-032",
+        "mr-control-033",
+        "mr-control-034",
+        "mr-control-035",
+        "mr-control-036",
+        "mr-control-037",
+        "mr-control-038",
+        "mr-control-039",
+        "mr-control-040"
+      ]
+    },
+    {
+      "order": 7,
+      "name": "05 函数与模块化",
+      "questions": [
+        "mr-control-041",
+        "mr-control-042",
+        "mr-control-043",
+        "mr-control-044",
+        "mr-control-045",
+        "mr-control-046",
+        "mr-control-047",
+        "mr-control-048",
+        "mr-control-049",
+        "mr-control-050"
+      ]
+    },
+    {
+      "order": 8,
+      "name": "06 指针与字符串",
+      "questions": [
+        "mr-control-051",
+        "mr-control-052",
+        "mr-control-053",
+        "mr-control-054",
+        "mr-control-055",
+        "mr-control-056",
+        "mr-control-057",
+        "mr-control-058",
+        "mr-control-059",
+        "mr-control-060"
+      ]
+    },
+    {
+      "order": 9,
+      "name": "07 结构体与内存",
+      "questions": [
+        "mr-control-061",
+        "mr-control-062",
+        "mr-control-063",
+        "mr-control-064",
+        "mr-control-065",
+        "mr-control-066",
+        "mr-control-067",
+        "mr-control-068",
+        "mr-control-069",
+        "mr-control-070"
+      ]
+    },
+    {
+      "order": 10,
+      "name": "08 位运算与通信数据",
+      "questions": [
+        "mr-control-071",
+        "mr-control-072",
+        "mr-control-073",
+        "mr-control-074",
+        "mr-control-075",
+        "mr-control-076",
+        "mr-control-077",
+        "mr-control-078",
+        "mr-control-079",
+        "mr-control-080"
+      ]
+    }
+  ],
+  "includes": []
+}

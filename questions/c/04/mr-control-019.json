@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-019",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "02 条件与状态判断",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 019 · 负数能否作为真条件",
+    "description": "执行 int ready=-8; int flag=0; if(ready){flag=3;} 后，flag是什么？\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "02 条件与状态判断",
+      "标量条件真值"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/if.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "0，因为ready不是1",
+        "3，因为ready不等于0",
+        "-8，因为if会复制条件",
+        "结果未定义，因为条件是负数"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "if将标量条件与0比较。任何非零整数都为真，包含负数；if不会把条件的值自动复制给其他变量。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/if.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-019",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "02 条件与状态判断",
+    "oracleNotes": "独立复核C11语义；verify_basic.py用单独的答案表和可执行C语义探针检查。"
+  }
+}

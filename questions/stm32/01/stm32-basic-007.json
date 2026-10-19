@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "stm32-basic-007",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "STM32单片机基础",
+  "visibility": "public",
+  "task": {
+    "title": "STM32F103 USART 异步通信",
+    "description": "两个设备使用 USART 异步模式通信，不使用硬件流控。除了电气接口匹配和共地，双方哪项参数应匹配？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "STM32单片机基础",
+      "USART"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "波特率、数据位、校验位和停止位",
+        "两侧程序必须使用相同变量名",
+        "主循环必须使用相同延时",
+        "发送缓冲区地址必须相同"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "异步接收依据约定的位时间与帧格式采样；双方需匹配波特率和帧格式，且 TX/RX 连接应正确。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "stm32-basic-007",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

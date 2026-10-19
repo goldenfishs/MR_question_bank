@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-basic-005",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言基础",
+  "visibility": "public",
+  "task": {
+    "title": "const 局部变量",
+    "description": "函数内声明 const int limit = 10;，后续哪条语句符合该变量的只读约束？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "C语言基础",
+      "const"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/const.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "limit = 12;",
+        "limit++;",
+        "int copy = limit;",
+        "limit += 1;"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "读取 const 对象并初始化另一个变量是合法的；直接赋值、递增或复合赋值修改它不符合约束。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/const.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-basic-005",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-002",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 002 · 千分比有符号增益",
+    "description": "原始量 x 乘以千分比增益 g，输出 x*g/1000 向零截断后的整数。例如 -1500/1000 的结果为 -1，不是 -2。\n输入：一行 x g，-10^9≤x≤10^9，0≤g≤10^6。\n输出：一个整数。全程整数计算，没有浮点舍入。\n\n示例 1 输入\n-12345 850\n示例 1 输出\n-10493\n\n\n示例 2 输入\n98765 1250\n示例 2 输出\n123456\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "01 输入输出与表达式",
+      "有符号整数截断"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "-12345 850\n",
+          "expectedOutput": "-10493\n",
+          "hidden": false
+        },
+        {
+          "input": "98765 1250\n",
+          "expectedOutput": "123456\n",
+          "hidden": false
+        },
+        {
+          "input": "0 1000000\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-1 999\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-1000000000 1000000\n",
+          "expectedOutput": "-1000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 1000000\n",
+          "expectedOutput": "1000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "7 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-2000 1000\n",
+          "expectedOutput": "-2000\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-002",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "01 输入输出与表达式",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long x,g;if(scanf(\"%lld%lld\",&x,&g)!=2)return 0;printf(\"%lld\\n\",x*g/1000);\nreturn 0;\n}\n",
+    "oracleNotes": "独立用绝对值整除再恢复符号，避免Python负数//向下取整与C向零截断的差异。"
+  }
+}

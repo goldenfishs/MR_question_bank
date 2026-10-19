@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-066",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "07 结构体与内存",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 066 · 按给定布局计算大小",
+    "description": "本题明确假定：CHAR_BIT=8；char大小/对齐均1，int大小/对齐均4；结构体成员按声明顺序布局，每个成员前仅填充至其对齐要求，结构体整体对齐为成员最大对齐，尾部仅填充至该对齐倍数。struct S { char a; int b; char c; }; 的 sizeof(struct S) 是多少个C字节？仅填十进制整数。\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "07 结构体与内存",
+      "结构体填充"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/object.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "12"
+      ],
+      "explanation": "在题给布局规则下，a偏移0，b前填充3字节后偏移4，占4字节；c偏移8，占1字节。整体对齐4，尾部再补3字节，总大小12。这是明确假设下的结果，不是所有C11实现的统一保证。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/object.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-066",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "07 结构体与内存",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

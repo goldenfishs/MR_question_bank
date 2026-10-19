@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-basic-010",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言基础",
+  "visibility": "public",
+  "task": {
+    "title": "scanf 读取整数",
+    "description": "已经包含 <stdio.h>，int age = 0;。输入保证是一个可由 int 表示的十进制整数，哪个调用将它读入 age？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "C语言基础",
+      "标准输入"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/io/fscanf.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "scanf(\"%d\", age);",
+        "scanf(\"%f\", &age);",
+        "scanf(\"%d\", &age);",
+        "scanf(\"%s\", age);"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "scanf 的 %d 需要 int*，因此传入 &age。还应检查调用返回值以确认转换成功。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/io/fscanf.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-basic-010",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

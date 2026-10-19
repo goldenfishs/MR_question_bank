@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-154",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 154 · 骑士到达指定格",
+    "description": "棋盘骑士每次沿一个方向移动 2 格、垂直方向移动 1 格，即八种日字跳法。给定起点和终点，求不跳出棋盘时的最少步数。\n\n输入格式\n第一行 h w；第二行 sx sy tx ty，坐标从 1 开始。\n范围与边界\n1≤h,w≤100；起终点在棋盘内。允许起终点相同。\n输出格式\n最少步数，无法到达输出 −1。\n\n示例 1 输入\n8 8\n1 1 8 8\n示例 1 输出\n6\n\n\n示例 2 输入\n2 4\n2 1 2 1\n示例 2 输出\n0\n\n建议复杂度：O(hw)。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "棋盘状态BFS"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "8 8\n1 1 8 8\n",
+          "expectedOutput": "6\n",
+          "hidden": false
+        },
+        {
+          "input": "2 4\n2 1 2 1\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "3 7\n3 1 1 1\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\n2 2 2 2\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "5 5\n1 4 2 5\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "6 8\n4 2 2 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "7 3\n1 2 2 3\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "8 6\n1 6 3 5\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\n4 1 2 2\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "100 100\n1 1 100 100\n",
+          "expectedOutput": "66\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-154",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint h,w,sx,sy,tx,ty;cin>>h>>w>>sx>>sy>>tx>>ty;--sx;--sy;--tx;--ty;vector<vector<int>>d(h,vector<int>(w,-1));queue<pair<int,int>>q;q.push({sx,sy});d[sx][sy]=0;int dx[]={1,1,-1,-1,2,2,-2,-2},dy[]={2,-2,2,-2,1,-1,1,-1};while(!q.empty()){auto[x,y]=q.front();q.pop();for(int k=0;k<8;k++){int u=x+dx[k],v=y+dy[k];if(u>=0&&u<h&&v>=0&&v<w&&d[u][v]<0){d[u][v]=d[x][y]+1;q.push({u,v});}}}cout<<d[tx][ty]<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    h,w,sx,sy,tx,ty=map(int,data.split());sx-=1;sy-=1;tx-=1;ty-=1;d=[[-1]*w for _ in range(h)];d[sx][sy]=0;q=collections.deque([(sx,sy)])\n    while q:\n        x,y=q.popleft()\n        for dx,dy in [(1,2),(1,-2),(-1,2),(-1,-2),(2,1),(2,-1),(-2,1),(-2,-1)]:\n            u,v=x+dx,y+dy\n            if 0<=u<h and 0<=v<w and d[u][v]<0:d[u][v]=d[x][y]+1;q.append((u,v))\n    return d[tx][ty]\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

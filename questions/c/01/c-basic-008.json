@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-basic-008",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言基础",
+  "visibility": "public",
+  "task": {
+    "title": "printf 输出整数",
+    "description": "已经包含 <stdio.h>，int speed = 120;。哪条语句正确输出 speed 的十进制值？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "C语言基础",
+      "标准输出"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/io/fprintf.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "printf(\"%f\", speed);",
+        "printf(\"%d\", speed);",
+        "printf(\"%s\", speed);",
+        "printf(\"%c\", &speed);"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "int 对应 %d。printf 的格式与实参类型必须匹配；不能因为输出内容是数字就任意替换格式。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/io/fprintf.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-basic-008",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

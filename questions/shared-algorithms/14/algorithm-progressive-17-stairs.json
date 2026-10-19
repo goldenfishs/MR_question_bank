@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "algorithm-progressive-17-stairs",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "算法阶梯 17 · 台阶路线计数",
+    "description": "巡检机器人从第 0 级出发，每次向上移动 1 级或 2 级，必须恰好到达第 n 级。移动顺序不同视为不同路线，如 1+2 与 2+1。求路线数，对 1000000007 取余。n 为 0 时不移动也是一条路线。\n\n输入格式\n一个整数 n，0 ≤ n ≤ 1000000。\n输出格式\n路线数对 1000000007 取余后的整数。\n\n示例 1 输入\n4\n示例 1 输出\n5\n说明：1+1+1+1、1+1+2、1+2+1、2+1+1、2+2。\n示例 2 输入\n0\n示例 2 输出\n1\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3。\n原创说明：题面、样例和测试数据由本站围绕机器人训练独立编写。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "tags": [
+      "算法阶梯",
+      "第四阶段·动态规划",
+      "动态规划",
+      "计数",
+      "取模"
+    ],
+    "required": false,
+    "fileIds": [],
+    "team": "",
+    "dueAt": "",
+    "resourcesUrl": "",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4\n",
+          "expectedOutput": "5\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "2\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "10\n",
+          "expectedOutput": "89\n",
+          "hidden": true
+        },
+        {
+          "input": "45\n",
+          "expectedOutput": "836311896\n",
+          "hidden": true
+        },
+        {
+          "input": "100\n",
+          "expectedOutput": "782204094\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000\n",
+          "expectedOutput": "534400663\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-advanced.json",
+    "key": "algorithm-progressive-17-stairs",
+    "fileSha256": "3926a35202e5fc8211cb6d21421170a7ff4eb4644b74088f33b78f29686d75fd"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <functional>\n#include <utility>\nusing namespace std;\nint main(){int n;cin>>n;long long a=1,b=1;for(int i=0;i<n;++i){long long c=(a+b)%1000000007;a=b;b=c;}cout<<a<<'\\n';}\n",
+    "pythonReference": "import sys\nn=int(sys.stdin.read())\na=b=1\nfor _ in range(n):\n    a,b=b,(a+b)%1000000007\nprint(a)\n"
+  }
+}

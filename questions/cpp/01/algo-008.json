@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-008",
+  "revision": 1,
+  "subject": "cpp",
+  "chapter": "基础语法",
+  "visibility": "public",
+  "task": {
+    "title": "C++：二分查找的前提",
+    "description": "准备使用 std::lower_bound 在 std::vector<int> 中查找第一个不小于 x 的元素。为使任意 x 都能正确查询，通常应先保证数组满足什么条件？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "C++",
+      "二分查找"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/cpp/algorithm/lower_bound.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "所有元素互不相同",
+        "数组长度是2的整数次幂",
+        "按升序排序",
+        "按随机顺序存放"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "按相同比较规则升序排序可以保证相对于查询值的分区条件；重复元素是允许的。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/cpp/algorithm/lower_bound.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-008",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,18 @@
+name: 题目纠错或新题建议
+description: 报告题目问题或建议新增知识点
+title: "[题库] "
+body:
+  - type: input
+    id: question
+    attributes:
+      label: 题目 ID 或课程
+      description: 新题建议可填写 C、C++、Python 或 STM32。
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: 问题或建议
+      description: 请提供复现输入、预期输出、技术依据或建议的学习目标。不要提交个人信息或凭据。
+    validations:
+      required: true

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-078",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "08 位运算与通信数据",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 078 · 显式组装优于强转",
+    "description": "协议固定把两个8位字节按低字节在前发送。假定unsigned char恰为8位，数据地址可能未按16位类型对齐。为了可移植读取逻辑无符号16位值，哪些说法正确？（多选）\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "08 位运算与通信数据",
+      "协议字节序"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/object.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "可把两个字节分别转换到足够宽的无符号类型后，按 low+256*high 显式组装。",
+        "直接把字节指针强转为unsigned short*并解引用，在所有C11平台上必然安全且值正确。",
+        "显式按协议组装不依赖宿主机器采用大端还是小端。",
+        "仅用memcpy复制到任意unsigned short对象，就自动完成了协议字节序转换。"
+      ],
+      "answers": [
+        "0",
+        "2"
+      ],
+      "explanation": "按数学权重组装可明确协议位序。强转还涉及对齐、类型访问和宿主对象表示；memcpy可用于复制对象字节，但不自动完成字节序转换，也不能无条件假定unsigned short恰为16位。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/object.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-078",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "08 位运算与通信数据",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-045",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 045 · 圆内整数格点数量",
+    "description": "统计满足 x*x+y*y≤r*r 的整数坐标点 (x,y) 数量，圆周上的点也算。\n输入：整数半径 r，0 ≤ r ≤ 100。\n输出：格点数量；r=0 时只有原点，输出 1。\n\n示例 1 输入\n2\n示例 1 输出\n13\n\n\n示例 2 输入\n0\n示例 2 输出\n1\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "二维枚举与平方比较"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "2\n",
+          "expectedOutput": "13\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n",
+          "expectedOutput": "5\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n",
+          "expectedOutput": "29\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n",
+          "expectedOutput": "81\n",
+          "hidden": true
+        },
+        {
+          "input": "10\n",
+          "expectedOutput": "317\n",
+          "hidden": true
+        },
+        {
+          "input": "99\n",
+          "expectedOutput": "30757\n",
+          "hidden": true
+        },
+        {
+          "input": "100\n",
+          "expectedOutput": "31417\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-045",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint r;cin>>r;int ans=0;for(int x=-r;x<=r;x++)for(int y=-r;y<=r;y++)if(x*x+y*y<=r*r)ans++;cout<<ans<<\"\\n\";\n}\n",
+    "pythonReference": "r=int(input())\nans=0\nfor x in range(-r,r+1):\n for y in range(-r,r+1):\n  if x*x+y*y<=r*r:ans+=1\nprint(ans)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

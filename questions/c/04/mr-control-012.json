@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-012",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "02 条件与状态判断",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 012 · 滞回开关的一次更新",
+    "description": "温度控制开关旧状态s为0或1。温度t≤L时新状态设1，t≥H时新状态设0；L<t<H时保持旧状态。\n输入：一行s t L H，s∈{0,1}，-10^9≤t,L,H≤10^9，保证L<H。\n输出：新状态0或1。只进行这一次更新。\n\n示例 1 输入\n0 42 35 50\n示例 1 输出\n0\n\n\n示例 2 输入\n1 52 35 50\n示例 2 输出\n0\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "02 条件与状态判断",
+      "保留旧状态"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/if.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "0 42 35 50\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "1 52 35 50\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "0 35 35 50\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 50 35 50\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1 42 35 50\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 -1000000000 1000000000\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1 -1000000000 -999999999 1000000000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "0 1000000000 -1000000000 999999999\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/if.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-012",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "02 条件与状态判断",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nint s;long long t,l,h;if(scanf(\"%d%lld%lld%lld\",&s,&t,&l,&h)!=4)return 0;if(t<=l)s=1;else if(t>=h)s=0;printf(\"%d\\n\",s);\nreturn 0;\n}\n",
+    "oracleNotes": "独立三分区状态转移表，分别覆盖两种旧状态及两个等号边界。"
+  }
+}

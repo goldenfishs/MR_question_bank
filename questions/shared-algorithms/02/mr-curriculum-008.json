@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-008",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 008 · 平方距离无需开方",
+    "description": "两点坐标为 (x1,y1)、(x2,y2)，求欧氏距离平方。\n输入：一行四个整数，各坐标在 -10^9～10^9。\n输出：一个非负整数 (x1-x2)^2+(y1-y2)^2；最大结果在有符号 64 位整数范围内。\n\n示例 1 输入\n0 0 3 4\n示例 1 输出\n25\n\n\n示例 2 输入\n5 -2 5 -2\n示例 2 输出\n0\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "01 输入输出与表达式",
+      "平方与整数范围"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "0 0 3 4\n",
+          "expectedOutput": "25\n",
+          "hidden": false
+        },
+        {
+          "input": "5 -2 5 -2\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "-1000000000 -1000000000 1000000000 1000000000\n",
+          "expectedOutput": "8000000000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "-1 0 1 0\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "2 3 -4 8\n",
+          "expectedOutput": "61\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 0 -1000000000 0\n",
+          "expectedOutput": "4000000000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "-5 -5 -2 -1\n",
+          "expectedOutput": "25\n",
+          "hidden": true
+        },
+        {
+          "input": "0 1 0 -1\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-008",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long a,b,c,d;cin>>a>>b>>c>>d;long long x=a-c,y=b-d;cout<<x*x+y*y<<\"\\n\";\n}\n",
+    "pythonReference": "a,b,c,d=map(int,input().split())\nprint((a-c)**2+(b-d)**2)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

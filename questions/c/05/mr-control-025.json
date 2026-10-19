@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-025",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "03 循环与数值处理",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 025 · 模内线性状态迭代",
+    "description": "初值为x，执行恰好n次更新x=(a*x+b)对1000003取余，每次都使用上一次更新后的x。求最终x。\n输入：一行n a b x，0≤n≤100000，0≤a,b,x<1000003。\n输出：最终状态，一个非负整数。乘法中间值可能超过32位，需要long long。\n\n示例 1 输入\n7 5 13 21\n示例 1 输出\n894525\n\n\n示例 2 输入\n11 17 9 123\n示例 2 输出\n386453\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "03 循环与数值处理",
+      "循环依赖上一状态"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/for.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "7 5 13 21\n",
+          "expectedOutput": "894525\n",
+          "hidden": false
+        },
+        {
+          "input": "11 17 9 123\n",
+          "expectedOutput": "386453\n",
+          "hidden": false
+        },
+        {
+          "input": "0 1000002 1000002 1000002\n",
+          "expectedOutput": "1000002\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1000002 1000002 1000002\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "100000 1 1 1000002\n",
+          "expectedOutput": "99999\n",
+          "hidden": true
+        },
+        {
+          "input": "100000 0 999 123\n",
+          "expectedOutput": "999\n",
+          "hidden": true
+        },
+        {
+          "input": "100000 1000002 1000002 1000002\n",
+          "expectedOutput": "1000002\n",
+          "hidden": true
+        },
+        {
+          "input": "2 0 0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/for.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-025",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "03 循环与数值处理",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong n;long long a,b,x;if(scanf(\"%ld%lld%lld%lld\",&n,&a,&b,&x)!=4)return 0;for(long i=0;i<n;i++)x=(a*x+b)%1000003;printf(\"%lld\\n\",x);\nreturn 0;\n}\n",
+    "oracleNotes": "验证器独立通过仿射变换二进制合成计算第n次状态，区别于参考逐步迭代。"
+  }
+}

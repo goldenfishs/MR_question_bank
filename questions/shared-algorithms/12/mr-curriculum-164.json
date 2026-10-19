@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-164",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 164 · 两只量杯的最少操作",
+    "description": "容量 A、B 的两只量杯最初都空。一步可将任一杯装满、倒空，或向另一杯倒水直到源杯空或目标杯满。求使任一杯恰有 T 单位水的最少操作数。水源无限，量杯无刻度。\n\n输入格式\n一行 A B T。\n范围与边界\n1≤A,B≤500；0≤T≤500；T=0 时已达到。\n输出格式\n最少操作数，不可达到输出 −1。\n\n示例 1 输入\n3 5 4\n示例 1 输出\n6\n\n\n示例 2 输入\n2 4 2\n示例 2 输出\n1\n\n建议复杂度：O(AB) 状态搜索。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "挑战",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "隐式图BFS"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 5 4\n",
+          "expectedOutput": "6\n",
+          "hidden": false
+        },
+        {
+          "input": "2 4 2\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "3 6 4\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "4 8 6\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "5 10 8\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "6 12 10\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "7 14 12\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "8 16 14\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "499 500 1\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-164",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint A,B,T;cin>>A>>B>>T;vector<vector<int>>d(A+1,vector<int>(B+1,-1));queue<pair<int,int>>q;q.push({0,0});d[0][0]=0;while(!q.empty()){auto[x,y]=q.front();q.pop();if(x==T||y==T){cout<<d[x][y]<<'\\n';return 0;}int p=min(x,B-y),r=min(y,A-x);vector<pair<int,int>>v={{A,y},{x,B},{0,y},{x,0},{x-p,y+p},{x+r,y-r}};for(auto[u,w]:v)if(d[u][w]<0){d[u][w]=d[x][y]+1;q.push({u,w});}}cout<<-1<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    A,B,T=map(int,data.split());q=collections.deque([(0,0,0)]);seen={(0,0)}\n    while q:\n        x,y,d=q.popleft()\n        if x==T or y==T:return d\n        p=min(x,B-y);r=min(y,A-x)\n        for u,v in [(A,y),(x,B),(0,y),(x,0),(x-p,y+p),(x+r,y-r)]:\n            if (u,v) not in seen:seen.add((u,v));q.append((u,v,d+1))\n    return -1\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

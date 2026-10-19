@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-024",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "算法：动态规划基本要素",
+    "description": "设计动态规划解法时，下列哪些通常需要明确？（多选）",
+    "direction": "视觉算法",
+    "difficulty": "进阶",
+    "tags": [
+      "算法",
+      "动态规划"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://github.com/TheAlgorithms/Python/tree/master/dynamic_programming",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "初始状态与计算顺序",
+        "状态转移关系",
+        "所有题目都必须采用贪心选择",
+        "状态含义"
+      ],
+      "answers": [
+        "0",
+        "1",
+        "3"
+      ],
+      "explanation": "动态规划需定义状态、转移和边界，并确保依赖状态已得到；贪心选择不是动态规划的通用前提。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://github.com/TheAlgorithms/Python/tree/master/dynamic_programming"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-024",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

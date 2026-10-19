@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-084",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "09 时钟与GPIO实践",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 084 · 升频前的Flash等待与就绪",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n当前从 Flash 执行，SYSCLK=8 MHz，目标是72 MHz，且供电等条件满足数据手册。仅考虑 Flash 等待周期与 PLL 就绪，哪些步骤正确？\n\n作答约定：选择所有正确项；至少两项正确。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "09 时钟与GPIO实践",
+      "时钟切换顺序"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "在切到72 MHz之前先把 FLASH_ACR.LATENCY 设置为2等待周期",
+        "切到72 MHz以后，若程序还在运行，再补设等待周期即可作为安全流程",
+        "等 PLL 锁定后再请求使用它作为系统时钟，并检查实际时钟源状态",
+        "只要写了时钟选择位，就可以忽略 PLL 就绪和实际切换状态"
+      ],
+      "answers": [
+        "0",
+        "2"
+      ],
+      "explanation": "RM0008对48–72 MHz要求2等待周期；升频之前应建立满足新频率的Flash访问条件。系统切换须目标时钟就绪，并区分请求位与状态位，不能先超规格运行再补配置。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-084",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "09 时钟与GPIO实践",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第60页，3.3.3 FLASH_ACR LATENCY，核查关键词“Two wait states”；RM0008 Rev 21, February 2021，第97页，7.2.6 System clock selection，核查关键词“target clock source is ready”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

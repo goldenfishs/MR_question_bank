@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-162",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 162 · 四阶数独解的数量",
+    "description": "填满 4×4 数独：每行、每列及四个 2×2 宫均恰好包含数字 1、2、3、4。0 表示空格，非零格必须保持。求满足给定数字的解数。给定数字可能冲突。\n\n输入格式\n四行，每行四个整数。\n范围与边界\n每个整数在 0 到 4 之间。\n输出格式\n解的数量，冲突或无解时为 0。\n\n示例 1 输入\n1 0 3 4\n3 4 1 2\n2 1 4 3\n4 3 2 1\n示例 1 输出\n1\n\n\n示例 2 输入\n0 0 0 0\n0 0 1 0\n0 0 0 3\n0 0 0 0\n示例 2 输出\n12\n\n建议复杂度：仅16格的约束回溯。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "挑战",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "约束满足回溯"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "1 0 3 4\n3 4 1 2\n2 1 4 3\n4 3 2 1\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 0 0\n0 0 1 0\n0 0 0 3\n0 0 0 0\n",
+          "expectedOutput": "12\n",
+          "hidden": false
+        },
+        {
+          "input": "1 0 0 0\n0 4 0 0\n0 0 0 3\n0 0 0 0\n",
+          "expectedOutput": "6\n",
+          "hidden": true
+        },
+        {
+          "input": "1 0 0 0\n3 0 1 0\n0 0 0 0\n0 3 0 0\n",
+          "expectedOutput": "6\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 0 0\n3 4 1 0\n0 1 4 3\n4 3 0 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 2 3 0\n3 4 0 0\n2 1 4 0\n0 0 2 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "0 2 3 0\n3 4 1 0\n2 1 0 0\n0 3 2 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1 3 4\n3 4 1 2\n2 1 0 3\n4 3 2 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1 2 3 4\n3 4 0 0\n0 1 0 3\n0 0 2 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 0 0\n0 0 0 0\n0 0 0 0\n0 0 0 0\n",
+          "expectedOutput": "288\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-162",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nvector<vector<int>>a(4,vector<int>(4));for(auto &r:a)for(int &x:r)cin>>x;vector<int>row(4),col(4),box(4);for(int i=0;i<4;i++)for(int j=0;j<4;j++)if(a[i][j]){int b=i/2*2+j/2,x=1<<(a[i][j]-1);if((row[i]|col[j]|box[b])&x){cout<<0<<'\\n';return 0;}row[i]|=x;col[j]|=x;box[b]|=x;}function<ll(int)>f=[&](int p)->ll{if(p==16)return 1;int i=p/4,j=p%4,b=i/2*2+j/2;if(a[i][j])return f(p+1);ll ans=0;int v=15&~(row[i]|col[j]|box[b]);while(v){int x=v&-v;v-=x;row[i]|=x;col[j]|=x;box[b]|=x;ans+=f(p+1);row[i]^=x;col[j]^=x;box[b]^=x;}return ans;};cout<<f(0)<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    v=list(map(int,data.split()));a=[v[i*4:i*4+4] for i in range(4)];row=[0]*4;col=[0]*4;box=[0]*4\n    for i in range(4):\n        for j in range(4):\n            if a[i][j]:\n                b=i//2*2+j//2;x=1<<(a[i][j]-1)\n                if (row[i]|col[j]|box[b])&x:return 0\n                row[i]|=x;col[j]|=x;box[b]|=x\n    def f(p):\n        if p==16:return 1\n        i,j=divmod(p,4);b=i//2*2+j//2\n        if a[i][j]:return f(p+1)\n        ans=0;v=15&~(row[i]|col[j]|box[b])\n        while v:\n            x=v&-v;v-=x;row[i]|=x;col[j]|=x;box[b]|=x;ans+=f(p+1);row[i]^=x;col[j]^=x;box[b]^=x\n        return ans\n    return f(0)\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

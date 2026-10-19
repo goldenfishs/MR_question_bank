@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-018",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "02 条件与状态判断",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 018 · 逻辑表达式返回的数值",
+    "description": "已有 int a=-4,b=7;。下列哪些表达式的值恰好为整数1？（多选）\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "02 条件与状态判断",
+      "逻辑归一化"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_logical.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "a && b",
+        "a || 0",
+        "!a",
+        "!!b"
+      ],
+      "answers": [
+        "0",
+        "1",
+        "3"
+      ],
+      "explanation": "两个操作数都非零，所以&&结果是1；a非零，所以||结果也是1；!a为0；!!b把非零b归一化为1。逻辑运算结果只有int的0或1。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_logical.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-018",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "02 条件与状态判断",
+    "oracleNotes": "独立复核C11语义；verify_basic.py用单独的答案表和可执行C语义探针检查。"
+  }
+}

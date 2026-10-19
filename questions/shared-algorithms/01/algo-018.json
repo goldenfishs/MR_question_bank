@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-018",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "算法：双重循环复杂度",
+    "description": "以下代码中，计数语句执行多少次？\nfor i in range(n):\n    for j in range(n):\n        count += 1",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "算法",
+      "复杂度"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/controlflow.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "n² 次",
+        "n 次",
+        "2n 次",
+        "log₂(n) 次"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "每次外层循环执行n次内层循环，总共n×n次。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/controlflow.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-018",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

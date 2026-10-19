@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-179",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "12 图论与综合应用",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 179 · 不可替代的单条连线",
+    "description": "无向图中，删除一条指定边后如果连通分量数量增加，该边称为桥。求桥的数量。每条输入边单独计算，允许重边和自环；图可不连通。\n\n输入格式\n第一行 n m；随后 m 行 u v，编号 1 到 n。\n范围与边界\n1≤n≤600；0≤m≤5000。\n输出格式\n桥的数量。\n\n示例 1 输入\n5 6\n1 2\n1 2\n2 3\n3 4\n4 5\n5 3\n示例 1 输出\n1\n\n\n示例 2 输入\n2 2\n1 2\n1 2\n示例 2 输出\n0\n\n建议复杂度：O(n+m) 的低链值DFS；按边编号跳过父边，不能仅按父顶点。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "挑战",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "12 图论与综合应用",
+      "桥与低链值"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5 6\n1 2\n1 2\n2 3\n3 4\n4 5\n5 3\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "2 2\n1 2\n1 2\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "3 3\n2 1\n3 1\n1 1\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4\n3 4\n4 1\n3 4\n2 1\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "5 5\n4 5\n3 5\n2 2\n4 4\n2 2\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "6 6\n6 6\n4 5\n4 5\n6 6\n3 5\n3 3\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "7 7\n7 3\n5 6\n2 4\n3 2\n5 6\n6 7\n2 2\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "1 8\n1 1\n1 1\n1 1\n1 1\n1 1\n1 1\n1 1\n1 1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4\n3 1\n3 1\n4 1\n2 3\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "600 599\n1 2\n2 3\n3 4\n4 5\n5 6\n6 7\n7 8\n8 9\n9 10\n10 11\n11 12\n12 13\n13 14\n14 15\n15 16\n16 17\n17 18\n18 19\n19 20\n20 21\n21 22\n22 23\n23 24\n24 25\n25 26\n26 27\n27 28\n28 29\n29 30\n30 31\n31 32\n32 33\n33 34\n34 35\n35 36\n36 37\n37 38\n38 39\n39 40\n40 41\n41 42\n42 43\n43 44\n44 45\n45 46\n46 47\n47 48\n48 49\n49 50\n50 51\n51 52\n52 53\n53 54\n54 55\n55 56\n56 57\n57 58\n58 59\n59 60\n60 61\n61 62\n62 63\n63 64\n64 65\n65 66\n66 67\n67 68\n68 69\n69 70\n70 71\n71 72\n72 73\n73 74\n74 75\n75 76\n76 77\n77 78\n78 79\n79 80\n80 81\n81 82\n82 83\n83 84\n84 85\n85 86\n86 87\n87 88\n88 89\n89 90\n90 91\n91 92\n92 93\n93 94\n94 95\n95 96\n96 97\n97 98\n98 99\n99 100\n100 101\n101 102\n102 103\n103 104\n104 105\n105 106\n106 107\n107 108\n108 109\n109 110\n110 111\n111 112\n112 113\n113 114\n114 115\n115 116\n116 117\n117 118\n118 119\n119 120\n120 121\n121 122\n122 123\n123 124\n124 125\n125 126\n126 127\n127 128\n128 129\n129 130\n130 131\n131 132\n132 133\n133 134\n134 135\n135 136\n136 137\n137 138\n138 139\n139 140\n140 141\n141 142\n142 143\n143 144\n144 145\n145 146\n146 147\n147 148\n148 149\n149 150\n150 151\n151 152\n152 153\n153 154\n154 155\n155 156\n156 157\n157 158\n158 159\n159 160\n160 161\n161 162\n162 163\n163 164\n164 165\n165 166\n166 167\n167 168\n168 169\n169 170\n170 171\n171 172\n172 173\n173 174\n174 175\n175 176\n176 177\n177 178\n178 179\n179 180\n180 181\n181 182\n182 183\n183 184\n184 185\n185 186\n186 187\n187 188\n188 189\n189 190\n190 191\n191 192\n192 193\n193 194\n194 195\n195 196\n196 197\n197 198\n198 199\n199 200\n200 201\n201 202\n202 203\n203 204\n204 205\n205 206\n206 207\n207 208\n208 209\n209 210\n210 211\n211 212\n212 213\n213 214\n214 215\n215 216\n216 217\n217 218\n218 219\n219 220\n220 221\n221 222\n222 223\n223 224\n224 225\n225 226\n226 227\n227 228\n228 229\n229 230\n230 231\n231 232\n232 233\n233 234\n234 235\n235 236\n236 237\n237 238\n238 239\n239 240\n240 241\n241 242\n242 243\n243 244\n244 245\n245 246\n246 247\n247 248\n248 249\n249 250\n250 251\n251 252\n252 253\n253 254\n254 255\n255 256\n256 257\n257 258\n258 259\n259 260\n260 261\n261 262\n262 263\n263 264\n264 265\n265 266\n266 267\n267 268\n268 269\n269 270\n270 271\n271 272\n272 273\n273 274\n274 275\n275 276\n276 277\n277 278\n278 279\n279 280\n280 281\n281 282\n282 283\n283 284\n284 285\n285 286\n286 287\n287 288\n288 289\n289 290\n290 291\n291 292\n292 293\n293 294\n294 295\n295 296\n296 297\n297 298\n298 299\n299 300\n300 301\n301 302\n302 303\n303 304\n304 305\n305 306\n306 307\n307 308\n308 309\n309 310\n310 311\n311 312\n312 313\n313 314\n314 315\n315 316\n316 317\n317 318\n318 319\n319 320\n320 321\n321 322\n322 323\n323 324\n324 325\n325 326\n326 327\n327 328\n328 329\n329 330\n330 331\n331 332\n332 333\n333 334\n334 335\n335 336\n336 337\n337 338\n338 339\n339 340\n340 341\n341 342\n342 343\n343 344\n344 345\n345 346\n346 347\n347 348\n348 349\n349 350\n350 351\n351 352\n352 353\n353 354\n354 355\n355 356\n356 357\n357 358\n358 359\n359 360\n360 361\n361 362\n362 363\n363 364\n364 365\n365 366\n366 367\n367 368\n368 369\n369 370\n370 371\n371 372\n372 373\n373 374\n374 375\n375 376\n376 377\n377 378\n378 379\n379 380\n380 381\n381 382\n382 383\n383 384\n384 385\n385 386\n386 387\n387 388\n388 389\n389 390\n390 391\n391 392\n392 393\n393 394\n394 395\n395 396\n396 397\n397 398\n398 399\n399 400\n400 401\n401 402\n402 403\n403 404\n404 405\n405 406\n406 407\n407 408\n408 409\n409 410\n410 411\n411 412\n412 413\n413 414\n414 415\n415 416\n416 417\n417 418\n418 419\n419 420\n420 421\n421 422\n422 423\n423 424\n424 425\n425 426\n426 427\n427 428\n428 429\n429 430\n430 431\n431 432\n432 433\n433 434\n434 435\n435 436\n436 437\n437 438\n438 439\n439 440\n440 441\n441 442\n442 443\n443 444\n444 445\n445 446\n446 447\n447 448\n448 449\n449 450\n450 451\n451 452\n452 453\n453 454\n454 455\n455 456\n456 457\n457 458\n458 459\n459 460\n460 461\n461 462\n462 463\n463 464\n464 465\n465 466\n466 467\n467 468\n468 469\n469 470\n470 471\n471 472\n472 473\n473 474\n474 475\n475 476\n476 477\n477 478\n478 479\n479 480\n480 481\n481 482\n482 483\n483 484\n484 485\n485 486\n486 487\n487 488\n488 489\n489 490\n490 491\n491 492\n492 493\n493 494\n494 495\n495 496\n496 497\n497 498\n498 499\n499 500\n500 501\n501 502\n502 503\n503 504\n504 505\n505 506\n506 507\n507 508\n508 509\n509 510\n510 511\n511 512\n512 513\n513 514\n514 515\n515 516\n516 517\n517 518\n518 519\n519 520\n520 521\n521 522\n522 523\n523 524\n524 525\n525 526\n526 527\n527 528\n528 529\n529 530\n530 531\n531 532\n532 533\n533 534\n534 535\n535 536\n536 537\n537 538\n538 539\n539 540\n540 541\n541 542\n542 543\n543 544\n544 545\n545 546\n546 547\n547 548\n548 549\n549 550\n550 551\n551 552\n552 553\n553 554\n554 555\n555 556\n556 557\n557 558\n558 559\n559 560\n560 561\n561 562\n562 563\n563 564\n564 565\n565 566\n566 567\n567 568\n568 569\n569 570\n570 571\n571 572\n572 573\n573 574\n574 575\n575 576\n576 577\n577 578\n578 579\n579 580\n580 581\n581 582\n582 583\n583 584\n584 585\n585 586\n586 587\n587 588\n588 589\n589 590\n590 591\n591 592\n592 593\n593 594\n594 595\n595 596\n596 597\n597 598\n598 599\n599 600\n",
+          "expectedOutput": "599\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-179",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n,m;cin>>n>>m;vector<vector<pair<int,int>>>g(n);for(int i=0;i<m;i++){int u,v;cin>>u>>v;--u;--v;g[u].push_back({v,i});g[v].push_back({u,i});}vector<int>tin(n,-1),low(n);int tim=0,ans=0;function<void(int,int)>f=[&](int u,int pe){tin[u]=low[u]=tim++;for(auto[v,id]:g[u]){if(id==pe)continue;if(tin[v]<0){f(v,id);low[u]=min(low[u],low[v]);if(low[v]>tin[u])ans++;}else low[u]=min(low[u],tin[v]);}};for(int i=0;i<n;i++)if(tin[i]<0)f(i,-1);cout<<ans<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    sys.setrecursionlimit(5000);a=list(map(int,data.split()));n,m=a[:2];g=[[] for _ in range(n)]\n    for i in range(m):\n        u,v=a[2+2*i:4+2*i];u-=1;v-=1;g[u].append((v,i));g[v].append((u,i))\n    tin=[-1]*n;low=[0]*n;tim=ans=0\n    def f(u,pe):\n        nonlocal tim,ans\n        tin[u]=low[u]=tim;tim+=1\n        for v,id in g[u]:\n            if id==pe:continue\n            if tin[v]<0:\n                f(v,id);low[u]=min(low[u],low[v])\n                if low[v]>tin[u]:ans+=1\n            else:low[u]=min(low[u],tin[v])\n    for u in range(n):\n        if tin[u]<0:f(u,-1)\n    return ans\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

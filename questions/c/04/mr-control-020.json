@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-020",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "02 条件与状态判断",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 020 · 条件运算符只求值选中项",
+    "description": "分别独立执行下列表达式，开始时均有 int d=0;。哪些表达式没有整数除零，且结果为5？（多选）\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "02 条件与状态判断",
+      "选择性求值"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_other.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "d==0 ? 5 : 10/d",
+        "d!=0 ? 10/d : 5",
+        "d==0 ? 10/d : 5",
+        "d!=0 ? 5 : 10/d"
+      ],
+      "answers": [
+        "0",
+        "1"
+      ],
+      "explanation": "条件运算符只求值被选择的第二或第三操作数。A、B在d=0时都选择常量5；C、D会选择10/d，发生除零。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_other.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-020",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "02 条件与状态判断",
+    "oracleNotes": "独立复核C11语义；verify_basic.py用单独的答案表和可执行C语义探针检查。"
+  }
+}

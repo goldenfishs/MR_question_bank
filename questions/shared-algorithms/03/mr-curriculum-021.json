@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-021",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "02 分支判断",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 021 · 三角形边长分类",
+    "description": "给定三条候选边，先判断能否构成面积大于 0 的三角形；能构成时按边长分类。\n输入：一行 a b c，1 ≤ a,b,c ≤ 10^9。\n输出：不能构成输出 INVALID；三边相等输出 EQUILATERAL；恰有两边相等输出 ISOSCELES；其余输出 SCALENE。\n\n示例 1 输入\n3 4 5\n示例 1 输出\nSCALENE\n\n\n示例 2 输入\n1 2 3\n示例 2 输出\nINVALID\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "02 分支判断",
+      "分支优先级"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 4 5\n",
+          "expectedOutput": "SCALENE\n",
+          "hidden": false
+        },
+        {
+          "input": "1 2 3\n",
+          "expectedOutput": "INVALID\n",
+          "hidden": false
+        },
+        {
+          "input": "7 7 7\n",
+          "expectedOutput": "EQUILATERAL\n",
+          "hidden": true
+        },
+        {
+          "input": "3 3 5\n",
+          "expectedOutput": "ISOSCELES\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1 3\n",
+          "expectedOutput": "INVALID\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 1000000000 1\n",
+          "expectedOutput": "ISOSCELES\n",
+          "hidden": true
+        },
+        {
+          "input": "2 3 2\n",
+          "expectedOutput": "ISOSCELES\n",
+          "hidden": true
+        },
+        {
+          "input": "2 4 3\n",
+          "expectedOutput": "SCALENE\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-021",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long a,b,c;cin>>a>>b>>c;if(a+b<=c||a+c<=b||b+c<=a)cout<<\"INVALID\";else if(a==b&&b==c)cout<<\"EQUILATERAL\";else if(a==b||a==c||b==c)cout<<\"ISOSCELES\";else cout<<\"SCALENE\";cout<<\"\\n\";\n}\n",
+    "pythonReference": "a,b,c=map(int,input().split())\nif a+b<=c or a+c<=b or b+c<=a:print(\"INVALID\")\nelif a==b==c:print(\"EQUILATERAL\")\nelif a==b or b==c or a==c:print(\"ISOSCELES\")\nelse:print(\"SCALENE\")\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

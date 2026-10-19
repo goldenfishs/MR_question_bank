@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-031",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 031 · 阶乘的连乘计算",
+    "description": "计算非负整数 n 的阶乘 n!，约定 0!=1。\n输入：一个整数 n，0 ≤ n ≤ 20。\n输出：n! 的十进制整数值，结果在有符号 64 位整数范围内。\n\n示例 1 输入\n5\n示例 1 输出\n120\n\n\n示例 2 输入\n0\n示例 2 输出\n1\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "循环累乘"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5\n",
+          "expectedOutput": "120\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "2\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "10\n",
+          "expectedOutput": "3628800\n",
+          "hidden": true
+        },
+        {
+          "input": "19\n",
+          "expectedOutput": "121645100408832000\n",
+          "hidden": true
+        },
+        {
+          "input": "20\n",
+          "expectedOutput": "2432902008176640000\n",
+          "hidden": true
+        },
+        {
+          "input": "7\n",
+          "expectedOutput": "5040\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-031",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;cin>>n;long long v=1;for(int i=2;i<=n;i++)v*=i;cout<<v<<\"\\n\";\n}\n",
+    "pythonReference": "n=int(input())\nv=1\nfor i in range(2,n+1):v*=i\nprint(v)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

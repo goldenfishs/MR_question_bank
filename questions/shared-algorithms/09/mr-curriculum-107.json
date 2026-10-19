@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-107",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "08 栈队列与集合",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 107 · 后缀算式求值",
+    "description": "按从左到右处理后缀表达式。遇整数入栈；遇 +、-、*，先弹出右操作数，再弹出左操作数，把计算结果入栈。合法表达式最后只留一个数。负整数如 -5 是一个记号。\n\n输入格式\n一行合法后缀表达式，各记号以空格分隔。\n数据范围与边界\n1～300 个记号，整数字面值 -100～100，每个中间结果绝对值 ≤ 10^15。\n输出格式\n表达式的整数值。\n\n示例 1 输入\n8 2 3 * -\n示例 1 输出\n2\n\n示例 2 输入\n-5 2 - 4 1 + *\n示例 2 输出\n-35\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "08 栈队列与集合",
+      "栈表达式"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "8 2 3 * -\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "-5 2 - 4 1 + *\n",
+          "expectedOutput": "-35\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "3 8 -\n",
+          "expectedOutput": "-5\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 +\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-100 100 *\n",
+          "expectedOutput": "-10000\n",
+          "hidden": true
+        },
+        {
+          "input": "20 3 - 4 -\n",
+          "expectedOutput": "13\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +\n",
+          "expectedOutput": "101\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-107",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nint main(){string t;vector<long long>s;while(cin>>t){if(t!=\"+\"&&t!=\"-\"&&t!=\"*\")s.push_back(stoll(t));else{long long b=s.back();s.pop_back();long long a=s.back();s.pop_back();s.push_back(t==\"+\"?a+b:t==\"-\"?a-b:a*b);}}cout<<s.back()<<'\\n';}\n",
+    "pythonReference": "import sys\ns=[]\nfor t in sys.stdin.read().split():\n    if t not in ['+','-','*']:s.append(int(t))\n    else:\n        b=s.pop();a=s.pop();s.append(a+b if t=='+' else a-b if t=='-' else a*b)\nprint(s[0])\n"
+  }
+}

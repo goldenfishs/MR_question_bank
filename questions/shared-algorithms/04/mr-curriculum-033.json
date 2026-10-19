@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-033",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 033 · 帕斯卡三角形指定行",
+    "description": "帕斯卡三角形第 0 行为 1；其后每行首尾为 1，中间每项等于上一行左上和右上两项之和。输出第 n 行，不取模。\n输入：一个整数 n，0 ≤ n ≤ 60。\n输出：一行 n+1 个整数，以一个空格隔开。所有值在有符号 64 位整数范围内。\n\n示例 1 输入\n4\n示例 1 输出\n1 4 6 4 1\n\n\n示例 2 输入\n0\n示例 2 输出\n1\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "从右向左原地递推"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4\n",
+          "expectedOutput": "1 4 6 4 1\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n",
+          "expectedOutput": "1 1\n",
+          "hidden": true
+        },
+        {
+          "input": "2\n",
+          "expectedOutput": "1 2 1\n",
+          "hidden": true
+        },
+        {
+          "input": "10\n",
+          "expectedOutput": "1 10 45 120 210 252 210 120 45 10 1\n",
+          "hidden": true
+        },
+        {
+          "input": "30\n",
+          "expectedOutput": "1 30 435 4060 27405 142506 593775 2035800 5852925 14307150 30045015 54627300 86493225 119759850 145422675 155117520 145422675 119759850 86493225 54627300 30045015 14307150 5852925 2035800 593775 142506 27405 4060 435 30 1\n",
+          "hidden": true
+        },
+        {
+          "input": "59\n",
+          "expectedOutput": "1 59 1711 32509 455126 5006386 45057474 341149446 2217471399 12565671261 62828356305 279871768995 1119487075980 4047376351620 13298522298180 39895566894540 109712808959985 277508869722315 647520696018735 1397281501935165 2794563003870330 5189902721473470 8964377427999630 14420954992868970 21631432489303455 30284005485024837 39602161018878633 48402641245296107 55317304280338408 59132290782430712 59132290782430712 55317304280338408 48402641245296107 39602161018878633 30284005485024837 21631432489303455 14420954992868970 8964377427999630 5189902721473470 2794563003870330 1397281501935165 647520696018735 277508869722315 109712808959985 39895566894540 13298522298180 4047376351620 1119487075980 279871768995 62828356305 12565671261 2217471399 341149446 45057474 5006386 455126 32509 1711 59 1\n",
+          "hidden": true
+        },
+        {
+          "input": "60\n",
+          "expectedOutput": "1 60 1770 34220 487635 5461512 50063860 386206920 2558620845 14783142660 75394027566 342700125300 1399358844975 5166863427600 17345898649800 53194089192720 149608375854525 387221678682300 925029565741050 2044802197953900 4191844505805495 7984465725343800 14154280149473100 23385332420868600 36052387482172425 51915437974328292 69886166503903470 88004802264174740 103719945525634515 114449595062769120 118264581564861424 114449595062769120 103719945525634515 88004802264174740 69886166503903470 51915437974328292 36052387482172425 23385332420868600 14154280149473100 7984465725343800 4191844505805495 2044802197953900 925029565741050 387221678682300 149608375854525 53194089192720 17345898649800 5166863427600 1399358844975 342700125300 75394027566 14783142660 2558620845 386206920 50063860 5461512 487635 34220 1770 60 1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-033",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;cin>>n;vector<long long>a(n+1);a[0]=1;for(int i=1;i<=n;i++)for(int j=i;j>=1;j--)a[j]+=a[j-1];for(int j=0;j<=n;j++){if(j)cout<<\" \";cout<<a[j];}cout<<\"\\n\";\n}\n",
+    "pythonReference": "n=int(input())\na=[1]+[0]*n\nfor i in range(1,n+1):\n for j in range(i,0,-1):a[j]+=a[j-1]\nprint(*a)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

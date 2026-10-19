@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-077",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "08 位运算与通信数据",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 077 · 不靠未定义行为做掩码",
+    "description": "本题明确假定 unsigned int 恰有32个值位且无填充位。下面哪些表达式在C11中有定义？（多选；只判断合法性，不执行其他表达式）\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "08 位运算与通信数据",
+      "移位约束"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "1u << 31",
+        "1u << 32",
+        "0x80000000u >> 31",
+        "1u << -1"
+      ],
+      "answers": [
+        "0",
+        "2"
+      ],
+      "explanation": "移位计数必须非负且严格小于提升后的左操作数位宽。无符号左移31合法并得到最高位，逻辑右移31也合法；计数32或-1不符合规则，不能用它们构造可移植掩码。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-077",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "08 位运算与通信数据",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "stm32",
+  "name": "STM32单片机题库",
+  "chapters": [
+    {
+      "order": 1,
+      "name": "STM32单片机基础",
+      "questions": [
+        "stm32-basic-001",
+        "stm32-basic-002",
+        "stm32-basic-003",
+        "stm32-basic-004",
+        "stm32-basic-005",
+        "stm32-basic-006",
+        "stm32-basic-007",
+        "stm32-basic-008"
+      ]
+    },
+    {
+      "order": 11,
+      "name": "09 时钟与GPIO实践",
+      "questions": [
+        "mr-control-081",
+        "mr-control-082",
+        "mr-control-083",
+        "mr-control-084",
+        "mr-control-085",
+        "mr-control-086",
+        "mr-control-087",
+        "mr-control-088",
+        "mr-control-089",
+        "mr-control-090"
+      ]
+    },
+    {
+      "order": 12,
+      "name": "10 中断与定时器应用",
+      "questions": [
+        "mr-control-091",
+        "mr-control-092",
+        "mr-control-093",
+        "mr-control-094",
+        "mr-control-095",
+        "mr-control-096",
+        "mr-control-097",
+        "mr-control-098",
+        "mr-control-099",
+        "mr-control-100"
+      ]
+    },
+    {
+      "order": 13,
+      "name": "11 采样与通信外设",
+      "questions": [
+        "mr-control-101",
+        "mr-control-102",
+        "mr-control-103",
+        "mr-control-104",
+        "mr-control-105",
+        "mr-control-106",
+        "mr-control-107",
+        "mr-control-108",
+        "mr-control-109",
+        "mr-control-110"
+      ]
+    },
+    {
+      "order": 14,
+      "name": "12 调试与可靠控制",
+      "questions": [
+        "mr-control-111",
+        "mr-control-112",
+        "mr-control-113",
+        "mr-control-114",
+        "mr-control-115",
+        "mr-control-116",
+        "mr-control-117",
+        "mr-control-118",
+        "mr-control-119",
+        "mr-control-120"
+      ]
+    }
+  ],
+  "includes": []
+}

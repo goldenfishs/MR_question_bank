@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-035",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 035 · 分解质因数及指数",
+    "description": "把 n 写为不同质数幂的乘积，按质数从小到大输出质数及其指数。\n输入：整数 n，1 ≤ n ≤ 10^9。\n输出：每个质因数一行，格式为“质数 指数”；n=1 时只输出一行 1。\n\n示例 1 输入\n72\n示例 1 输出\n2 3\n3 2\n\n\n示例 2 输入\n1\n示例 2 输出\n1\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "试除与重复整除"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "72\n",
+          "expectedOutput": "2 3\n3 2\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "2\n",
+          "expectedOutput": "2 1\n",
+          "hidden": true
+        },
+        {
+          "input": "999999937\n",
+          "expectedOutput": "999999937 1\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000\n",
+          "expectedOutput": "2 9\n5 9\n",
+          "hidden": true
+        },
+        {
+          "input": "49\n",
+          "expectedOutput": "7 2\n",
+          "hidden": true
+        },
+        {
+          "input": "210\n",
+          "expectedOutput": "2 1\n3 1\n5 1\n7 1\n",
+          "hidden": true
+        },
+        {
+          "input": "536870912\n",
+          "expectedOutput": "2 29\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-035",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long n;cin>>n;if(n==1){cout<<\"1\\n\";return 0;}for(long long p=2;p*p<=n;p++){int c=0;while(n%p==0){n/=p;c++;}if(c)cout<<p<<\" \"<<c<<\"\\n\";}if(n>1)cout<<n<<\" 1\\n\";\n}\n",
+    "pythonReference": "n=int(input())\nif n==1:print(1)\np=2\nwhile p*p<=n:\n c=0\n while n%p==0:n//=p;c+=1\n if c:print(p,c)\n p+=1\nif n>1:print(n,1)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

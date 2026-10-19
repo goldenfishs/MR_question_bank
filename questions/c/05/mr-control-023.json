@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-023",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "03 循环与数值处理",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 023 · 闭时间段内的周期事件",
+    "description": "周期事件在时刻0、P、2P、3P……发生。统计闭时间段[L,R]内的事件数量，两个端点也计入。\n输入：一行L R P，0≤L≤R≤10^12，R-L≤100000，1≤P≤10^9。\n输出：事件次数，一个整数。\n\n示例 1 输入\n17 43 6\n示例 1 输出\n5\n\n\n示例 2 输入\n12 30 9\n示例 2 输出\n2\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "03 循环与数值处理",
+      "整除筛选循环"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/for.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "17 43 6\n",
+          "expectedOutput": "5\n",
+          "hidden": false
+        },
+        {
+          "input": "12 30 9\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1 2\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000 1000000000000 1000000000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "999999900000 1000000000000 1\n",
+          "expectedOutput": "100001\n",
+          "hidden": true
+        },
+        {
+          "input": "20 30 10\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "0 100000 1000000000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/for.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-023",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "03 循环与数值处理",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long l,r,p;if(scanf(\"%lld%lld%lld\",&l,&r,&p)!=3)return 0;long long count=0;for(long long t=l;t<=r;t++)if(t%p==0)count++;printf(\"%lld\\n\",count);\nreturn 0;\n}\n",
+    "oracleNotes": "独立以floor(R/P)-floor((L-1)/P)计算，正确包含时刻0。"
+  }
+}

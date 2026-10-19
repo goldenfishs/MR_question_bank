@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-basic-001",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言基础",
+  "visibility": "public",
+  "task": {
+    "title": "变量声明与初始化",
+    "description": "要声明一个名为 count 的 int 变量并初始化为 0，哪一项语句正确？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "C语言基础",
+      "变量"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/declarations.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "int count = 0;",
+        "count int = 0;",
+        "int = count 0;",
+        "int count == 0;"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "声明语法为类型、变量名和可选的初始化器。== 是比较运算符，不能替代初始化中的 =。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/declarations.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-basic-001",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

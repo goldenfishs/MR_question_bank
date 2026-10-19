@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-038",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 038 · 指定数字出现次数",
+    "description": "统计非负整数 n 的规范十进制表示中数字 d 出现多少次。n=0 的表示就是一个字符 0。\n输入：一行 n d，0 ≤ n ≤ 10^18，0 ≤ d ≤ 9，n 没有多余前导零。\n输出：出现次数，一个整数。\n\n示例 1 输入\n10020 0\n示例 1 输出\n3\n\n\n示例 2 输入\n0 0\n示例 2 输出\n1\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "数位遍历与零特判"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "10020 0\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "0 7\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000000000 0\n",
+          "expectedOutput": "18\n",
+          "hidden": true
+        },
+        {
+          "input": "999999999999999999 9\n",
+          "expectedOutput": "18\n",
+          "hidden": true
+        },
+        {
+          "input": "12345 6\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "11111 1\n",
+          "expectedOutput": "5\n",
+          "hidden": true
+        },
+        {
+          "input": "1010101 1\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-038",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long n;int d;cin>>n>>d;int c=0;do{c+=(n%10==d);n/=10;}while(n);cout<<c<<\"\\n\";\n}\n",
+    "pythonReference": "n,d=map(int,input().split())\nc=0\nif n==0:c=int(d==0)\nwhile n>0:\n c+=n%10==d\n n//=10\nprint(c)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-advanced-005",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言进阶",
+  "visibility": "public",
+  "task": {
+    "title": "C 字符串的终止符",
+    "description": "声明 char name[] = \"MOVE\";，该数组包含几个 char 元素？",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "C语言进阶",
+      "字符串"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/string_literal.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "由 strlen(name) 决定"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "字符串字面量初始化数组时还包含末尾的空字符 \\0，总共 5 个元素。strlen 不计终止空字符，所以字符串长度为 4。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/string_literal.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-advanced-005",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

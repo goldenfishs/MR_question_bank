@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-113",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "12 调试与可靠控制",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 113 · 断点暂停时定时器是否暂停",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n控制程序在断点暂停时，发现TIM2仍计数。希望调试期间CPU halt时冻结TIM2，而CPU继续运行后恢复。应使用哪项机制？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "12 调试与可靠控制",
+      "DBGMCU冻结"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "配置DBGMCU_CR中的DBG_TIM2_STOP",
+        "只在源文件添加volatile",
+        "改变TIM2的GPIO复用映射",
+        "关闭所有Flash预取即可自动冻结TIM2"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "DBGMCU为部分外设提供CPU调试暂停时的冻结控制，TIM2对应DBG_TIM2_STOP。CPU被断点暂停不意味着所有外设天然停下；实际板级驱动仍需安全措施，因为冻结PWM/计数也可能保持某个输出状态。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-113",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "12 调试与可靠控制",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第1101页，31.16.2 Debug support for timers，核查关键词“timers”；RM0008 Rev 21, February 2021，第1110页，31.18 DBGMCU_CR map，核查关键词“DBG_TIM2_STOP”。适用限制：只考核TIM2调试冻结位；不保证所有外设或外部执行器随CPU halt进入安全态。"
+  }
+}

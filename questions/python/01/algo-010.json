@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-010",
+  "revision": 1,
+  "subject": "python",
+  "chapter": "基础语法",
+  "visibility": "public",
+  "task": {
+    "title": "Python：列表切片",
+    "description": "Python 3 中 [10, 20, 30, 40, 50][1:4:2] 的结果是？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "Python",
+      "列表"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/introduction.html#lists",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "[10, 30]",
+        "[20, 40]",
+        "[20, 30, 40]",
+        "[20, 40, 50]"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "切片取下标1到4之前、步长为2，即下标1和3。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/introduction.html#lists"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-010",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

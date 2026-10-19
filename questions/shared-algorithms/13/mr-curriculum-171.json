@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-171",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "12 图论与综合应用",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 171 · 所有站点间的查询",
+    "description": "有向图边权非负，回答 q 次从 u 到 v 的最小费用查询。顶点到自身可不经过边，距离为 0。允许重边与自环。\n\n输入格式\n第一行 n m q；随后 m 行 u v w；随后 q 行 u v。顶点编号 1 到 n。\n范围与边界\n1≤n≤160；0≤m≤20000；1≤q≤100000；0≤w≤10^9。\n输出格式\n每次查询输出一行距离，不可达为 −1。\n\n示例 1 输入\n4 5 4\n1 2 7\n1 2 3\n2 3 1\n3 4 2\n1 4 20\n1 4\n4 1\n2 2\n1 3\n示例 1 输出\n6\n-1\n0\n4\n\n\n示例 2 输入\n2 2 2\n2 1 12\n1 1 3\n1 1\n1 2\n示例 2 输出\n0\n-1\n\n建议复杂度：O(n³+q)。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "12 图论与综合应用",
+      "Floyd最短路"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4 5 4\n1 2 7\n1 2 3\n2 3 1\n3 4 2\n1 4 20\n1 4\n4 1\n2 2\n1 3\n",
+          "expectedOutput": "6\n-1\n0\n4\n",
+          "hidden": false
+        },
+        {
+          "input": "2 2 2\n2 1 12\n1 1 3\n1 1\n1 2\n",
+          "expectedOutput": "0\n-1\n",
+          "hidden": false
+        },
+        {
+          "input": "3 3 3\n1 3 8\n3 1 7\n3 2 4\n3 2\n1 1\n1 1\n",
+          "expectedOutput": "4\n0\n0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4 4\n4 2 10\n4 1 9\n2 2 5\n4 4 5\n3 4\n4 4\n2 2\n1 2\n",
+          "expectedOutput": "-1\n0\n0\n-1\n",
+          "hidden": true
+        },
+        {
+          "input": "5 5 5\n1 2 8\n1 1 7\n3 5 2\n1 4 6\n5 3 4\n5 4\n1 4\n5 4\n4 1\n3 3\n",
+          "expectedOutput": "-1\n6\n-1\n-1\n0\n",
+          "hidden": true
+        },
+        {
+          "input": "6 6 6\n3 1 1\n1 2 11\n6 3 3\n2 3 1\n4 3 6\n4 4 2\n6 6\n5 2\n3 6\n2 6\n3 5\n2 6\n",
+          "expectedOutput": "0\n-1\n-1\n-1\n-1\n-1\n",
+          "hidden": true
+        },
+        {
+          "input": "7 7 7\n5 5 5\n2 4 3\n3 6 11\n4 4 1\n4 7 1\n1 3 2\n2 1 1\n7 5\n3 2\n3 1\n7 7\n5 4\n1 4\n1 4\n",
+          "expectedOutput": "-1\n-1\n-1\n0\n-1\n-1\n-1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 8 8\n1 1 3\n1 1 2\n1 1 8\n1 1 6\n1 1 0\n1 1 12\n1 1 3\n1 1 7\n1 1\n1 1\n1 1\n1 1\n1 1\n1 1\n1 1\n1 1\n",
+          "expectedOutput": "0\n0\n0\n0\n0\n0\n0\n0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4 4\n3 2 5\n2 3 7\n3 1 0\n4 2 7\n1 4\n3 3\n4 3\n4 2\n",
+          "expectedOutput": "-1\n0\n14\n7\n",
+          "hidden": true
+        },
+        {
+          "input": "160 159 3\n1 2 1000000000\n2 3 1000000000\n3 4 1000000000\n4 5 1000000000\n5 6 1000000000\n6 7 1000000000\n7 8 1000000000\n8 9 1000000000\n9 10 1000000000\n10 11 1000000000\n11 12 1000000000\n12 13 1000000000\n13 14 1000000000\n14 15 1000000000\n15 16 1000000000\n16 17 1000000000\n17 18 1000000000\n18 19 1000000000\n19 20 1000000000\n20 21 1000000000\n21 22 1000000000\n22 23 1000000000\n23 24 1000000000\n24 25 1000000000\n25 26 1000000000\n26 27 1000000000\n27 28 1000000000\n28 29 1000000000\n29 30 1000000000\n30 31 1000000000\n31 32 1000000000\n32 33 1000000000\n33 34 1000000000\n34 35 1000000000\n35 36 1000000000\n36 37 1000000000\n37 38 1000000000\n38 39 1000000000\n39 40 1000000000\n40 41 1000000000\n41 42 1000000000\n42 43 1000000000\n43 44 1000000000\n44 45 1000000000\n45 46 1000000000\n46 47 1000000000\n47 48 1000000000\n48 49 1000000000\n49 50 1000000000\n50 51 1000000000\n51 52 1000000000\n52 53 1000000000\n53 54 1000000000\n54 55 1000000000\n55 56 1000000000\n56 57 1000000000\n57 58 1000000000\n58 59 1000000000\n59 60 1000000000\n60 61 1000000000\n61 62 1000000000\n62 63 1000000000\n63 64 1000000000\n64 65 1000000000\n65 66 1000000000\n66 67 1000000000\n67 68 1000000000\n68 69 1000000000\n69 70 1000000000\n70 71 1000000000\n71 72 1000000000\n72 73 1000000000\n73 74 1000000000\n74 75 1000000000\n75 76 1000000000\n76 77 1000000000\n77 78 1000000000\n78 79 1000000000\n79 80 1000000000\n80 81 1000000000\n81 82 1000000000\n82 83 1000000000\n83 84 1000000000\n84 85 1000000000\n85 86 1000000000\n86 87 1000000000\n87 88 1000000000\n88 89 1000000000\n89 90 1000000000\n90 91 1000000000\n91 92 1000000000\n92 93 1000000000\n93 94 1000000000\n94 95 1000000000\n95 96 1000000000\n96 97 1000000000\n97 98 1000000000\n98 99 1000000000\n99 100 1000000000\n100 101 1000000000\n101 102 1000000000\n102 103 1000000000\n103 104 1000000000\n104 105 1000000000\n105 106 1000000000\n106 107 1000000000\n107 108 1000000000\n108 109 1000000000\n109 110 1000000000\n110 111 1000000000\n111 112 1000000000\n112 113 1000000000\n113 114 1000000000\n114 115 1000000000\n115 116 1000000000\n116 117 1000000000\n117 118 1000000000\n118 119 1000000000\n119 120 1000000000\n120 121 1000000000\n121 122 1000000000\n122 123 1000000000\n123 124 1000000000\n124 125 1000000000\n125 126 1000000000\n126 127 1000000000\n127 128 1000000000\n128 129 1000000000\n129 130 1000000000\n130 131 1000000000\n131 132 1000000000\n132 133 1000000000\n133 134 1000000000\n134 135 1000000000\n135 136 1000000000\n136 137 1000000000\n137 138 1000000000\n138 139 1000000000\n139 140 1000000000\n140 141 1000000000\n141 142 1000000000\n142 143 1000000000\n143 144 1000000000\n144 145 1000000000\n145 146 1000000000\n146 147 1000000000\n147 148 1000000000\n148 149 1000000000\n149 150 1000000000\n150 151 1000000000\n151 152 1000000000\n152 153 1000000000\n153 154 1000000000\n154 155 1000000000\n155 156 1000000000\n156 157 1000000000\n157 158 1000000000\n158 159 1000000000\n159 160 1000000000\n1 160\n160 1\n30 30\n",
+          "expectedOutput": "159000000000\n-1\n0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-171",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n,m,q;cin>>n>>m>>q;ll INF=4000000000000000000LL;vector<vector<ll>>d(n,vector<ll>(n,INF));for(int i=0;i<n;i++)d[i][i]=0;while(m--){int u,v;ll w;cin>>u>>v>>w;--u;--v;d[u][v]=min(d[u][v],w);}for(int k=0;k<n;k++)for(int i=0;i<n;i++)if(d[i][k]<INF)for(int j=0;j<n;j++)if(d[k][j]<INF)d[i][j]=min(d[i][j],d[i][k]+d[k][j]);while(q--){int u,v;cin>>u>>v;ll x=d[u-1][v-1];cout<<(x==INF?-1:x)<<'\\n';}\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    a=list(map(int,data.split()));n,m,q=a[:3];inf=10**30;d=[[inf]*n for _ in range(n)]\n    for i in range(n):d[i][i]=0\n    for i in range(m):\n        u,v,w=a[3+3*i:6+3*i];d[u-1][v-1]=min(d[u-1][v-1],w)\n    for k in range(n):\n        dk=d[k]\n        for i in range(n):\n            di=d[i];x=di[k]\n            if x==inf:continue\n            for j in range(n):\n                if x+dk[j]<di[j]:di[j]=x+dk[j]\n    ans=[]\n    for i in range(q):\n        u,v=a[3+3*m+2*i:5+3*m+2*i];x=d[u-1][v-1];ans.append(-1 if x==inf else x)\n    return '\\n'.join(map(str,ans))\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

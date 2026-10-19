@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-070",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "07 结构体与内存",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 070 · 具有明确所有权的缓冲",
+    "description": "一个函数希望返回供调用者稍后使用的字节缓冲。哪些设计在妥善检查容量和分配结果的前提下可成立？（多选）\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "07 结构体与内存",
+      "生命周期与释放"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/lifetime.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "调用者传入仍有效的缓冲与容量，函数写入后返回结果长度。",
+        "函数malloc分配，成功后返回指针，并约定调用者最终free一次。",
+        "返回函数内普通局部数组的首元素地址，依赖该局部数组在函数返回后继续有效。",
+        "返回指向静态数组的指针，并明确它不由调用者free且可能被后续调用覆盖。"
+      ],
+      "answers": [
+        "0",
+        "1",
+        "3"
+      ],
+      "explanation": "调用者缓冲、堆上转移所有权、静态存储缓冲是不同的有效接口设计。普通局部数组在函数返回时结束生存期，不能把其地址作为返回后可用的数据。静态数组不是malloc分配块，不能交给free。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/lifetime.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-070",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "07 结构体与内存",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

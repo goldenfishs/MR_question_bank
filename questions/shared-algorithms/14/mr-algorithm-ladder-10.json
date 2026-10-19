@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-10",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "状态字：按位查询开关",
+    "description": "设备用非负整数 mask 的二进制位记录开关状态。最低位编号为 0。回答若干位是否为 1。\n输入：第一行 mask q（0 ≤ mask ≤ 2147483647，1 ≤ q ≤ 100），第二行 q 个位编号，每个编号为 0～30。\n输出：一行 q 个 0 或 1，依次表示相应位的状态，以空格隔开。\n\n示例输入：\n13 4\n0 1 2 3\n示例输出：\n1 0 1 1\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第二阶段·数组与容器",
+      "函数与位运算",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "13 4\n0 1 2 3\n",
+          "expectedOutput": "1 0 1 1\n",
+          "hidden": false
+        },
+        {
+          "input": "0 3\n0 15 30\n",
+          "expectedOutput": "0 0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "2147483647 3\n0 16 30\n",
+          "expectedOutput": "1 1 1\n",
+          "hidden": true
+        },
+        {
+          "input": "1073741824 3\n29 30 0\n",
+          "expectedOutput": "0 1 0\n",
+          "hidden": true
+        },
+        {
+          "input": "2 4\n1 1 0 2\n",
+          "expectedOutput": "1 1 0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "10 4\n0 1 2 3\n",
+          "expectedOutput": "0 1 0 1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-10",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\nusing namespace std;\nint main(){unsigned long long m;int q,b;cin>>m>>q;for(int i=0;i<q;i++){cin>>b;if(i)cout<<' ';cout<<((m>>b)&1ULL);}cout<<endl;}\n",
+    "pythonReference": "import sys\nv=list(map(int,sys.stdin.read().split()));m,q=v[:2]\nprint(*(m//(2**b)%2 for b in v[2:]))\n"
+  }
+}

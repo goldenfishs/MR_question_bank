@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "algorithm-progressive-22-lis",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "算法阶梯 22 · 稳定上升的信号",
+    "description": "机器人依次记录 n 个整数信号值。选择一些位置，保持原来的先后顺序，使所选数值严格递增，求最多能选择多少个。位置不必连续，相等值不能构成严格递增。\n\n输入格式\n第一行 n，第二行 n 个整数 a_i；n 为 0 时第二行可省略。\n范围：0 ≤ n ≤ 2000，-10^9 ≤ a_i ≤ 10^9。\n输出格式\n最长严格上升子序列的长度。\n\n示例 1 输入\n8\n4 1 5 2 6 3 7 7\n示例 1 输出\n4\n说明：1、2、3、7 是长度 4 的子序列。\n示例 2 输入\n4\n5 5 5 5\n示例 2 输出\n1\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3。\n原创说明：题面、样例和测试数据由本站围绕机器人训练独立编写。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "tags": [
+      "算法阶梯",
+      "第四阶段·动态规划",
+      "动态规划",
+      "二分",
+      "最长上升子序列"
+    ],
+    "required": false,
+    "fileIds": [],
+    "team": "",
+    "dueAt": "",
+    "resourcesUrl": "",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "8\n4 1 5 2 6 3 7 7\n",
+          "expectedOutput": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "4\n5 5 5 5\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1\n-1000000000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "6\n6 5 4 3 2 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "6\n-3 -2 -1 0 1 2\n",
+          "expectedOutput": "6\n",
+          "hidden": true
+        },
+        {
+          "input": "7\n3 1 2 2 4 3 5\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "6\n1000000000 -1000000000 0 -1 1 2\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-advanced.json",
+    "key": "algorithm-progressive-22-lis",
+    "fileSha256": "3926a35202e5fc8211cb6d21421170a7ff4eb4644b74088f33b78f29686d75fd"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <functional>\n#include <utility>\nusing namespace std;\nint main(){int n;cin>>n;vector<long long>tails;for(int i=0;i<n;++i){long long x;cin>>x;auto p=lower_bound(tails.begin(),tails.end(),x);if(p==tails.end())tails.push_back(x);else *p=x;}cout<<tails.size()<<'\\n';}\n",
+    "pythonReference": "import sys\nfrom bisect import bisect_left\na=list(map(int,sys.stdin.buffer.read().split()))\ntails=[]\nfor value in a[1:]:\n    pos=bisect_left(tails,value)\n    if pos==len(tails):\n        tails.append(value)\n    else:\n        tails[pos]=value\nprint(len(tails))\n"
+  }
+}

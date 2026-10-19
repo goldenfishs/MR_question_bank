@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-086",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "09 时钟与GPIO实践",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 086 · 定时器重映射与调试脚冲突",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n准备把 TIM2_CH1、TIM2_CH2 分别放到 PA15、PB3，同时保留 PA13/PA14 的SWD调试。按 RM0008 的 TIM2_REMAP=01 映射，应完成哪些配置？假定GPIO与TIM2本身配置另外完成。\n\n作答约定：选择所有正确项；至少两项正确。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "09 时钟与GPIO实践",
+      "AFIO复用映射"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "使能AFIO时钟，并把 TIM2_REMAP 配为01",
+        "保留复位默认的完整JTAG，无须考虑PA15/PB3占用",
+        "选择关闭JTAG-DP但保留SW-DP的SWJ配置",
+        "把全部SWJ都禁用才可能保留SWD"
+      ],
+      "answers": [
+        "0",
+        "2"
+      ],
+      "explanation": "TIM2_REMAP=01把CH1/CH2映射到PA15/PB3，这两个脚默认与JTAG信号复用。关闭JTAG而保留SWD可释放它们并保留PA13/PA14调试；完全关闭SWJ反而失去SWD。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-086",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "09 时钟与GPIO实践",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第179页，9.3.7 TIM2 alternate function remapping，核查关键词“TIM2_CH1_ETR”；RM0008 Rev 21, February 2021，第184页，9.4.2 AFIO_MAPR SWJ_CFG，核查关键词“JTAG-DP Disabled”。适用限制：仅对应F103C8封装可用脚和RM0008的TIM2_REMAP=01，不套用其他型号AFR寄存器。"
+  }
+}

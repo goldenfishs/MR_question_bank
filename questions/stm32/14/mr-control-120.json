@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-120",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "12 调试与可靠控制",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 120 · 外部时钟故障后的安全处置",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n系统原来使用HSE驱动PLL作为SYSCLK，已启用CSS。现在CSS检测到HSE故障。按本型号机制，下列哪些说法正确？\n\n作答约定：选择所有正确项；至少两项正确。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "挑战",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "12 调试与可靠控制",
+      "CSS与时钟失效"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "硬件可切到HSI并关闭失效HSE及所用PLL，软件应重新核对控制时基与安全输出",
+        "CSS故障通过NMI通知，处理时应向RCC_CIR.CSSC写1以清除CSS故障标志，否则可能持续进入NMI",
+        "所有依赖时钟的PWM、串口和采样周期都保证完全不变，软件无需处置",
+        "清除普通NVIC的某个IRQ使能位，就保证屏蔽CSS产生的NMI"
+      ],
+      "answers": [
+        "0",
+        "1"
+      ],
+      "explanation": "RM0008规定CSS故障能触发NMI；若HSE直接/间接作为SYSCLK，硬件切到HSI，HSE及相应PLL关闭。软件需向RCC_CIR.CSSC写1来清除CSS故障标志，并评估时钟改变对控制和通信的影响；NMI不靠普通IRQ使能位屏蔽。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-120",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "12 调试与可靠控制",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第97页，7.2.7 Clock security system，核查关键词“CSSC”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

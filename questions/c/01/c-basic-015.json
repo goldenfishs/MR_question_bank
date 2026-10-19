@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "c-basic-015",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言基础",
+  "visibility": "public",
+  "task": {
+    "title": "编程：两次采样求和",
+    "description": "输入：一行两个整数 a、b，满足 -10000≤a,b≤10000。\n输出：它们的和，并换行。\n示例输入：\n12 -5\n示例输出：\n7\n\n使用 C 语言，通过标准输入读入，向标准输出写结果。不要输出输入提示或其他文字。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "C语言基础",
+      "输入输出"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/io/fscanf.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "12 -5\n",
+          "expectedOutput": "7\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-10000 -10000\n",
+          "expectedOutput": "-20000\n",
+          "hidden": true
+        },
+        {
+          "input": "10000 10000\n",
+          "expectedOutput": "20000\n",
+          "hidden": true
+        },
+        {
+          "input": "-3 8\n",
+          "expectedOutput": "5\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/io/fscanf.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-basic-015",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-084",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "06 函数与递归",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 084 · 目标和的选择方法",
+    "description": "从 n 个位置各选或不选一次，使所选数之和恰为 T。不同位置的选择视为不同方案，即使数值相同。空选择的和为 0。\n\n输入格式\n第一行 n T；第二行 n 个整数，n=0 可省略。\n数据范围与边界\n0 ≤ n ≤ 20；-10^6 ≤ T,a_i ≤ 10^6；答案不取余。\n输出格式\n满足条件的选择方案数。\n\n示例 1 输入\n3 3\n1 2 3\n示例 1 输出\n2\n\n示例 2 输入\n3 0\n0 0 0\n示例 2 输出\n8\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。本章用于练习函数与递归，但判题仅检查输入输出结果，不强制使用函数、递归或任何特定语法。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "06 函数与递归",
+      "子集枚举"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 3\n1 2 3\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "3 0\n0 0 0\n",
+          "expectedOutput": "8\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "0 1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 0\n-1 1 -2 2\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "1 7\n7\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "20 0\n0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \n",
+          "expectedOutput": "1048576\n",
+          "hidden": true
+        },
+        {
+          "input": "3 1000000\n-1000000 1000000 1000000\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-084",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nvector<long long>a;long long target;long long dfs(int i,long long s){if(i==(int)a.size())return s==target;return dfs(i+1,s)+dfs(i+1,s+a[i]);}int main(){int n;cin>>n>>target;a.resize(n);for(auto&x:a)cin>>x;cout<<dfs(0,0)<<'\\n';}\n",
+    "pythonReference": "n,t=map(int,input().split());a=list(map(int,input().split())) if n else []\ndef count(i,total):\n    if i==n:return int(total==t)\n    return count(i+1,total)+count(i+1,total+a[i])\nprint(count(0,0))\n"
+  }
+}

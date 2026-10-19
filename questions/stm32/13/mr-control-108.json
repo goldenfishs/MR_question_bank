@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-108",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "11 采样与通信外设",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 108 · 地址事件为何一直保持",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nI2C已经完成地址阶段，I2C_SR1.ADDR=1。根据F103的I2C寄存器规则，要确认并清除ADDR事件应怎样读寄存器？不涉及其他接收末字节时序。\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "11 采样与通信外设",
+      "I2C ADDR清除"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "读SR1后再读SR2",
+        "读SR2后再读SR1",
+        "只把SR1.ADDR写1",
+        "只读DR"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "ADDR的规定清除序列是读SR1后读SR2（或关闭PE由硬件清除）。状态寄存器读取在这里具有副作用，因此调试器/驱动应留意读取顺序。题目不把这一步替代整个I2C收发状态机。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-108",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "11 采样与通信外设",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第780页，26.6.6 I2C_SR1 ADDR，核查关键词“reading SR1 register followed reading SR2”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

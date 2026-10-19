@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "algorithm-progressive-21-coin-combinations",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "算法阶梯 21 · 能量券组合",
+    "description": "基地有 n 种能量券，面值互不相同，每种数量不限。需要恰好凑出总面值 S。方案由各面值的使用张数决定，选择顺序不同不算新方案。求方案数，对 1000000007 取余。S 为 0 时不选任何券是一种方案。\n\n输入格式\n第一行 n、S，第二行 n 个互不相同的整数 d_i；n 为 0 时第二行可省略。\n范围：0 ≤ n ≤ 50，0 ≤ S ≤ 5000，1 ≤ d_i ≤ 5000。\n输出格式\n组合数对 1000000007 取余后的结果。\n\n示例 1 输入\n3 6\n1 3 4\n示例 1 输出\n4\n说明：六张 1；三张 1 加一张 3；两张 3；两张 1 加一张 4。\n示例 2 输入\n2 3\n1 2\n示例 2 输出\n2\n说明：1+2 与 2+1 只算同一种组合。\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3。\n原创说明：题面、样例和测试数据由本站围绕机器人训练独立编写。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "tags": [
+      "算法阶梯",
+      "第四阶段·动态规划",
+      "动态规划",
+      "组合计数",
+      "完全背包"
+    ],
+    "required": false,
+    "fileIds": [],
+    "team": "",
+    "dueAt": "",
+    "resourcesUrl": "",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 6\n1 3 4\n",
+          "expectedOutput": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "2 3\n1 2\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "0 9\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "3 7\n2 4 6\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1 10\n5\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "3 10\n5 2 1\n",
+          "expectedOutput": "10\n",
+          "hidden": true
+        },
+        {
+          "input": "20 400\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20\n",
+          "expectedOutput": "96550398\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-advanced.json",
+    "key": "algorithm-progressive-21-coin-combinations",
+    "fileSha256": "3926a35202e5fc8211cb6d21421170a7ff4eb4644b74088f33b78f29686d75fd"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <functional>\n#include <utility>\nusing namespace std;\nint main(){int n,S;cin>>n>>S;vector<long long>dp(S+1);dp[0]=1;for(int i=0;i<n;++i){int d;cin>>d;for(int s=d;s<=S;++s)dp[s]=(dp[s]+dp[s-d])%1000000007;}cout<<dp[S]<<'\\n';}\n",
+    "pythonReference": "import sys\na=list(map(int,sys.stdin.buffer.read().split()))\nn,target=a[:2]\ndp=[0]*(target+1)\ndp[0]=1\nfor denomination in a[2:]:\n    for value in range(denomination,target+1):\n        dp[value]=(dp[value]+dp[value-denomination])%1000000007\nprint(dp[target])\n"
+  }
+}

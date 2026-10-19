@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "stm32-basic-004",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "STM32单片机基础",
+  "visibility": "public",
+  "task": {
+    "title": "STM32F103 外部中断线映射",
+    "description": "在 STM32F103 上，PA0 与 PB0 对应 EXTI0。对于同一条 EXTI0 输入线，端口来源如何选择？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "STM32单片机基础",
+      "EXTI"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "PA0 与 PB0 可以同时作为两个独立 EXTI0 输入来源",
+        "通过 AFIO_EXTICR 选择一个端口的引脚 0",
+        "由 UART 波特率寄存器选择",
+        "只能固定为 PA0，不能改为 PB0"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "AFIO_EXTICR 选择各条 EXTI 线对应的 GPIO 端口；同一条 EXTI0 一次只能映射一个来源。使用 AFIO 还需启用其时钟。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "stm32-basic-004",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

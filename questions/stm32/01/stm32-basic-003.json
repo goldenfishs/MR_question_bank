@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "stm32-basic-003",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "STM32单片机基础",
+  "visibility": "public",
+  "task": {
+    "title": "STM32F103 BSRR 的用途",
+    "description": "STM32F103 GPIOx_BSRR 的低 16 位与高 16 位分别用于什么？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "STM32单片机基础",
+      "GPIO"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "低 16 位复位，高 16 位置位",
+        "低 16 位置位，高 16 位复位",
+        "低 16 位读取，高 16 位输入配置",
+        "都用于切换输入模式"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "向 BSRR 的 BS 位写 1 设置对应 ODR 位，向 BR 位写 1 复位对应位，可避免对 ODR 进行软件读改写。此题不同时置位和复位同一引脚。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "stm32-basic-003",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

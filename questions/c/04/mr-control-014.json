@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-014",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "02 条件与状态判断",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 014 · 两档位中选择最近值",
+    "description": "可输出档位只有a和b，a<b。给定期望x，选与x绝对差更小的档位；距离相同选a。x可能位于两档位区间外。\n输入：一行x a b，各数在-10^12～10^12，a<b。\n输出：选中的档位值，不输出距离。\n\n示例 1 输入\n18 10 30\n示例 1 输出\n10\n\n\n示例 2 输入\n27 10 30\n示例 2 输出\n30\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "02 条件与状态判断",
+      "并列时取小值"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/if.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "18 10 30\n",
+          "expectedOutput": "10\n",
+          "hidden": false
+        },
+        {
+          "input": "27 10 30\n",
+          "expectedOutput": "30\n",
+          "hidden": false
+        },
+        {
+          "input": "20 10 30\n",
+          "expectedOutput": "10\n",
+          "hidden": true
+        },
+        {
+          "input": "-1000000000000 0 1000000000000\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000 -1000000000000 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-5 -10 0\n",
+          "expectedOutput": "-10\n",
+          "hidden": true
+        },
+        {
+          "input": "0 -1 2\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "7 8 9\n",
+          "expectedOutput": "8\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/if.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-014",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "02 条件与状态判断",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long x,a,b;if(scanf(\"%lld%lld%lld\",&x,&a,&b)!=3)return 0;long long da=llabs(x-a),db=llabs(x-b);printf(\"%lld\\n\",da<=db?a:b);\nreturn 0;\n}\n",
+    "oracleNotes": "独立按(绝对距离,档位值)排序，覆盖中点、负档位和区间外。"
+  }
+}

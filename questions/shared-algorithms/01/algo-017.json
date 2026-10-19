@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-017",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "算法：二分查找复杂度",
+    "description": "在有 n 个元素的有序随机访问数组上，二分查找最坏情况下需要的比较次数数量级是？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "算法",
+      "二分查找"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/search/binary_search.cpp",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "O(n²)",
+        "O(log n)",
+        "O(n log n)",
+        "O(n)"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "每轮排除约一半候选区间，至多进行对数级轮数。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/search/binary_search.cpp"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-017",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

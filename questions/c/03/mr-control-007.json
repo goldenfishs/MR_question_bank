@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-007",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 007 · 读入字符前跳过空白",
+    "description": "已经包含<stdio.h>，char c;。输入为三个空格、换行，再是字符R。哪一个调用能跳过前导空白并把R读入c？只考虑该次读取。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "01 输入输出与表达式",
+      "字符输入的空白规则"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/io/fscanf.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "scanf(\"%c\", &c);",
+        "scanf(\" %c\", &c);",
+        "c = getchar();",
+        "scanf(\"%1c\", &c);"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "格式串中的空白指令先消耗任意数量输入空白；%c自身不会跳过空白，%1c只限制读取宽度，也不会先跳过。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/io/fscanf.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-007",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "01 输入输出与表达式",
+    "oracleNotes": "独立复核C11语义；verify_basic.py用单独的答案表和可执行C语义探针检查。"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-090",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "06 函数与递归",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 090 · Z 形访问编号",
+    "description": "边长 2^p 的方格按如下顺序访问：左上、右上、左下、右下四个象限，各象限内部递归使用同样顺序；单格直接访问。行列均从 0 开始，求坐标 (r,c) 的访问编号，编号也从 0 开始。\n\n输入格式\n一行 p r c。\n数据范围与边界\n0 ≤ p ≤ 30；0 ≤ r,c < 2^p。p=0 时只有 (0,0)。\n输出格式\n访问编号。\n\n示例 1 输入\n2 1 2\n示例 1 输出\n6\n\n示例 2 输入\n0 0 0\n示例 2 输出\n0\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。本章用于练习函数与递归，但判题仅检查输入输出结果，不强制使用函数、递归或任何特定语法。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "06 函数与递归",
+      "递归坐标"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "2 1 2\n",
+          "expectedOutput": "6\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "1 1 0\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "2 3 3\n",
+          "expectedOutput": "15\n",
+          "hidden": true
+        },
+        {
+          "input": "30 1073741823 1073741823\n",
+          "expectedOutput": "1152921504606846975\n",
+          "hidden": true
+        },
+        {
+          "input": "30 0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "3 4 0\n",
+          "expectedOutput": "32\n",
+          "hidden": true
+        },
+        {
+          "input": "3 0 4\n",
+          "expectedOutput": "16\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-090",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nlong long visit(int p,long long r,long long c){if(!p)return 0;long long h=1LL<<(p-1),q=(r>=h?2:0)+(c>=h);return q*h*h+visit(p-1,r%h,c%h);}int main(){int p;long long r,c;cin>>p>>r>>c;cout<<visit(p,r,c)<<'\\n';}\n",
+    "pythonReference": "p,r,c=map(int,input().split())\ndef visit(p,r,c):\n    if p==0:return 0\n    h=1<<(p-1);q=2*(r>=h)+(c>=h)\n    return q*h*h+visit(p-1,r%h,c%h)\nprint(visit(p,r,c))\n"
+  }
+}

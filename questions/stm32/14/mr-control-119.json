@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-119",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "12 调试与可靠控制",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 119 · RS485驱动使能的释放时刻",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nUSART经DMA发送RS485。以本帧开始为t=0，已确认DMA完成发生在8微秒、USART的TC在20微秒置位。外部收发器的题设要求：TC之后DE仍至少保持高3微秒，然后才可拉低；忽略软件响应与GPIO传播延迟。最早可在多少微秒拉低DE？\n\n作答格式：填一个十进制整数，不写单位或其他文字。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "12 调试与可靠控制",
+      "线路发送完成时序"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "23"
+      ],
+      "explanation": "DMA完成只代表最后数据已交给外设，不代表停止位已离开线路。题设TC在20微秒，额外保持3微秒，因此最早20+3=23微秒。8微秒的DMA事件不作为释放DE的计时起点。3微秒是题设收发器要求，不是所有RS485芯片的统一参数。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-119",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "12 调试与可靠控制",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第818页，27.6.1 USART_SR TC，核查关键词“transmission of a frame”；RM0008 Rev 21, February 2021，第813页，27.3.10 USART DMA transmission，核查关键词“DMA”。适用限制：3微秒保持时间及事件时刻由题面给定；不把它们当作STM32或所有RS485收发器的规格。"
+  }
+}

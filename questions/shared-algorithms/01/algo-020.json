@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-020",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "算法：括号匹配的数据结构",
+    "description": "检查字符串中的 () [] {} 是否正确嵌套，哪种数据结构最直接？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "算法",
+      "栈"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "哈希集合",
+        "优先队列",
+        "栈",
+        "并查集"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "用栈保存尚未匹配的左括号；遇到右括号需匹配最近一个左括号。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-020",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

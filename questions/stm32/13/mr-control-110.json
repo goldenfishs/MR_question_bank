@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-110",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "11 采样与通信外设",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 110 · 等待ADC校准真正完成",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nADC已处于上电状态且满足手册要求的上电稳定时间，现在软件启动CAL校准。就“校准何时结束并适合开始正常转换”而言，以下哪项正确？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "11 采样与通信外设",
+      "ADC校准流程"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "设置CAL后无需等待，立即把首个转换结果当成已校准结果",
+        "等待CAL由硬件清零，再按正常流程启动转换",
+        "设置CAL会把校准结果永久烧入Flash，此后任何上电都不必校准",
+        "通过清DMA标志判断ADC校准结束"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "CAL由软件置位启动，校准完成后由硬件清零。手册建议每次上电进行校准；结果并非永久烧录。上电稳定、校准寄存器复位等初始化细节仍应按手册执行，不能用DMA事件代替。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-110",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "11 采样与通信外设",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第223页，11.4 Calibration，核查关键词“CAL bit is reset by hardware”。适用限制：已给定ADC上电稳定，单独考核CAL完成条件，不把本题描述当作完整初始化代码。"
+  }
+}

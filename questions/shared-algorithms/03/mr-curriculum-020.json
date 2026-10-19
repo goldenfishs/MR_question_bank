@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-020",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "02 分支判断",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 020 · 月份的天数",
+    "description": "给定公历年份和月份，输出该月天数，二月按闰年规则处理。\n输入：一行 y m，1 ≤ y ≤ 9999，1 ≤ m ≤ 12。\n输出：28、29、30 或 31 中的一个整数。\n\n示例 1 输入\n2024 2\n示例 1 输出\n29\n\n\n示例 2 输入\n1900 2\n示例 2 输出\n28\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "02 分支判断",
+      "查表与特殊月份"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "2024 2\n",
+          "expectedOutput": "29\n",
+          "hidden": false
+        },
+        {
+          "input": "1900 2\n",
+          "expectedOutput": "28\n",
+          "hidden": false
+        },
+        {
+          "input": "2000 2\n",
+          "expectedOutput": "29\n",
+          "hidden": true
+        },
+        {
+          "input": "2023 4\n",
+          "expectedOutput": "30\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1\n",
+          "expectedOutput": "31\n",
+          "hidden": true
+        },
+        {
+          "input": "9999 12\n",
+          "expectedOutput": "31\n",
+          "hidden": true
+        },
+        {
+          "input": "2023 9\n",
+          "expectedOutput": "30\n",
+          "hidden": true
+        },
+        {
+          "input": "2023 7\n",
+          "expectedOutput": "31\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-020",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint y,m;cin>>y>>m;int a[]={0,31,28,31,30,31,30,31,31,30,31,30,31};if(m==2&&(y%400==0||(y%4==0&&y%100!=0)))a[2]++;cout<<a[m]<<\"\\n\";\n}\n",
+    "pythonReference": "y,m=map(int,input().split())\na=[0,31,28,31,30,31,30,31,31,30,31,30,31]\nif y%400==0 or y%4==0 and y%100!=0:a[2]=29\nprint(a[m])\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

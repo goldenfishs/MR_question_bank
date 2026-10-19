@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-014",
+  "revision": 1,
+  "subject": "python",
+  "chapter": "基础语法",
+  "visibility": "public",
+  "task": {
+    "title": "Python：整除和余数",
+    "description": "Python 3 中 17 // 5 和 17 % 5 的结果依次是？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "Python",
+      "运算符"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/introduction.html#numbers",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "3 和 2",
+        "4 和 -3",
+        "3.4 和 2",
+        "2 和 3"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "17 = 3×5 + 2，整数商为3，余数为2。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/introduction.html#numbers"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-014",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-051",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "04 数组与矩阵",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 051 · 严格局部峰的位置",
+    "description": "仅考虑同时有左邻和右邻的位置。某元素严格大于两个邻居时称为局部峰，平台不算峰。\n输入：第一行 n，1 ≤ n ≤ 1000；第二行 n 个 -10^9～10^9 的整数。\n输出：一行所有局部峰的位置，位置从 1 开始，升序空格分隔；没有时输出 NONE。\n\n示例 1 输入\n5\n1 4 2 5 3\n示例 1 输出\n2 4\n\n\n示例 2 输入\n1\n5\n示例 2 输出\nNONE\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "04 数组与矩阵",
+      "三元素窗口"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5\n1 4 2 5 3\n",
+          "expectedOutput": "2 4\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n5\n",
+          "expectedOutput": "NONE\n",
+          "hidden": false
+        },
+        {
+          "input": "2\n3 2\n",
+          "expectedOutput": "NONE\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n1 2 2 1\n",
+          "expectedOutput": "NONE\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n0 1 0 1 0\n",
+          "expectedOutput": "2 4\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n-3 -1 -2\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n3 2 1\n",
+          "expectedOutput": "NONE\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n0 0 0\n",
+          "expectedOutput": "NONE\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-051",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;cin>>n;vector<long long>a(n);for(auto &x:a)cin>>x;bool first=true;for(int i=1;i+1<n;i++)if(a[i]>a[i-1]&&a[i]>a[i+1]){if(!first)cout<<\" \";cout<<i+1;first=false;}if(first)cout<<\"NONE\";cout<<\"\\n\";\n}\n",
+    "pythonReference": "n=int(input())\na=list(map(int,input().split()))\np=[i+1 for i in range(1,n-1) if a[i]>a[i-1] and a[i]>a[i+1]]\nprint(\" \".join(map(str,p)) if p else \"NONE\")\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

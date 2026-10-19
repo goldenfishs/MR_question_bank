@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-01",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "二维定位：计算移动后的坐标",
+    "description": "机器人从整数坐标 (x, y) 出发，随后沿两轴分别移动 dx、dy。计算终点坐标。\n输入：一行四个整数 x y dx dy，每个数均在 -1000000000 到 1000000000 之间。\n输出：一行两个整数，分别为终点横坐标和纵坐标，用一个空格隔开。\n\n示例输入：\n12 -4 5 9\n示例输出：\n17 5\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第一阶段·编程入门",
+      "基础输入输出",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "12 -4 5 9\n",
+          "expectedOutput": "17 5\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 0 0\n",
+          "expectedOutput": "0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "-3 -8 -4 5\n",
+          "expectedOutput": "-7 -3\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 1000000000 1000000000 1000000000\n",
+          "expectedOutput": "2000000000 2000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "-1000000000 -1000000000 -1000000000 -1000000000\n",
+          "expectedOutput": "-2000000000 -2000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "17 9 -17 -9\n",
+          "expectedOutput": "0 0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-01",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\nusing namespace std;\nint main(){long long x,y,dx,dy;cin>>x>>y>>dx>>dy;cout<<x+dx<<' '<<y+dy<<endl;}\n",
+    "pythonReference": "x,y,dx,dy=map(int,input().split())\nprint(x+dx,y+dy)\n"
+  }
+}

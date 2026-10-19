@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-148",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "10 贪心与动态规划",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 148 · 兑换的最少券张数",
+    "description": "有 n 种券，每种面额为正整数且可无限使用。求恰好凑成金额 S 所需最少张数。面额可重复；凑不成输出 −1，S=0 输出 0。\n\n输入格式\n第一行 n S；第二行 n 个面额。\n范围与边界\n1≤n≤50；0≤S≤20000；1≤面额≤20000。\n输出格式\n最少张数或 −1。\n\n示例 1 输入\n3 6\n1 3 4\n示例 1 输出\n2\n\n\n示例 2 输入\n2 4\n10 11\n示例 2 输出\n-1\n\n建议复杂度：O(nS)。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "10 贪心与动态规划",
+      "最短兑换DP"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 6\n1 3 4\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "2 4\n10 11\n",
+          "expectedOutput": "-1\n",
+          "hidden": false
+        },
+        {
+          "input": "3 8\n6 11 2\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "4 12\n7 5 5 3\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "5 16\n9 9 7 5 5\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "1 20\n6\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "2 24\n5 11\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "3 28\n8 11 4\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "50 20000\n20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000 20000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-148",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n,S;cin>>n>>S;vector<int>a(n),d(S+1,S+1);for(int &x:a)cin>>x;d[0]=0;for(int i=1;i<=S;i++)for(int x:a)if(x<=i)d[i]=min(d[i],d[i-x]+1);cout<<(d[S]>S?-1:d[S])<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    a=list(map(int,data.split()));n,S=a[:2];v=a[2:];d=[S+1]*(S+1);d[0]=0\n    for i in range(1,S+1):\n        for x in v:\n            if x<=i:d[i]=min(d[i],d[i-x]+1)\n    return -1 if d[S]>S else d[S]\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

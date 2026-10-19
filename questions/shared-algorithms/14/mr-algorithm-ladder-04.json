@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-04",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "设备编号：十进制数位校验",
+    "description": "读取一个非负设备编号，计算其十进制各位数字之和。编号 0 的数位和为 0。\n输入：一个整数 n，0 ≤ n ≤ 10^18，没有多余前导零。\n输出：一个整数，即各位数字的和。注意 C++ 需要使用足够大的整数类型。\n\n示例输入：\n50716\n示例输出：\n19\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第一阶段·编程入门",
+      "条件与循环",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "50716\n",
+          "expectedOutput": "19\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "9\n",
+          "expectedOutput": "9\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000000000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "999999999999999999\n",
+          "expectedOutput": "162\n",
+          "hidden": true
+        },
+        {
+          "input": "101010101010101010\n",
+          "expectedOutput": "9\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-04",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\nusing namespace std;\nint main(){long long n;cin>>n;int s=0;do{s+=n%10;n/=10;}while(n);cout<<s<<endl;}\n",
+    "pythonReference": "print(sum(map(int,input().strip())))\n"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "stm32-basic-006",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "STM32单片机基础",
+  "visibility": "public",
+  "task": {
+    "title": "STM32F103 ADC 输出范围",
+    "description": "STM32F103 的 ADC 在 12 位转换、右对齐的配置下，忽略模拟误差，一次转换结果的最大无符号整数值是多少？填一个十进制整数。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "STM32单片机基础",
+      "ADC"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "4095"
+      ],
+      "explanation": "12 位可表示 2^12 个码值，从 0 到 4095。具体参考电压、输入范围与误差还需查所用芯片数据手册。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "stm32-basic-006",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

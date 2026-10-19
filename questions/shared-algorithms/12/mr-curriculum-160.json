@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-160",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 160 · 小迷宫的所有简单路线",
+    "description": "从左上角到右下角，每步走上下左右相邻格，只能走点号且同一路线不得重复格子。求不同路线总数；到终点即结束。起点终点可能被井号阻挡。\n\n输入格式\n第一行 h w；随后 h 行地图。\n范围与边界\n1≤h,w≤4；地图仅含 . 与 #。\n输出格式\n路线数；不可达为 0。\n\n示例 1 输入\n3 3\n...\n.#.\n...\n示例 1 输出\n2\n\n\n示例 2 输入\n2 4\n#...\n.###\n示例 2 输出\n0\n\n建议复杂度：小规模回溯枚举，空间 O(hw)。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "DFS访问恢复"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 3\n...\n.#.\n...\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "2 4\n#...\n.###\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "3 3\n.##\n...\n.#.\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\n..\n.#\n..\n..\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1\n.\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "2 4\n....\n##..\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "3 3\n#..\n...\n.#.\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\n..\n#.\n#.\n#.\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\n..\n.#\n#.\n..\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4\n....\n....\n....\n....\n",
+          "expectedOutput": "184\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-160",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint h,w;cin>>h>>w;vector<string>a(h);for(auto &s:a)cin>>s;function<ll(int,int,int)>f=[&](int x,int y,int mask)->ll{if(a[x][y]=='#')return 0;if(x==h-1&&y==w-1)return 1;mask|=1<<(x*w+y);ll ans=0;int dx[]={1,-1,0,0},dy[]={0,0,1,-1};for(int d=0;d<4;d++){int u=x+dx[d],v=y+dy[d];if(u>=0&&u<h&&v>=0&&v<w&&!(mask>>(u*w+v)&1))ans+=f(u,v,mask);}return ans;};cout<<f(0,0,0)<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    v=data.split();h,w=map(int,v[:2]);a=v[2:]\n    def f(x,y,mask):\n        if a[x][y]==\"#\":return 0\n        if x==h-1 and y==w-1:return 1\n        mask|=1<<(x*w+y);ans=0\n        for u,v in [(x+1,y),(x-1,y),(x,y+1),(x,y-1)]:\n            if 0<=u<h and 0<=v<w and not(mask>>(u*w+v)&1):ans+=f(u,v,mask)\n        return ans\n    return f(0,0,0)\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

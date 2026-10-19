@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-038",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "04 数组与采样序列",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 038 · 复制之后独立修改源数组",
+    "description": "执行以下代码后，b[1]是多少？\nint a[3]={2,4,6};\nint b[3]={a[0],a[1],a[2]};\na[1]=99;\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "04 数组与采样序列",
+      "元素复制"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/array_initialization.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "4",
+        "99",
+        "0",
+        "未定义，因为数组不能初始化"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "初始化器逐个把a中的值复制到独立数组b；后续修改a[1]不会修改b[1]。这里没有使用数组赋值。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/array_initialization.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-038",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "04 数组与采样序列",
+    "oracleNotes": "独立复核C11语义；verify_basic.py用单独的答案表和可执行C语义探针检查。"
+  }
+}

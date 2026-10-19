@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-advanced-008",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言进阶",
+  "visibility": "public",
+  "task": {
+    "title": "设置一个普通变量的位",
+    "description": "unsigned int flags = 0x12u;，要把最低位编号为 0 的第 3 位置 1，并保留其他位，使用哪条语句？本题为普通变量，无并发访问。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "C语言进阶",
+      "位运算"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "flags &= (1u << 3);",
+        "flags |= (1u << 3);",
+        "flags = (1u << 3);",
+        "flags >>= 3;"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "flags |= 掩码将目标位置 1 并保留其他位，结果为 0x1A。直接赋值 flags = (1u << 3) 会丢弃原有的第 1 位和第 4 位。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-advanced-008",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

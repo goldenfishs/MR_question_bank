@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-101",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "07 排序与二分",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 101 · 乘法表里的第 k 项",
+    "description": "n 行 m 列乘法表中第 i 行第 j 列为 i*j（行列从 1 开始）。把全部 n*m 项升序排列并保留重复项，求第 k 项。\n\n输入格式\n一行 n m k。\n数据范围与边界\n1 ≤ n,m ≤ 500；1 ≤ k ≤ n*m。相同乘积在不同格子中分别计数。\n输出格式\n第 k 小的数值。\n\n示例 1 输入\n3 3 5\n示例 1 输出\n3\n\n示例 2 输入\n2 4 6\n示例 2 输出\n4\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "挑战",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "07 排序与二分",
+      "答案二分计数"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 3 5\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "2 4 6\n",
+          "expectedOutput": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "1 1 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "500 500 250000\n",
+          "expectedOutput": "250000\n",
+          "hidden": true
+        },
+        {
+          "input": "500 500 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 500 499\n",
+          "expectedOutput": "499\n",
+          "hidden": true
+        },
+        {
+          "input": "2 2 3\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "5 7 18\n",
+          "expectedOutput": "10\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-101",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nint main(){int n,m,k;cin>>n>>m>>k;int l=1,r=n*m;while(l<r){int mid=l+(r-l)/2;long long count=0;for(int i=1;i<=n;i++)count+=min(m,mid/i);if(count>=k)r=mid;else l=mid+1;}cout<<l<<'\\n';}\n",
+    "pythonReference": "n,m,k=map(int,input().split());lo,hi=1,n*m\nwhile lo<hi:\n    mid=(lo+hi)//2;count=sum(min(m,mid//i) for i in range(1,n+1))\n    if count>=k:hi=mid\n    else:lo=mid+1\nprint(lo)\n"
+  }
+}

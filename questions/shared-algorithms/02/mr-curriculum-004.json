@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-004",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 004 · 装走全部物品",
+    "description": "有 n 件物品，每箱最多装 k 件，最后一箱可以不满。\n输入：一行 n k，0 ≤ n ≤ 10^12，1 ≤ k ≤ 10^12。\n输出：装走全部物品最少需要的箱数；n 为 0 时输出 0。\n\n示例 1 输入\n13 5\n示例 1 输出\n3\n\n\n示例 2 输入\n0 7\n示例 2 输出\n0\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "01 输入输出与表达式",
+      "向上取整"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "13 5\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "0 7\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "10 5\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1000000000000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000 1\n",
+          "expectedOutput": "1000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000 999999999999\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "999999999999 1000000000000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "7 7\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-004",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long n,k;cin>>n>>k;cout<<n/k+(n%k!=0)<<\"\\n\";\n}\n",
+    "pythonReference": "n,k=map(int,input().split())\nprint((n+k-1)//k)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

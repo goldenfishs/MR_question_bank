@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-043",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 043 · 受限正整数三元组",
+    "description": "统计有序三元组 (x,y,z) 的个数，要求每个数在 1～m，且 x+y+z=n。不同位置的值交换后通常是另一组。\n输入：一行 n m，0 ≤ n ≤ 300，1 ≤ m ≤ 100。\n输出：符合条件的有序三元组数量；不存在则输出 0。\n\n示例 1 输入\n6 3\n示例 1 输出\n7\n\n\n示例 2 输入\n2 10\n示例 2 输出\n0\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "嵌套枚举计数"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "6 3\n",
+          "expectedOutput": "7\n",
+          "hidden": false
+        },
+        {
+          "input": "2 10\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "3 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "300 100\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "0 100\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "101 1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "150 100\n",
+          "expectedOutput": "7498\n",
+          "hidden": true
+        },
+        {
+          "input": "10 5\n",
+          "expectedOutput": "18\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-043",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n,m;cin>>n>>m;int ans=0;for(int x=1;x<=m;x++)for(int y=1;y<=m;y++){int z=n-x-y;if(z>=1&&z<=m)ans++;}cout<<ans<<\"\\n\";\n}\n",
+    "pythonReference": "n,m=map(int,input().split())\nans=0\nfor x in range(1,m+1):\n for y in range(1,m+1):\n  if 1<=n-x-y<=m:ans+=1\nprint(ans)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

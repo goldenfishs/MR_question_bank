@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-047",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "04 数组与矩阵",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 047 · 第一次出现的下标",
+    "description": "在序列中查找目标 x，输出它第一次出现的位置，位置从 1 开始。\n输入：第一行 n x，0 ≤ n ≤ 1000；第二行 n 个整数，各数和 x 在 -10^9～10^9。n=0 时第二行可省略。\n输出：第一次出现的位置；不存在时输出 -1。\n\n示例 1 输入\n5 7\n2 7 7 1 7\n示例 1 输出\n2\n\n\n示例 2 输入\n0 3\n示例 2 输出\n-1\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "04 数组与矩阵",
+      "顺序查找"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5 7\n2 7 7 1 7\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "0 3\n",
+          "expectedOutput": "-1\n",
+          "hidden": false
+        },
+        {
+          "input": "1 8\n8\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 8\n9\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "4 -1\n0 0 -1 -1\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\n1 1 1 2\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "3 0\n0 0 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "4 1000000000\n-1000000000 0 3 4\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-047",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;long long x;cin>>n>>x;int ans=-1;for(int i=1;i<=n;i++){long long v;cin>>v;if(v==x&&ans==-1)ans=i;}cout<<ans<<\"\\n\";\n}\n",
+    "pythonReference": "import sys\nd=list(map(int,sys.stdin.read().split()))\nn,x=d[:2];ans=-1\nfor i,v in enumerate(d[2:],1):\n if v==x:ans=i;break\nprint(ans)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

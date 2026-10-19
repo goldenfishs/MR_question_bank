@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-098",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "10 中断与定时器应用",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 098 · 屏蔽中断并不等于清除来源",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n某EXTI线此前产生了边沿且EXTI_PR对应位为1。之后不再出现新边沿。以下哪些说法正确？\n\n作答约定：选择所有正确项；至少两项正确。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "10 中断与定时器应用",
+      "挂起与屏蔽"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "清EXTI_IMR对应位会屏蔽该线中断请求，但并不等于按W1C规则清掉PR",
+        "只在NVIC禁用对应IRQ，不会因此自动按外设协议清EXTI_PR",
+        "CPU恢复中断后，先前的PR位保证必然已经是0",
+        "NVIC禁用这个IRQ会同时禁用所有NMI"
+      ],
+      "answers": [
+        "0",
+        "1"
+      ],
+      "explanation": "外设状态、外设屏蔽和NVIC使能是不同层次。关闭请求路径不等于确认或清除已经锁存的外设事件；必须按PR规则处理。NMI也不属于普通IRQ的使能范围。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "https://www.st.com/resource/en/programming_manual/cd00228163-stm32f10xxx20xxx21xxl1xxxx-cortexm3-programming-manual-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-098",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "10 中断与定时器应用",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第207页，10.2 EXTI independent masks and pending，核查关键词“pending register”；RM0008 Rev 21, February 2021，第213页，10.3.6 EXTI_PR，核查关键词“cleared by writing”；PM0056 Rev 7，第121页，4.3.3 Interrupt clear-enable registers，核查关键词“disable”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

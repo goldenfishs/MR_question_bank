@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-155",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 155 · 字母板上的无重访单词",
+    "description": "在字母板中寻找目标单词。可任选起点，每步走到上下左右相邻格，同一路径不能重复使用格子。沿途字母必须依次组成目标单词。判断是否存在。\n\n输入格式\n第一行 h w；随后 h 行小写字母板；最后一行目标单词。\n范围与边界\n1≤h,w≤4；1≤单词长度≤8；均为小写字母。\n输出格式\n存在输出 YES，否则 NO。\n\n示例 1 输入\n3 3\nabc\ndef\nghi\nabcfih\n示例 1 输出\nYES\n\n\n示例 2 输入\n2 4\nbabc\ncaaa\ndd\n示例 2 输出\nNO\n\n建议复杂度：O(hw·4^L)，L 为单词长度。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "挑战",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "路径回溯"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 3\nabc\ndef\nghi\nabcfih\n",
+          "expectedOutput": "YES\n",
+          "hidden": false
+        },
+        {
+          "input": "2 4\nbabc\ncaaa\ndd\n",
+          "expectedOutput": "NO\n",
+          "hidden": false
+        },
+        {
+          "input": "3 3\nacc\nbca\ncac\nacc\n",
+          "expectedOutput": "YES\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\nbb\nca\ncb\naa\nbaad\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1\na\na\n",
+          "expectedOutput": "YES\n",
+          "hidden": true
+        },
+        {
+          "input": "2 4\nabba\nacbb\nadbbdb\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "3 3\ncab\nabc\nbab\ncab\n",
+          "expectedOutput": "YES\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\nbb\nbc\nca\ncc\nbcabbcdc\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\nbb\naa\ncb\nbb\ndbda\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4\naaaa\naaaa\naaaa\naaaa\naaaaaaab\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-155",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint h,w;cin>>h>>w;vector<string>a(h);for(auto &s:a)cin>>s;string t;cin>>t;function<bool(int,int,int,int)>f=[&](int x,int y,int k,int mask){if(a[x][y]!=t[k])return false;if(k+1==(int)t.size())return true;mask|=1<<(x*w+y);int dx[]={1,-1,0,0},dy[]={0,0,1,-1};for(int d=0;d<4;d++){int u=x+dx[d],v=y+dy[d];if(u>=0&&u<h&&v>=0&&v<w&&!(mask>>(u*w+v)&1)&&f(u,v,k+1,mask))return true;}return false;};bool ok=false;for(int i=0;i<h;i++)for(int j=0;j<w;j++)ok=ok||f(i,j,0,0);cout<<(ok?\"YES\":\"NO\")<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    v=data.split();h,w=map(int,v[:2]);a=v[2:2+h];t=v[-1]\n    def f(x,y,k,mask):\n        if a[x][y]!=t[k]:return False\n        if k+1==len(t):return True\n        mask|=1<<(x*w+y)\n        for u,v in [(x+1,y),(x-1,y),(x,y+1),(x,y-1)]:\n            if 0<=u<h and 0<=v<w and not(mask>>(u*w+v)&1) and f(u,v,k+1,mask):return True\n        return False\n    return \"YES\" if any(f(i,j,0,0) for i in range(h) for j in range(w)) else \"NO\"\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

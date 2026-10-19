@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-092",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "10 中断与定时器应用",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 092 · 中心对齐PWM完整周期",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nTIM3采用中心对齐PWM，TIM3内核时钟72 MHz，PSC=71，ARR=500。忽略启动过程，稳定计数序列为0向上到500再向下回到0。一个完整PWM周期包含1000个计数时钟，求PWM频率，单位Hz。\n\n作答格式：填一个十进制整数，不写单位或其他文字。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "10 中断与定时器应用",
+      "上下计数周期"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "1000"
+      ],
+      "explanation": "计数时钟为72 MHz/(71+1)=1 MHz。中心对齐完整往返需要2×ARR=1000个计数时钟，频率为1000 Hz；不能套用边沿对齐的ARR+1公式。题面把完整往返定义清楚，避免混淆溢出/下溢事件频率。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-092",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "10 中断与定时器应用",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第375页，15.3.2 Center-aligned mode，核查关键词“auto-reload value”；RM0008 Rev 21, February 2021，第389页，15.3.9 Figure 131，核查关键词“ARR=8”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

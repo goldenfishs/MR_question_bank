@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-027",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "编程：第一个不小于目标的位置",
+    "description": "输入：第一行 n 和 x（1≤n≤100000，-10⁹≤x≤10⁹），第二行 n 个按非降序排列的整数（范围同x）。输出第一个不小于 x 的元素下标（从0开始）；如果不存在，输出 n。要求时间复杂度 O(log n)。\n示例输入：\n5 4\n1 4 4 7 9\n示例输出：\n1\n\n支持使用 C++17 或 Python 3 编写程序，采用标准输入输出。不要输出额外提示文字。",
+    "direction": "视觉算法",
+    "difficulty": "进阶",
+    "tags": [
+      "C++",
+      "Python",
+      "二分查找",
+      "边界"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/search/binary_search.cpp",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5 4\n1 4 4 7 9\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "3 8\n1 2 3\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "1 -5\n0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 2\n2 2 2 2\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 3\n1 2 4 6\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/search/binary_search.cpp"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-027",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

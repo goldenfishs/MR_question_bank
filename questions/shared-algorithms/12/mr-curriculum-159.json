@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-159",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 159 · 三个容器的等重划分",
+    "description": "将 n 件正整数重量的物品全部放入三个相同容器，每件恰好放一个。判断三个容器能否最终重量完全相等。每个容器必须非空。\n\n输入格式\n第一行 n；第二行 n 个重量。\n范围与边界\n1≤n≤12；1≤重量≤10^9。\n输出格式\n可行输出 YES，否则 NO。\n\n示例 1 输入\n6\n1 1 1 1 1 1\n示例 1 输出\nYES\n\n\n示例 2 输入\n3\n1 1 2\n示例 2 输出\nNO\n\n建议复杂度：最坏 O(3^n)，按重量排序并对同重桶剪枝。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "分组对称剪枝"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "6\n1 1 1 1 1 1\n",
+          "expectedOutput": "YES\n",
+          "hidden": false
+        },
+        {
+          "input": "3\n1 1 2\n",
+          "expectedOutput": "NO\n",
+          "hidden": false
+        },
+        {
+          "input": "3\n5 6 5\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n5 4 5 3\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n2 2 2 8 3\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "6\n8 5 1 4 5 5\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "7\n5 7 2 5 7 4 2\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "8\n3 2 4 6 2 3 2 2\n",
+          "expectedOutput": "YES\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n4 7 9 2\n",
+          "expectedOutput": "NO\n",
+          "hidden": true
+        },
+        {
+          "input": "12\n1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000 1000000000\n",
+          "expectedOutput": "YES\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-159",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;cin>>n;vector<ll>a(n);ll sum=0;for(auto &x:a){cin>>x;sum+=x;}if(n<3||sum%3){cout<<\"NO\\n\";return 0;}sort(a.rbegin(),a.rend());ll target=sum/3;vector<ll>b(3);function<bool(int)>f=[&](int i){if(i==n)return true;set<ll>seen;for(int k=0;k<3;k++)if(b[k]+a[i]<=target&&seen.insert(b[k]).second){b[k]+=a[i];if(f(i+1))return true;b[k]-=a[i];}return false;};cout<<(f(0)?\"YES\":\"NO\")<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    a=list(map(int,data.split()));n=a[0];v=sorted(a[1:],reverse=True);total=sum(v)\n    if n<3 or total%3:return \"NO\"\n    target=total//3;b=[0]*3\n    def f(i):\n        if i==n:return True\n        seen=set()\n        for k in range(3):\n            if b[k] in seen or b[k]+v[i]>target:continue\n            seen.add(b[k]);b[k]+=v[i]\n            if f(i+1):return True\n            b[k]-=v[i]\n        return False\n    return \"YES\" if f(0) else \"NO\"\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

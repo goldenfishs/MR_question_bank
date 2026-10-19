@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "algorithm-progressive-24-topological",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "算法阶梯 24 · 启动任务依赖",
+    "description": "机器人启动需完成编号 1 到 n 的任务。每条依赖 u v 表示任务 u 必须先于 v 完成。输出满足全部依赖的顺序。若有多种，选择字典序最小的一种：从左向右第一个不同位置的编号较小者更小。如果有环，不能完成全部任务，输出 IMPOSSIBLE。\n\n输入格式\n第一行 n、m，随后 m 行，每行 u、v。\n范围：1 ≤ n ≤ 500，0 ≤ m ≤ 1000，1 ≤ u,v ≤ n。\n允许重复依赖与 u=v；重复依赖不改变先后要求，自身依赖意味着无法完成。\n输出格式\n有解输出 n 个编号，以空格分隔；无解单独输出 IMPOSSIBLE。\n\n示例 1 输入\n5 4\n1 3\n2 3\n2 4\n4 5\n示例 1 输出\n1 2 3 4 5\n示例 2 输入\n3 3\n1 2\n2 3\n3 1\n示例 2 输出\nIMPOSSIBLE\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3。\n原创说明：题面、样例和测试数据由本站围绕机器人训练独立编写。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "tags": [
+      "算法阶梯",
+      "第三阶段·贪心与搜索",
+      "图论",
+      "拓扑排序",
+      "优先队列"
+    ],
+    "required": false,
+    "fileIds": [],
+    "team": "",
+    "dueAt": "",
+    "resourcesUrl": "",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5 4\n1 3\n2 3\n2 4\n4 5\n",
+          "expectedOutput": "1 2 3 4 5\n",
+          "hidden": false
+        },
+        {
+          "input": "3 3\n1 2\n2 3\n3 1\n",
+          "expectedOutput": "IMPOSSIBLE\n",
+          "hidden": false
+        },
+        {
+          "input": "1 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1\n1 1\n",
+          "expectedOutput": "IMPOSSIBLE\n",
+          "hidden": true
+        },
+        {
+          "input": "5 0\n",
+          "expectedOutput": "1 2 3 4 5\n",
+          "hidden": true
+        },
+        {
+          "input": "4 3\n4 2\n2 1\n4 3\n",
+          "expectedOutput": "4 2 1 3\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4\n1 2\n1 2\n3 4\n2 4\n",
+          "expectedOutput": "1 2 3 4\n",
+          "hidden": true
+        },
+        {
+          "input": "4 3\n1 2\n3 4\n4 3\n",
+          "expectedOutput": "IMPOSSIBLE\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-advanced.json",
+    "key": "algorithm-progressive-24-topological",
+    "fileSha256": "3926a35202e5fc8211cb6d21421170a7ff4eb4644b74088f33b78f29686d75fd"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <functional>\n#include <utility>\nusing namespace std;\nint main(){int n,m;cin>>n>>m;vector<vector<int>>g(n+1);vector<int>d(n+1);for(int i=0;i<m;++i){int u,v;cin>>u>>v;g[u].push_back(v);++d[v];}priority_queue<int,vector<int>,greater<int>>q;for(int i=1;i<=n;++i)if(!d[i])q.push(i);vector<int>a;while(!q.empty()){int u=q.top();q.pop();a.push_back(u);for(int v:g[u])if(--d[v]==0)q.push(v);}if((int)a.size()!=n){cout<<\"IMPOSSIBLE\\n\";return 0;}for(int i=0;i<n;++i)cout<<(i?\" \":\"\")<<a[i];cout<<'\\n';}\n",
+    "pythonReference": "import sys\nimport heapq\na=list(map(int,sys.stdin.buffer.read().split()))\nn,m=a[:2]\ngraph=[[] for _ in range(n+1)]\nindegree=[0]*(n+1)\nfor i in range(m):\n    u,v=a[2+2*i:4+2*i]\n    graph[u].append(v)\n    indegree[v]+=1\nqueue=[i for i in range(1,n+1) if indegree[i]==0]\nheapq.heapify(queue)\nanswer=[]\nwhile queue:\n    u=heapq.heappop(queue)\n    answer.append(u)\n    for v in graph[u]:\n        indegree[v]-=1\n        if indegree[v]==0:\n            heapq.heappush(queue,v)\nprint(' '.join(map(str,answer)) if len(answer)==n else 'IMPOSSIBLE')\n"
+  }
+}

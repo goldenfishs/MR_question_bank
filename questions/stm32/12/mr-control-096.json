@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-096",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "10 中断与定时器应用",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 096 · 同抢占组的子优先级",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n已明确把本器件4个实现的优先级位分为2位抢占优先级和2位子优先级，数值越小越紧急。A的(抢占,子)=(1,3)正在执行，B=(1,0)、C=(0,3)先后挂起。无其他屏蔽，哪些判断正确？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "10 中断与定时器应用",
+      "NVIC优先级分组"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/programming_manual/cd00228163-stm32f10xxx20xxx21xxl1xxxx-cortexm3-programming-manual-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "B仅因子优先级更小就能打断A",
+        "B不能仅凭子优先级打断A，但C可抢占A",
+        "B和C都必须等待A返回",
+        "C比A抢占优先级数值更小，反而优先级更低"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "抢占由组优先级决定，同组的子优先级仅决定多个已挂起异常的先后，不能制造抢占。C的组优先级0高于A的1，因此能抢占。题面显式定义位分组，避免厂商库分组命名差异。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/programming_manual/cd00228163-stm32f10xxx20xxx21xxl1xxxx-cortexm3-programming-manual-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-096",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "10 中断与定时器应用",
+    "oracleNotes": "PM0056 Rev 7，第36页，2.3.6 Interrupt priority grouping，核查关键词“group priority”；PM0056 Rev 7，第135页，4.4.5 Binary point，核查关键词“PRIGROUP”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

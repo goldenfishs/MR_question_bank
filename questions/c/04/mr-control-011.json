@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-011",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "02 条件与状态判断",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 011 · 对称死区后的有效指令",
+    "description": "原始有符号指令x经过半宽为d的死区：|x|≤d输出0；x>d输出x-d；x<-d输出x+d。死区之外仅去掉d的幅值，不直接输出原始x。\n输入：一行x d，-10^12≤x≤10^12，0≤d≤10^12。\n输出：一个有符号整数。\n\n示例 1 输入\n-23 8\n示例 1 输出\n-15\n\n\n示例 2 输入\n31 10\n示例 2 输出\n21\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "02 条件与状态判断",
+      "绝对值与分段计算"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/if.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "-23 8\n",
+          "expectedOutput": "-15\n",
+          "hidden": false
+        },
+        {
+          "input": "31 10\n",
+          "expectedOutput": "21\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "10 10\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "-10 10\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000 0\n",
+          "expectedOutput": "1000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "-1000000000000 999999999999\n",
+          "expectedOutput": "-1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1000000000000\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/if.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-011",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "02 条件与状态判断",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long x,d;if(scanf(\"%lld%lld\",&x,&d)!=2)return 0;long long y=0;if(x>d)y=x-d;else if(x < -d)y=x+d;printf(\"%lld\\n\",y);\nreturn 0;\n}\n",
+    "oracleNotes": "独立用符号乘max(0,|x|-d)，包含死区两侧端点。"
+  }
+}

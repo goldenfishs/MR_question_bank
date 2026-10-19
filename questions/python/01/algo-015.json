@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-015",
+  "revision": 1,
+  "subject": "python",
+  "chapter": "基础语法",
+  "visibility": "public",
+  "task": {
+    "title": "Python：列表推导式",
+    "description": "表达式 [x*x for x in range(4) if x % 2 == 0] 的结果是？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "Python",
+      "列表推导式"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "[0, 1, 4, 9]",
+        "[4, 16]",
+        "[1, 9]",
+        "[0, 4]"
+      ],
+      "answers": [
+        "3"
+      ],
+      "explanation": "range(4)给出0到3，筛出偶数0和2，再取平方得到0和4。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-015",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-advanced-009",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言进阶",
+  "visibility": "public",
+  "task": {
+    "title": "短路与空指针检查",
+    "description": "p 是 int*，其值为 NULL 或指向有效 int 对象。哪个条件在 p==NULL 时不会求值 *p，且可判断非空时所指值是否为正？",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "C语言进阶",
+      "指针"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_logical.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "*p > 0 && p != NULL",
+        "p != NULL && *p > 0",
+        "p != NULL || *p > 0",
+        "(*p > 0) & (p != NULL)"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "逻辑与 && 从左往右求值；左侧为假时不求值右侧，因此先检查 p 再解引用。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_logical.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-advanced-009",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

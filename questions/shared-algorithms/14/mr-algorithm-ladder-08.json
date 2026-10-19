@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-08",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "目标列表：按分数稳定排序",
+    "description": "每个检测目标有唯一整数编号和整数分数。按分数从高到低排序；分数相同时保持输入顺序。\n输入：第一行 n（1 ≤ n ≤ 500），随后 n 行，每行编号 id（1～1000000）和分数 score（0～100）。编号互不相同。\n输出：一行 n 个排序后的编号，以空格隔开。\n\n示例输入：\n4\n11 70\n23 95\n7 70\n9 95\n示例输出：\n23 9 11 7\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第二阶段·数组与容器",
+      "排序与容器",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4\n11 70\n23 95\n7 70\n9 95\n",
+          "expectedOutput": "23 9 11 7\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n5 0\n",
+          "expectedOutput": "5\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n9 50\n2 50\n7 50\n",
+          "expectedOutput": "9 2 7\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n1 10\n2 20\n3 30\n",
+          "expectedOutput": "3 2 1\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n8 100\n7 99\n6 0\n",
+          "expectedOutput": "8 7 6\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n4 0\n3 100\n2 0\n1 100\n",
+          "expectedOutput": "3 1 4 2\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-08",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\nint main(){int n;cin>>n;vector<pair<int,int>>a(n);for(auto &x:a)cin>>x.first>>x.second;stable_sort(a.begin(),a.end(),[](auto x,auto y){return x.second>y.second;});for(int i=0;i<n;i++){if(i)cout<<' ';cout<<a[i].first;}cout<<endl;}\n",
+    "pythonReference": "import sys\nv=list(map(int,sys.stdin.read().split()));pairs=list(zip(v[1::2],v[2::2]))\nprint(*(i for i,s in sorted(pairs,key=lambda p:-p[1])))\n"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-003",
+  "revision": 1,
+  "subject": "cpp",
+  "chapter": "基础语法",
+  "visibility": "public",
+  "task": {
+    "title": "C++：vector 的尾部操作",
+    "description": "已有 std::vector<int> v{1, 2}; 随后执行 v.push_back(3); v.pop_back(); 最终 v.size() 是多少？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "C++",
+      "容器"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/cpp/container/vector.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "1",
+        "0",
+        "2",
+        "3"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "push_back 添加末尾元素，pop_back 删除末尾元素；元素数量先从 2 变 3，再回到 2。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/cpp/container/vector.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-003",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

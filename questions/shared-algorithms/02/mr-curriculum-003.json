@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-003",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 003 · 固定面额的零钱表示",
+    "description": "把非负金额 n 元表示为 100 元、10 元及 1 元，优先使用大面额。\n输入：整数 n，0 ≤ n ≤ 10^12。\n输出：一行三个整数，依次为三种面额张数；金额 0 时三项都是 0。\n\n示例 1 输入\n238\n示例 1 输出\n2 3 8\n\n\n示例 2 输入\n0\n示例 2 输出\n0 0 0\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "01 输入输出与表达式",
+      "整除与取余"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "238\n",
+          "expectedOutput": "2 3 8\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "0 0 0\n",
+          "hidden": false
+        },
+        {
+          "input": "100\n",
+          "expectedOutput": "1 0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "99\n",
+          "expectedOutput": "0 9 9\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000\n",
+          "expectedOutput": "10000000000 0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "100000001\n",
+          "expectedOutput": "1000000 0 1\n",
+          "hidden": true
+        },
+        {
+          "input": "9\n",
+          "expectedOutput": "0 0 9\n",
+          "hidden": true
+        },
+        {
+          "input": "987654321098\n",
+          "expectedOutput": "9876543210 9 8\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-003",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long n;cin>>n;cout<<n/100<<\" \"<<(n%100)/10<<\" \"<<n%10<<\"\\n\";\n}\n",
+    "pythonReference": "n=int(input())\nprint(n//100,n%100//10,n%10)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

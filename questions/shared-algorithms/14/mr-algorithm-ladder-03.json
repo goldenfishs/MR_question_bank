@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-03",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "电机指令：限制输出范围",
+    "description": "给定电机目标值 x 和闭区间 [lo, hi]，小于 lo 时输出 lo，大于 hi 时输出 hi，其余情况输出 x。\n输入：一行三个整数 x lo hi，均在 -1000000～1000000，保证 lo ≤ hi。\n输出：限幅后的一个整数。\n\n示例输入：\n135 -100 100\n示例输出：\n100\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第一阶段·编程入门",
+      "条件与循环",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "135 -100 100\n",
+          "expectedOutput": "100\n",
+          "hidden": false
+        },
+        {
+          "input": "-101 -100 100\n",
+          "expectedOutput": "-100\n",
+          "hidden": true
+        },
+        {
+          "input": "30 -100 100\n",
+          "expectedOutput": "30\n",
+          "hidden": true
+        },
+        {
+          "input": "-100 -100 100\n",
+          "expectedOutput": "-100\n",
+          "hidden": true
+        },
+        {
+          "input": "100 -100 100\n",
+          "expectedOutput": "100\n",
+          "hidden": true
+        },
+        {
+          "input": "9 4 4\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-03",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\nusing namespace std;\nint main(){int x,l,h;cin>>x>>l>>h;if(x<l)x=l;else if(x>h)x=h;cout<<x<<endl;}\n",
+    "pythonReference": "x,lo,hi=map(int,input().split())\nprint(min(hi,max(lo,x)))\n"
+  }
+}

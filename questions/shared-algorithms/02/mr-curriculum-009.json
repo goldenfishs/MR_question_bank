@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-009",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 009 · 霍纳法计算三次式",
+    "description": "给定 a、b、c、d、x，求 a*x^3+b*x^2+c*x+d。\n输入：一行五个整数，a,b,c,d 在 -1000～1000，x 在 -1000～1000。\n输出：多项式值，一个整数。\n\n示例 1 输入\n2 -3 4 -5 2\n示例 1 输出\n7\n\n\n示例 2 输入\n0 0 0 7 -1000\n示例 2 输出\n7\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "01 输入输出与表达式",
+      "运算优先级"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "2 -3 4 -5 2\n",
+          "expectedOutput": "7\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 0 7 -1000\n",
+          "expectedOutput": "7\n",
+          "hidden": false
+        },
+        {
+          "input": "1 1 1 1 0\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "-1000 -1000 -1000 -1000 1000\n",
+          "expectedOutput": "-1001001001000\n",
+          "hidden": true
+        },
+        {
+          "input": "1000 1000 1000 1000 -1000\n",
+          "expectedOutput": "-999000999000\n",
+          "hidden": true
+        },
+        {
+          "input": "1 0 0 0 -3\n",
+          "expectedOutput": "-27\n",
+          "hidden": true
+        },
+        {
+          "input": "0 -2 0 8 2\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "7 -8 9 -10 11\n",
+          "expectedOutput": "8438\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-009",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long a,b,c,d,x;cin>>a>>b>>c>>d>>x;cout<<((a*x+b)*x+c)*x+d<<\"\\n\";\n}\n",
+    "pythonReference": "a,b,c,d,x=map(int,input().split())\nprint(((a*x+b)*x+c)*x+d)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

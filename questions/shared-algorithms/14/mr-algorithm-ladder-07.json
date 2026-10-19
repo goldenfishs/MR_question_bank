@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-07",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "环形缓冲区：向右旋转",
+    "description": "将一个整数序列整体向右循环移动 k 个位置，末尾越过边界的元素回到开头。\n输入：第一行 n k（1 ≤ n ≤ 1000，0 ≤ k ≤ 10^9），第二行 n 个 -1000000～1000000 的整数。\n输出：旋转后的 n 个整数，以空格隔开。\n\n示例输入：\n5 2\n10 20 30 40 50\n示例输出：\n40 50 10 20 30\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第二阶段·数组与容器",
+      "数组与字符串",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5 2\n10 20 30 40 50\n",
+          "expectedOutput": "40 50 10 20 30\n",
+          "hidden": false
+        },
+        {
+          "input": "1 999\n7\n",
+          "expectedOutput": "7\n",
+          "hidden": true
+        },
+        {
+          "input": "4 0\n1 2 3 4\n",
+          "expectedOutput": "1 2 3 4\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4\n1 2 3 4\n",
+          "expectedOutput": "1 2 3 4\n",
+          "hidden": true
+        },
+        {
+          "input": "4 5\n-1 0 1 2\n",
+          "expectedOutput": "2 -1 0 1\n",
+          "hidden": true
+        },
+        {
+          "input": "3 1000000000\n5 6 7\n",
+          "expectedOutput": "7 5 6\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-07",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){int n;long long k;cin>>n>>k;vector<int>a(n);for(int &x:a)cin>>x;k%=n;for(int i=0;i<n;i++){if(i)cout<<' ';cout<<a[(i+n-k)%n];}cout<<endl;}\n",
+    "pythonReference": "import sys\nv=list(map(int,sys.stdin.read().split()));n,k=v[:2];a=v[2:];k%=n\nprint(*(a[-k:]+a[:-k] if k else a))\n"
+  }
+}

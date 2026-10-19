@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-032",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 032 · 整数幂的逐次相乘",
+    "description": "给定整数 a 和非负整数 b，计算 a 的 b 次方。约定包括 0^0 在内的任意零次幂都等于 1。\n输入：一行 a b，-10 ≤ a ≤ 10，0 ≤ b ≤ 18。\n输出：一个整数，保证在有符号 64 位整数范围内。\n\n示例 1 输入\n-2 5\n示例 1 输出\n-32\n\n\n示例 2 输入\n0 0\n示例 2 输出\n1\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "指数与零次幂"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "-2 5\n",
+          "expectedOutput": "-32\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "0 18\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "10 18\n",
+          "expectedOutput": "1000000000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "-10 18\n",
+          "expectedOutput": "1000000000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "-10 17\n",
+          "expectedOutput": "-100000000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "7 1\n",
+          "expectedOutput": "7\n",
+          "hidden": true
+        },
+        {
+          "input": "1 18\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-032",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long a;int b;cin>>a>>b;long long v=1;while(b--)v*=a;cout<<v<<\"\\n\";\n}\n",
+    "pythonReference": "a,b=map(int,input().split())\nv=1\nfor _ in range(b):v*=a\nprint(v)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

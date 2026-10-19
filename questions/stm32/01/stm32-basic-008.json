@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "stm32-basic-008",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "STM32单片机基础",
+  "visibility": "public",
+  "task": {
+    "title": "STM32F103 DMA 的职责",
+    "description": "在 STM32F103 上配置 DMA 把 ADC 数据搬运到内存，以下理解正确的是？",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "STM32单片机基础",
+      "DMA"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "DMA 自动选择 ADC 引脚并初始化全部时钟",
+        "DMA 可按配置搬运数据，CPU 仍需配置外设并处理完成或错误等状态",
+        "使用 DMA 后无需给目标缓冲区分配有效内存",
+        "DMA 保证缓冲区永远不会被覆盖"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "DMA 根据请求、地址、传输数量等配置进行搬运，减少 CPU 逐个数据复制的工作。外设配置、缓冲区管理和错误处理仍是软件职责。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "stm32-basic-008",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-106",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "08 栈队列与集合",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 106 · 后进先出的命令",
+    "description": "维护初始为空的整数栈。PUSH x 将 x 放到栈顶；POP 删除并输出栈顶；TOP 查看栈顶但不删除；SIZE 输出大小。空栈执行 POP 或 TOP 输出 EMPTY 且不改变栈。\n\n输入格式\n第一行 q；随后 q 行命令。\n数据范围与边界\n1 ≤ q ≤ 1000；-10^9 ≤ x ≤ 10^9；至少一个命令需要输出。\n输出格式\n对每个 POP、TOP、SIZE 各输出一行。\n\n示例 1 输入\n7\nPUSH 4\nPUSH 9\nTOP\nPOP\nTOP\nPOP\nPOP\n示例 1 输出\n9\n9\n4\n4\nEMPTY\n\n示例 2 输入\n3\nTOP\nSIZE\nPOP\n示例 2 输出\nEMPTY\n0\nEMPTY\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "08 栈队列与集合",
+      "栈接口"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "7\nPUSH 4\nPUSH 9\nTOP\nPOP\nTOP\nPOP\nPOP\n",
+          "expectedOutput": "9\n9\n4\n4\nEMPTY\n",
+          "hidden": false
+        },
+        {
+          "input": "3\nTOP\nSIZE\nPOP\n",
+          "expectedOutput": "EMPTY\n0\nEMPTY\n",
+          "hidden": false
+        },
+        {
+          "input": "1\nSIZE\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4\nPUSH -1000000000\nPUSH 1000000000\nPOP\nPOP\n",
+          "expectedOutput": "1000000000\n-1000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "5\nPUSH 0\nTOP\nTOP\nSIZE\nPOP\n",
+          "expectedOutput": "0\n0\n1\n0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000\nSIZE\nPUSH -8\nPUSH -89\nPUSH -62\nPUSH -96\nPOP\nPOP\nPOP\nPOP\nPOP\nSIZE\nTOP\nPUSH 65\nPUSH -62\nTOP\nPUSH 95\nPUSH -88\nTOP\nPOP\nTOP\nPUSH 36\nSIZE\nPUSH 50\nTOP\nPUSH 34\nPOP\nSIZE\nPUSH -22\nSIZE\nTOP\nPUSH 7\nPOP\nPOP\nTOP\nPUSH -83\nPOP\nSIZE\nPOP\nPOP\nSIZE\nSIZE\nPUSH 1\nSIZE\nPOP\nSIZE\nTOP\nPOP\nPOP\nPUSH -75\nSIZE\nTOP\nSIZE\nPOP\nPUSH -79\nSIZE\nPOP\nTOP\nPOP\nPOP\nPOP\nPOP\nSIZE\nPUSH 68\nTOP\nSIZE\nPOP\nPUSH 44\nPUSH 90\nTOP\nSIZE\nSIZE\nSIZE\nPOP\nTOP\nTOP\nPOP\nPUSH 7\nPOP\nPOP\nPOP\nPOP\nSIZE\nTOP\nPOP\nPOP\nTOP\nSIZE\nPUSH -22\nPUSH -66\nPUSH 46\nTOP\nTOP\nPOP\nTOP\nPUSH 98\nSIZE\nSIZE\nSIZE\nPUSH -74\nPOP\nPOP\nPUSH -41\nTOP\nPUSH 29\nTOP\nTOP\nPUSH 82\nPOP\nSIZE\nSIZE\nTOP\nPUSH -56\nPUSH -1\nTOP\nPUSH 94\nPUSH 97\nPUSH 61\nSIZE\nTOP\nTOP\nSIZE\nTOP\nSIZE\nPOP\nPOP\nPOP\nTOP\nTOP\nPUSH -82\nPUSH -40\nSIZE\nSIZE\nSIZE\nSIZE\nTOP\nTOP\nTOP\nPOP\nPOP\nTOP\nPOP\nTOP\nPUSH -59\nPOP\nSIZE\nPOP\nTOP\nPUSH -15\nSIZE\nSIZE\nPOP\nTOP\nTOP\nTOP\nPOP\nSIZE\nTOP\nSIZE\nPOP\nPUSH -94\nPUSH -76\nTOP\nPUSH 64\nPUSH 3\nPUSH -89\nPOP\nPUSH -85\nPOP\nTOP\nPUSH -10\nPUSH 60\nTOP\nPOP\nPUSH -12\nPOP\nPUSH 91\nTOP\nPUSH 23\nTOP\nPOP\nTOP\nTOP\nPUSH -71\nSIZE\nTOP\nSIZE\nPUSH 23\nSIZE\nTOP\nPOP\nSIZE\nPOP\nPOP\nTOP\nPOP\nTOP\nTOP\nPUSH 10\nSIZE\nPOP\nSIZE\nPOP\nPUSH -52\nSIZE\nPUSH 35\nSIZE\nPUSH -30\nPUSH -99\nPOP\nSIZE\nPUSH -51\nPUSH -57\nPOP\nSIZE\nPUSH 77\nPUSH -81\nPUSH -64\nSIZE\nSIZE\nPOP\nPUSH 54\nTOP\nTOP\nSIZE\nTOP\nSIZE\nPUSH 73\nPOP\nSIZE\nSIZE\nTOP\nTOP\nSIZE\nTOP\nPUSH -5\nPOP\nTOP\nSIZE\nSIZE\nPUSH 31\nPUSH 56\nSIZE\nPOP\nPUSH 11\nTOP\nTOP\nPOP\nPOP\nPUSH 64\nTOP\nTOP\nPUSH -27\nPOP\nPUSH 65\nPUSH 51\nTOP\nTOP\nPOP\nTOP\nTOP\nTOP\nTOP\nTOP\nPOP\nPUSH 46\nPUSH -97\nPOP\nPUSH 23\nPUSH 55\nSIZE\nPUSH 34\nSIZE\nTOP\nTOP\nPUSH 55\nTOP\nSIZE\nSIZE\nPOP\nPUSH 26\nSIZE\nSIZE\nPOP\nPUSH -89\nPOP\nTOP\nPUSH -59\nPOP\nPUSH -7\nPOP\nPUSH -19\nPOP\nPOP\nSIZE\nPOP\nTOP\nPUSH -85\nTOP\nSIZE\nPUSH 93\nTOP\nTOP\nPUSH -78\nSIZE\nPUSH -43\nPUSH 12\nSIZE\nSIZE\nPOP\nPUSH 14\nPUSH -95\nTOP\nTOP\nSIZE\nSIZE\nPUSH 38\nSIZE\nSIZE\nPOP\nSIZE\nSIZE\nSIZE\nTOP\nPOP\nTOP\nPUSH -22\nPOP\nSIZE\nSIZE\nTOP\nSIZE\nTOP\nSIZE\nSIZE\nPOP\nPUSH -88\nTOP\nTOP\nPUSH 0\nSIZE\nTOP\nSIZE\nPOP\nPUSH -88\nSIZE\nSIZE\nPUSH 23\nTOP\nSIZE\nPUSH -15\nPUSH 98\nTOP\nSIZE\nSIZE\nPUSH -82\nPOP\nSIZE\nTOP\nTOP\nPOP\nTOP\nSIZE\nPUSH 8\nTOP\nPOP\nTOP\nPOP\nPOP\nPUSH -55\nTOP\nTOP\nPUSH 2\nSIZE\nPUSH 15\nPUSH -89\nTOP\nTOP\nTOP\nPOP\nTOP\nSIZE\nPOP\nTOP\nSIZE\nSIZE\nPUSH 87\nPUSH 88\nSIZE\nTOP\nSIZE\nPUSH -72\nTOP\nTOP\nSIZE\nPUSH 2\nTOP\nPUSH 58\nPOP\nSIZE\nPOP\nPUSH -64\nTOP\nTOP\nPOP\nPOP\nPUSH 70\nPUSH 12\nPOP\nPUSH 97\nPUSH -69\nPUSH 80\nTOP\nTOP\nTOP\nSIZE\nPOP\nTOP\nPOP\nSIZE\nTOP\nTOP\nTOP\nPOP\nPOP\nSIZE\nSIZE\nTOP\nSIZE\nSIZE\nPOP\nTOP\nSIZE\nTOP\nPOP\nSIZE\nTOP\nPOP\nPOP\nTOP\nTOP\nTOP\nTOP\nSIZE\nPUSH -52\nSIZE\nTOP\nPUSH -84\nPUSH 95\nSIZE\nSIZE\nTOP\nPOP\nPUSH 80\nPOP\nTOP\nSIZE\nPOP\nSIZE\nSIZE\nPOP\nPOP\nPUSH -27\nPUSH 7\nSIZE\nPOP\nTOP\nTOP\nPOP\nPOP\nPUSH -43\nPOP\nPUSH 25\nPOP\nPUSH -49\nPUSH 50\nTOP\nTOP\nSIZE\nTOP\nPOP\nSIZE\nTOP\nSIZE\nSIZE\nSIZE\nSIZE\nSIZE\nPUSH -28\nSIZE\nTOP\nSIZE\nTOP\nSIZE\nTOP\nPUSH -1\nTOP\nTOP\nPOP\nTOP\nTOP\nPUSH 1\nPUSH 71\nTOP\nPOP\nPOP\nTOP\nTOP\nPUSH 59\nPUSH -62\nSIZE\nSIZE\nPOP\nPOP\nTOP\nPOP\nSIZE\nPUSH -66\nTOP\nPUSH 37\nPOP\nTOP\nTOP\nPOP\nTOP\nSIZE\nPUSH -67\nTOP\nPUSH 65\nPOP\nTOP\nSIZE\nSIZE\nPUSH 14\nPUSH 45\nPOP\nPUSH 89\nTOP\nSIZE\nTOP\nPUSH -65\nSIZE\nPUSH 37\nPUSH -45\nTOP\nPUSH 61\nPUSH -33\nPUSH -67\nSIZE\nTOP\nSIZE\nPUSH 83\nPUSH 69\nSIZE\nPUSH -74\nPUSH -15\nPUSH -68\nPUSH -51\nPOP\nPOP\nPOP\nPUSH -38\nTOP\nPOP\nTOP\nTOP\nSIZE\nTOP\nSIZE\nTOP\nSIZE\nPOP\nPOP\nTOP\nSIZE\nPUSH -2\nSIZE\nTOP\nSIZE\nTOP\nPUSH -68\nPUSH 90\nSIZE\nPOP\nTOP\nSIZE\nSIZE\nPOP\nPUSH -63\nPOP\nTOP\nSIZE\nPOP\nPUSH -78\nTOP\nSIZE\nPUSH -25\nTOP\nSIZE\nTOP\nPOP\nTOP\nPOP\nPOP\nPOP\nSIZE\nTOP\nSIZE\nPOP\nSIZE\nPUSH 38\nSIZE\nSIZE\nPUSH -67\nPUSH -16\nSIZE\nPOP\nSIZE\nPOP\nPUSH 15\nSIZE\nPOP\nPUSH 35\nPOP\nTOP\nSIZE\nPUSH -83\nTOP\nTOP\nPOP\nPUSH -1\nPOP\nTOP\nPUSH -91\nTOP\nPUSH 92\nPUSH 77\nPOP\nPOP\nSIZE\nSIZE\nTOP\nPUSH 71\nTOP\nTOP\nTOP\nPOP\nTOP\nPOP\nPUSH -54\nTOP\nPOP\nTOP\nPUSH -61\nPOP\nPOP\nSIZE\nTOP\nPUSH 12\nPUSH -5\nPUSH -14\nSIZE\nPOP\nSIZE\nTOP\nTOP\nPOP\nPOP\nTOP\nSIZE\nSIZE\nTOP\nPOP\nPUSH -74\nSIZE\nPOP\nPUSH 72\nPOP\nPOP\nTOP\nTOP\nPOP\nSIZE\nPUSH -94\nPOP\nTOP\nSIZE\nPOP\nPUSH -29\nPOP\nSIZE\nSIZE\nTOP\nPOP\nTOP\nTOP\nSIZE\nPUSH 50\nTOP\nTOP\nPOP\nTOP\nTOP\nPUSH 73\nPOP\nSIZE\nPOP\nPOP\nPUSH 98\nPUSH -22\nPUSH -4\nSIZE\nPUSH 63\nTOP\nTOP\nSIZE\nPOP\nTOP\nTOP\nTOP\nPOP\nSIZE\nTOP\nPOP\nTOP\nTOP\nPUSH 24\nTOP\nTOP\nSIZE\nSIZE\nSIZE\nTOP\nTOP\nTOP\nTOP\nPOP\nPUSH 35\nSIZE\nTOP\nTOP\nSIZE\nSIZE\nTOP\nTOP\nPUSH 71\nPOP\nTOP\nPUSH -75\nSIZE\nTOP\nTOP\nTOP\nTOP\nSIZE\nTOP\nTOP\nPUSH 83\nTOP\nSIZE\nPUSH -29\nTOP\nPUSH 86\nPOP\nTOP\nTOP\nPUSH -8\nSIZE\nSIZE\nSIZE\nTOP\nPOP\nTOP\nPUSH -44\nTOP\nSIZE\nSIZE\nTOP\nSIZE\nSIZE\nSIZE\nTOP\nPOP\nPOP\nTOP\nPUSH -46\nPUSH 8\nSIZE\nTOP\nPUSH -81\nPUSH -15\nPOP\nTOP\nPUSH 20\nTOP\nPUSH -92\nTOP\nPOP\nPUSH 45\nTOP\nPUSH 92\nSIZE\nPUSH 18\nPUSH 87\nPUSH -86\nSIZE\nSIZE\nTOP\nSIZE\nPUSH -99\nPUSH -71\nTOP\nPUSH 20\nPOP\nPOP\nTOP\nPUSH -26\nTOP\nPOP\nPOP\nPOP\nSIZE\nTOP\nPUSH -18\nTOP\nPUSH 92\nPOP\nPUSH -25\nTOP\nPOP\nPUSH 30\nSIZE\nTOP\nPOP\nPOP\nSIZE\nPUSH -55\nPUSH -78\nPOP\nPOP\nPUSH 94\nTOP\nSIZE\nSIZE\nPUSH -95\nSIZE\nPOP\nPUSH -77\nPUSH 88\nPUSH -86\nTOP\nPUSH 33\nSIZE\nTOP\nPUSH -94\nPOP\nTOP\nSIZE\nSIZE\nPUSH 91\nTOP\nTOP\nSIZE\nPUSH 84\nTOP\nPUSH 37\nSIZE\nTOP\nTOP\nSIZE\nPOP\nTOP\nSIZE\nPUSH -64\nPOP\nPOP\nPUSH 47\nTOP\nPUSH 98\nPUSH 77\nSIZE\nTOP\nSIZE\nPUSH -63\nPUSH -74\nTOP\nPOP\nPOP\nPUSH 27\nSIZE\nPOP\nPUSH 42\nPUSH 53\nTOP\nPOP\nPOP\nSIZE\nTOP\nSIZE\nTOP\nSIZE\nPUSH 12\nSIZE\nSIZE\nPUSH -95\nPUSH -89\nPUSH -63\nPOP\nPUSH 41\nPOP\nPUSH 40\nPUSH -63\nPOP\nPUSH -70\nSIZE\nPOP\nPUSH 4\nTOP\nPOP\nPOP\nPOP\nTOP\nPUSH 1\nTOP\nPOP\nTOP\nSIZE\nSIZE\nSIZE\nPUSH -81\nPUSH -70\nPUSH -30\nTOP\nPOP\nPOP\nPOP\nTOP\nTOP\nTOP\nSIZE\nTOP\nSIZE\nTOP\nPOP\nTOP\nTOP\nSIZE\nSIZE\nSIZE\nPOP\nSIZE\nTOP\nSIZE\nPUSH 35\nPUSH -34\nPOP\nPUSH -53\nPOP\nTOP\nSIZE\nSIZE\nSIZE\nPUSH 36\nPUSH -74\nSIZE\nPUSH -99\nTOP\nPUSH 21\nPUSH -85\nTOP\nSIZE\nPUSH -52\nTOP\nPOP\nTOP\nTOP\nPOP\nPOP\nTOP\nSIZE\nSIZE\nSIZE\nPOP\nSIZE\nTOP\nPUSH 59\nTOP\nPOP\nPUSH -37\nSIZE\nPOP\nPUSH 75\nSIZE\nPUSH 99\nSIZE\nPOP\nSIZE\nPUSH 38\nSIZE\nPUSH 36\nSIZE\n",
+          "expectedOutput": "0\n-96\n-62\n-89\n-8\nEMPTY\n0\nEMPTY\n-62\n-88\n-88\n95\n4\n50\n34\n5\n6\n-22\n7\n-22\n50\n-83\n5\n50\n36\n3\n3\n4\n1\n3\n95\n95\n-62\n2\n-75\n2\n-75\n2\n-79\n65\n65\nEMPTY\nEMPTY\nEMPTY\n0\n68\n1\n68\n90\n2\n2\n2\n90\n44\n44\n44\n7\nEMPTY\nEMPTY\nEMPTY\n0\nEMPTY\nEMPTY\nEMPTY\nEMPTY\n0\n46\n46\n46\n-66\n3\n3\n3\n-74\n98\n-41\n29\n29\n82\n4\n4\n29\n-1\n9\n61\n61\n9\n61\n9\n61\n97\n94\n-1\n-1\n8\n8\n8\n8\n-40\n-40\n-40\n-40\n-82\n-1\n-1\n-56\n-59\n5\n-56\n29\n5\n5\n-15\n29\n29\n29\n29\n3\n-41\n3\n-41\n-76\n-89\n-85\n3\n60\n60\n-12\n91\n23\n23\n91\n91\n9\n-71\n9\n10\n23\n23\n9\n-71\n91\n-10\n-10\n3\n3\n7\n10\n6\n3\n6\n7\n-99\n8\n-57\n9\n12\n12\n-64\n54\n54\n12\n54\n12\n73\n12\n12\n54\n54\n12\n54\n-5\n54\n12\n12\n14\n56\n11\n11\n11\n31\n64\n64\n-27\n51\n51\n51\n65\n65\n65\n65\n65\n65\n-97\n16\n17\n34\n34\n55\n18\n18\n55\n18\n18\n26\n-89\n34\n-59\n-7\n-19\n34\n16\n55\n23\n-85\n16\n93\n93\n18\n20\n20\n12\n-95\n-95\n21\n21\n22\n22\n38\n21\n21\n21\n-95\n-95\n14\n-22\n20\n20\n14\n20\n14\n20\n20\n14\n-88\n-88\n21\n0\n21\n0\n21\n21\n23\n22\n98\n24\n24\n-82\n24\n98\n98\n98\n-15\n23\n8\n8\n-15\n-15\n23\n-55\n-55\n23\n-89\n-89\n-89\n-89\n15\n24\n15\n2\n23\n23\n25\n88\n25\n-72\n-72\n26\n2\n58\n27\n2\n-64\n-64\n-64\n-72\n12\n80\n80\n80\n29\n80\n-69\n-69\n27\n97\n97\n97\n97\n70\n25\n25\n88\n25\n25\n88\n87\n24\n87\n87\n23\n2\n2\n-55\n-88\n-88\n-88\n-88\n21\n22\n-52\n24\n24\n95\n95\n80\n-84\n23\n-84\n22\n22\n-52\n-88\n22\n7\n-27\n-27\n-27\n-88\n-43\n25\n50\n50\n21\n50\n50\n20\n-49\n20\n20\n20\n20\n20\n21\n-28\n21\n-28\n21\n-28\n-1\n-1\n-1\n-28\n-28\n71\n71\n1\n-28\n-28\n23\n23\n-62\n59\n-28\n-28\n20\n-66\n37\n-66\n-66\n-66\n-49\n20\n-67\n65\n-67\n21\n21\n45\n89\n23\n89\n24\n-45\n29\n-67\n29\n31\n-51\n-68\n-15\n-38\n-38\n-74\n-74\n32\n-74\n32\n-74\n32\n-74\n69\n83\n30\n31\n-2\n31\n-2\n33\n90\n-68\n32\n32\n-68\n-63\n-2\n31\n-2\n-78\n31\n-25\n32\n-25\n-25\n-78\n-78\n83\n-67\n28\n-33\n28\n-33\n27\n28\n28\n30\n-16\n29\n-67\n29\n15\n35\n38\n28\n-83\n-83\n-83\n-1\n38\n-91\n77\n92\n29\n29\n-91\n71\n71\n71\n71\n-91\n-91\n-54\n-54\n38\n-61\n38\n27\n61\n30\n-14\n29\n-5\n-5\n-5\n12\n61\n27\n27\n61\n61\n27\n-74\n72\n-45\n37\n37\n37\n24\n-94\n-65\n24\n-65\n-29\n23\n23\n89\n89\n14\n14\n22\n50\n50\n50\n14\n14\n73\n22\n14\n-67\n23\n63\n63\n24\n63\n-4\n-4\n-4\n-4\n22\n-22\n-22\n98\n98\n24\n24\n22\n22\n22\n24\n24\n24\n24\n24\n22\n35\n35\n22\n22\n35\n35\n71\n35\n23\n-75\n-75\n-75\n-75\n23\n-75\n-75\n83\n24\n-29\n86\n-29\n-29\n26\n26\n26\n-8\n-8\n-29\n-44\n26\n26\n-44\n26\n26\n26\n-44\n-44\n-29\n83\n26\n8\n-15\n-81\n20\n-92\n-92\n45\n30\n33\n33\n-86\n33\n-71\n20\n-71\n-99\n-26\n-26\n-99\n-86\n32\n87\n-18\n92\n-25\n-25\n34\n30\n30\n-18\n32\n-78\n-55\n94\n33\n33\n34\n-95\n-86\n37\n33\n-94\n33\n37\n37\n91\n91\n38\n84\n40\n37\n37\n40\n37\n84\n39\n-64\n84\n47\n41\n77\n41\n-74\n-74\n-63\n42\n27\n53\n53\n42\n41\n77\n41\n77\n41\n42\n42\n-63\n41\n-63\n46\n-70\n4\n4\n40\n-89\n-95\n1\n1\n-95\n43\n43\n43\n-30\n-30\n-70\n-81\n-95\n-95\n-95\n43\n-95\n43\n-95\n-95\n12\n12\n42\n42\n42\n12\n41\n77\n41\n-34\n-53\n35\n42\n42\n42\n44\n-99\n-85\n47\n-52\n-52\n-85\n-85\n-85\n21\n-99\n45\n45\n45\n-99\n44\n-74\n59\n59\n45\n-37\n45\n46\n99\n45\n46\n47\n",
+          "hidden": true
+        },
+        {
+          "input": "30\nPUSH 61\nPOP\nPUSH 34\nSIZE\nPUSH 67\nSIZE\nPOP\nTOP\nPOP\nPOP\nPUSH -85\nTOP\nPUSH 59\nSIZE\nSIZE\nPUSH 80\nPUSH -38\nPUSH -81\nSIZE\nTOP\nPOP\nPUSH -88\nPOP\nTOP\nSIZE\nSIZE\nTOP\nPOP\nSIZE\nSIZE\n",
+          "expectedOutput": "61\n1\n2\n67\n34\n34\nEMPTY\n-85\n2\n2\n5\n-81\n-81\n-88\n-38\n4\n4\n-38\n-38\n3\n3\n",
+          "hidden": true
+        },
+        {
+          "input": "3\nPUSH 2\nPUSH 2\nSIZE\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-106",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nint main(){int q;cin>>q;vector<long long>a;while(q--){string op;cin>>op;if(op==\"PUSH\"){long long x;cin>>x;a.push_back(x);}else if(op==\"SIZE\")cout<<a.size()<<'\\n';else if(a.empty())cout<<\"EMPTY\\n\";else{cout<<a.back()<<'\\n';if(op==\"POP\")a.pop_back();}}}\n",
+    "pythonReference": "q=int(input());a=[]\nfor _ in range(q):\n    t=input().split();op=t[0]\n    if op=='PUSH':a.append(int(t[1]))\n    elif op=='SIZE':print(len(a))\n    elif not a:print('EMPTY')\n    elif op=='POP':print(a.pop())\n    else:print(a[-1])\n"
+  }
+}

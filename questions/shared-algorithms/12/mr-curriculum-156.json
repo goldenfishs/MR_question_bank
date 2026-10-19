@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-156",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 156 · 相邻差受限的全排列",
+    "description": "把数字 1 到 n 各用一次排成序列，要求任意两个相邻数字的绝对差至少为 D。求符合条件的序列数。序列正序与逆序不同则分别计数。\n\n输入格式\n一行 n D。\n范围与边界\n1≤n≤9；0≤D≤9。n=1 时无相邻限制。\n输出格式\n序列数。\n\n示例 1 输入\n4 2\n示例 1 输出\n2\n\n\n示例 2 输入\n2 1\n示例 2 输出\n2\n\n建议复杂度：回溯最坏 O(n!)。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "排列枚举剪枝"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4 2\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "2 1\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "3 2\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 3\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "5 4\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "6 0\n",
+          "expectedOutput": "720\n",
+          "hidden": true
+        },
+        {
+          "input": "7 1\n",
+          "expectedOutput": "5040\n",
+          "hidden": true
+        },
+        {
+          "input": "1 2\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "9 0\n",
+          "expectedOutput": "362880\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-156",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n,d;cin>>n>>d;function<ll(int,int)>f=[&](int mask,int last)->ll{if(mask==(1<<n)-1)return 1;ll ans=0;for(int x=0;x<n;x++)if(!(mask>>x&1)&&(last<0||abs(x-last)>=d))ans+=f(mask|1<<x,x);return ans;};cout<<f(0,-1)<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    n,D=map(int,data.split())\n    def f(mask,last):\n        if mask==(1<<n)-1:return 1\n        return sum(f(mask|1<<x,x) for x in range(n) if not(mask>>x&1) and (last<0 or abs(x-last)>=D))\n    return f(0,-1)\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

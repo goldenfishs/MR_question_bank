@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-112",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "12 调试与可靠控制",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 112 · 程序关掉SWD后的恢复思路",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n应用启动后立即关闭SWD并把调试脚重新配置，导致正常运行模式下调试器连接失败。板卡NRST已接到调试器、供电和连线正常，题设假定没有读保护障碍。以下哪项是合理的恢复计划？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "12 调试与可靠控制",
+      "连接复位调试"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "反复加大SWCLK频率，直到碰巧连上",
+        "使用调试器的connect-under-reset流程，利用复位向量捕获，在任何应用指令执行前暂停到重配调试脚之前，再修复固件",
+        "把SWDIO和SWCLK短接，就能进入调试模式",
+        "无论硬件条件如何，该芯片从此都永久不能调试"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "复位态默认启用SWJ；若调试器能控制NRST，under-reset连接可避免应用抢先重配调试脚，再暂停/修改问题固件。此结论有题设条件，不保证越过读保护、物理故障或所有工具差异。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "https://www.st.com/resource/en/user_manual/dm00403500-stm32cubeprogrammer-software-description-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-112",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "12 调试与可靠控制",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第184页，9.4.2 AFIO_MAPR reset state，核查关键词“Full SWJ”；UM2237 Rev 31, June 2026，第28页，2.1.2 ST-LINK connection configuration — Connect under reset，核查关键词“before executing any instructions”。适用限制：仅给出恢复策略，不执行连接/擦写；要求NRST接线正常、工具支持under-reset且无读保护障碍。"
+  }
+}

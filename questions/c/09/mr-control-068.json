@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-068",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "07 结构体与内存",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 068 · 扩容失败时保留所有权",
+    "description": "p指向仍有效的已分配内存。size是严格正且可表示的新容量，调用 realloc(p,size)。哪些说法符合C11契约或合理的错误处理？（多选）\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "07 结构体与内存",
+      "realloc失败契约"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/memory/realloc.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "先把返回值存入临时指针，成功后再赋给p。",
+        "若返回NULL，原内存块仍由原p指向，内容未被该失败调用释放。",
+        "无论成功失败，realloc都会先释放原块。",
+        "若返回NULL，直接覆盖p会丢失唯一的原块指针，可能造成泄漏。"
+      ],
+      "answers": [
+        "0",
+        "1",
+        "3"
+      ],
+      "explanation": "正大小realloc失败返回空指针且不释放原内存。临时变量可保留原块所有权；成功后应只使用返回的新指针管理该块，不继续使用旧指针。这里排除了零大小realloc的特殊情形。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/memory/realloc.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-068",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "07 结构体与内存",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

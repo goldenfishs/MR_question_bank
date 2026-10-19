@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "c-advanced-011",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言进阶",
+  "visibility": "public",
+  "task": {
+    "title": "编程：数组最大值与位置",
+    "description": "输入：第一行整数 n（1≤n≤100），第二行 n 个整数（-10000≤ai≤10000）。\n输出：最大值和它第一次出现的下标，以一个空格分隔，末尾换行。下标从 0 开始。\n示例输入：\n5\n3 8 8 -2 7\n示例输出：\n8 1\n\n使用 C 语言，通过标准输入读入，向标准输出写结果。不要输出输入提示或其他文字。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "C语言进阶",
+      "数组"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/array.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5\n3 8 8 -2 7\n",
+          "expectedOutput": "8 1\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n-5\n",
+          "expectedOutput": "-5 0\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n-9 -2 -7 -2\n",
+          "expectedOutput": "-2 1\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n0 0 0\n",
+          "expectedOutput": "0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n-10000 2 9 10000\n",
+          "expectedOutput": "10000 3\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/array.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-advanced-011",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

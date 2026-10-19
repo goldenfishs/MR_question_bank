@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-116",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "12 调试与可靠控制",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 116 · 精确总线故障的诊断证据",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\n题设Cortex-M3产生可配置总线故障，CFSR的PRECISERR=1且BFARVALID=1，异常栈帧可正确读取。以下哪些处理有助于保留诊断证据？\n\n作答约定：选择所有正确项；至少两项正确。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "12 调试与可靠控制",
+      "Cortex-M3故障状态"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/programming_manual/cd00228163-stm32f10xxx20xxx21xxl1xxxx-cortexm3-programming-manual-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "在覆盖状态之前保存CFSR和有效BFAR，并保存异常栈帧中的PC/LR等",
+        "把BFARVALID视为允许解释BFAR的条件，不能对无效BFAR盲目归因",
+        "不保存任何状态直接不停复位，就保证能唯一定位到出错源码行",
+        "仅凭PRECISERR就可断言供电、电路与任何软件访问都正常"
+      ],
+      "answers": [
+        "0",
+        "1"
+      ],
+      "explanation": "CFSR标识故障类型；BFARVALID说明BFAR内容有效。异常堆栈中的PC等与故障寄存器共同提供证据，但优化、指令访问模式和板级条件仍可能影响定位。直接复位会损失现场，单一位也不能排除所有硬件原因。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/programming_manual/cd00228163-stm32f10xxx20xxx21xxl1xxxx-cortexm3-programming-manual-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-116",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "12 调试与可靠控制",
+    "oracleNotes": "PM0056 Rev 7，第142页，4.4.10 SCB_CFSR，核查关键词“CFSR indicates the cause”；PM0056 Rev 7，第143页，4.4.10 BFSR BFARVALID，核查关键词“BFARVALID”；PM0056 Rev 7，第144页，4.4.10 BFSR PRECISERR，核查关键词“PRECISERR”。适用限制：已明确是精确总线故障、BFAR有效且异常栈可读；不推广到不精确故障或损坏栈。"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-147",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "10 贪心与动态规划",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 147 · 补成回文的最少字符",
+    "description": "可在字符串任意位置插入字符，不能删除或替换原字符。求使整个字符串成为回文串所需最少插入次数。\n\n输入格式\n一行非空小写字母字符串。\n范围与边界\n1≤长度≤700。\n输出格式\n最少插入次数。\n\n示例 1 输入\nabcda\n示例 1 输出\n2\n\n\n示例 2 输入\nac\n示例 2 输出\n1\n\n建议复杂度：O(n²) 时间，O(n) 辅助空间。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "10 贪心与动态规划",
+      "区间动态规划"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "abcda\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "ac\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "cdb\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "bbbc\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "cacbc\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "babaad\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "aacdccb\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "dcbdcdba\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-147",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nstring s;cin>>s;int n=s.size();vector<int>d(n);for(int i=n-2;i>=0;i--){int prev=0;for(int j=i+1;j<n;j++){int old=d[j];d[j]=s[i]==s[j]?prev:1+min(d[j],d[j-1]);prev=old;}}cout<<d[n-1]<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    s=data.strip();n=len(s);d=[0]*n\n    for i in range(n-2,-1,-1):\n        prev=0\n        for j in range(i+1,n):\n            old=d[j];d[j]=prev if s[i]==s[j] else 1+min(d[j],d[j-1]);prev=old\n    return d[-1]\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

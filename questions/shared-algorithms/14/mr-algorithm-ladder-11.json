@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-11",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "识别记录：类别频次汇总",
+    "description": "统计一批检测标签的出现次数，并按标签字典序从小到大输出。标签只包含小写英文字母。\n输入：第一行 n（1 ≤ n ≤ 500），接下来 n 个标签由空白分隔，每个标签长度 1～20。\n输出：每个不同标签占一行，格式为标签、一个空格、次数，按字典序排列。\n\n示例输入：\n5\ntarget marker target background marker\n示例输出：\nbackground 1\nmarker 2\ntarget 2\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第二阶段·数组与容器",
+      "排序与容器",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5\ntarget marker target background marker\n",
+          "expectedOutput": "background 1\nmarker 2\ntarget 2\n",
+          "hidden": false
+        },
+        {
+          "input": "1\na\n",
+          "expectedOutput": "a 1\n",
+          "hidden": true
+        },
+        {
+          "input": "4\nrobot robot robot robot\n",
+          "expectedOutput": "robot 4\n",
+          "hidden": true
+        },
+        {
+          "input": "4\nz a ab aa\n",
+          "expectedOutput": "a 1\naa 1\nab 1\nz 1\n",
+          "hidden": true
+        },
+        {
+          "input": "6\nx y z x y x\n",
+          "expectedOutput": "x 3\ny 2\nz 1\n",
+          "hidden": true
+        },
+        {
+          "input": "3\nb aa a\n",
+          "expectedOutput": "a 1\naa 1\nb 1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-11",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <map>\n#include <string>\nusing namespace std;\nint main(){int n;cin>>n;map<string,int>c;string s;while(n--){cin>>s;c[s]++;}for(auto &p:c)cout<<p.first<<' '<<p.second<<endl;}\n",
+    "pythonReference": "import sys\nfrom collections import Counter\nc=Counter(sys.stdin.read().split()[1:])\nfor label in sorted(c):print(label,c[label])\n"
+  }
+}

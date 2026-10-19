@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-013",
+  "revision": 1,
+  "subject": "python",
+  "chapter": "基础语法",
+  "visibility": "public",
+  "task": {
+    "title": "Python：字典缺省值",
+    "description": "Python 3 执行 d = {\"x\": 2} 后，d.get(\"y\", 0) 返回什么？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "Python",
+      "字典"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/datastructures.html#dictionaries",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "抛出 KeyError",
+        "0",
+        "2",
+        "None"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "get 在键不存在时返回提供的默认值0，并不会自动插入该键。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/datastructures.html#dictionaries"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-013",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

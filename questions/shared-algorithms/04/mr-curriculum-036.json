@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-036",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 036 · 区间内有几个质数",
+    "description": "质数是大于 1 且只有 1 和自身两个正约数的整数。统计闭区间 [L,R] 中质数个数。\n输入：一行 L R，1 ≤ L ≤ R ≤ 100000，R-L ≤ 1000。\n输出：一个整数；1 不是质数。\n\n示例 1 输入\n1 10\n示例 1 输出\n4\n\n\n示例 2 输入\n14 16\n示例 2 输出\n0\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "试除判定与计数"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "1 10\n",
+          "expectedOutput": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "14 16\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "1 1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "2 2\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "97 103\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "99000 100000\n",
+          "expectedOutput": "87\n",
+          "hidden": true
+        },
+        {
+          "input": "49 49\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "99991 99991\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-036",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint l,r;cin>>l>>r;int ans=0;for(int n=l;n<=r;n++){bool ok=n>=2;for(int d=2;d*d<=n;d++)if(n%d==0){ok=false;break;}ans+=ok;}cout<<ans<<\"\\n\";\n}\n",
+    "pythonReference": "l,r=map(int,input().split())\nans=0\nfor n in range(l,r+1):\n ok=n>=2;d=2\n while d*d<=n:\n  if n%d==0:ok=False;break\n  d+=1\n ans+=ok\nprint(ans)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

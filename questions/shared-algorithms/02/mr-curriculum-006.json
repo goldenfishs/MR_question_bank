@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-006",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 006 · 三位编号反转",
+    "description": "读取恰好三位的正整数，交换其百位和个位。\n输入：整数 n，100 ≤ n ≤ 999。\n输出：反转后的整数，不保留前导零，例如 120 输出 21。\n\n示例 1 输入\n123\n示例 1 输出\n321\n\n\n示例 2 输入\n120\n示例 2 输出\n21\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "01 输入输出与表达式",
+      "数位拆分重组"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "123\n",
+          "expectedOutput": "321\n",
+          "hidden": false
+        },
+        {
+          "input": "120\n",
+          "expectedOutput": "21\n",
+          "hidden": false
+        },
+        {
+          "input": "100\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "999\n",
+          "expectedOutput": "999\n",
+          "hidden": true
+        },
+        {
+          "input": "101\n",
+          "expectedOutput": "101\n",
+          "hidden": true
+        },
+        {
+          "input": "909\n",
+          "expectedOutput": "909\n",
+          "hidden": true
+        },
+        {
+          "input": "567\n",
+          "expectedOutput": "765\n",
+          "hidden": true
+        },
+        {
+          "input": "900\n",
+          "expectedOutput": "9\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-006",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;cin>>n;cout<<n%10*100+n/10%10*10+n/100<<\"\\n\";\n}\n",
+    "pythonReference": "n=int(input())\nprint(n%10*100+n//10%10*10+n//100)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

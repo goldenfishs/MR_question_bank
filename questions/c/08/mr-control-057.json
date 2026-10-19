@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-057",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "06 指针与字符串",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 057 · 指针本身与指向对象的只读性",
+    "description": "已定义 int a=3,b=9; const int *p=&a; int *const q=&a;。以下每项作为独立语句分别判断，哪些合法且不违反这些 const 限定？（多选）\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "06 指针与字符串",
+      "const指针"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/const.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "multiple_choice",
+      "options": [
+        "p=&b;",
+        "*p=7;",
+        "*q=7;",
+        "q=&b;"
+      ],
+      "answers": [
+        "0",
+        "2"
+      ],
+      "explanation": "p 是可重新赋值的指针，但不能通过 p 修改所指对象。q 是不可重新赋值的指针，但指向非 const int，因此可以通过 *q 修改 a。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/const.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-057",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "06 指针与字符串",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

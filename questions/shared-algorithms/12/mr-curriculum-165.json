@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-165",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 165 · 插入加减号的达标数",
+    "description": "按输入顺序使用全部 n 个整数，在相邻两数之间插入加号或减号。第一个数前没有符号。求表达式结果恰好为 T 的符号方案数。不同位置的符号不同就算不同方案，即使数组含零。\n\n输入格式\n第一行 n T；第二行 n 个整数。\n范围与边界\n1≤n≤18；−10^9≤T,元素≤10^9。\n输出格式\n符号方案数。\n\n示例 1 输入\n4 0\n1 2 3 4\n示例 1 输出\n1\n\n\n示例 2 输入\n2 -2\n-2 -3\n示例 2 输出\n0\n\n建议复杂度：O(2^(n−1)) 时间，O(n) 递归空间。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "挑战",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "表达式搜索"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4 0\n1 2 3 4\n",
+          "expectedOutput": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "2 -2\n-2 -3\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "3 -1\n1 -2 -1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 0\n-6 8 -7 5\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "5 1\n4 -5 8 -4 -3\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "6 2\n-6 -8 1 -4 4 4\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "7 3\n3 -1 7 2 7 -6 6\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "8 4\n-2 8 -8 1 4 6 -2 -3\n",
+          "expectedOutput": "6\n",
+          "hidden": true
+        },
+        {
+          "input": "4 0\n-1 1 -8 -1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "18 1\n0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-165",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;ll T;cin>>n>>T;vector<ll>a(n);for(auto &x:a)cin>>x;function<ll(int,ll)>f=[&](int i,ll s)->ll{if(i==n)return s==T;return f(i+1,s+a[i])+f(i+1,s-a[i]);};cout<<f(1,a[0])<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    a=list(map(int,data.split()));n,T=a[:2];v=a[2:]\n    def f(i,s):\n        if i==n:return int(s==T)\n        return f(i+1,s+v[i])+f(i+1,s-v[i])\n    return f(1,v[0])\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

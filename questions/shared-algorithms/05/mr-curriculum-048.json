@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-048",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "04 数组与矩阵",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 048 · 第二大的不同值",
+    "description": "求序列中第二大的不同整数。例如 8,8,3 的答案为 3；只有一种不同值时不存在答案。\n输入：第一行 n，1 ≤ n ≤ 1000；第二行 n 个 -10^9～10^9 的整数。\n输出：第二大不同值；不存在时输出 NONE。\n\n示例 1 输入\n3\n8 8 3\n示例 1 输出\n3\n\n\n示例 2 输入\n1\n5\n示例 2 输出\nNONE\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "04 数组与矩阵",
+      "维护两个候选值"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3\n8 8 3\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n5\n",
+          "expectedOutput": "NONE\n",
+          "hidden": false
+        },
+        {
+          "input": "4\n1 2 3 4\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n4 3 2 1\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "2\n-1000000000 -999999999\n",
+          "expectedOutput": "-1000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n-2 -1 -2\n",
+          "expectedOutput": "-2\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n0 0 0\n",
+          "expectedOutput": "NONE\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n9 1 9 8 8\n",
+          "expectedOutput": "8\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-048",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;cin>>n;long long hi=numeric_limits<long long>::min(),lo=hi;for(int i=0;i<n;i++){long long x;cin>>x;if(x>hi){lo=hi;hi=x;}else if(x<hi&&x>lo)lo=x;}if(lo==numeric_limits<long long>::min())cout<<\"NONE\\n\";else cout<<lo<<\"\\n\";\n}\n",
+    "pythonReference": "n=int(input())\na=list(map(int,input().split()))\nhi=None;lo=None\nfor x in a:\n if hi is None or x>hi:lo=hi;hi=x\n elif x<hi and (lo is None or x>lo):lo=x\nprint(\"NONE\" if lo is None else lo)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

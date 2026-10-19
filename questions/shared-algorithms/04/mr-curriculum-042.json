@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-042",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "03 循环与数论入门",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 042 · 每天翻倍达到目标",
+    "description": "初始数量为 s，每经过一天数量翻倍。求至少几天后数量达到或超过目标 t。\n输入：一行 s t，1 ≤ s,t ≤ 10^18。\n输出：最少天数；初始已达到目标时输出 0。\n\n示例 1 输入\n3 20\n示例 1 输出\n3\n\n\n示例 2 输入\n10 10\n示例 2 输出\n0\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "03 循环与数论入门",
+      "条件循环"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 20\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "10 10\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "100 1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1000000000000000000\n",
+          "expectedOutput": "60\n",
+          "hidden": true
+        },
+        {
+          "input": "500000000000000001 1000000000000000000\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 2\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "5 41\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "7 56\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-042",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long s,t;cin>>s>>t;int d=0;while(s<t){s*=2;d++;}cout<<d<<\"\\n\";\n}\n",
+    "pythonReference": "s,t=map(int,input().split())\nd=0\nwhile s<t:s*=2;d+=1\nprint(d)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

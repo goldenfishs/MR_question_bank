@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-024",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "02 分支判断",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 024 · 阶梯用量收费",
+    "description": "用量 n 的前 100 单位每单位 2 分，第 101～300 单位每单位 3 分，超过 300 的部分每单位 5 分。所有分段费用相加。\n输入：整数 n，0 ≤ n ≤ 10^9。\n输出：总费用，单位为分，只输出整数。\n\n示例 1 输入\n50\n示例 1 输出\n100\n\n\n示例 2 输入\n101\n示例 2 输出\n203\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "02 分支判断",
+      "分段累计计费"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "50\n",
+          "expectedOutput": "100\n",
+          "hidden": false
+        },
+        {
+          "input": "101\n",
+          "expectedOutput": "203\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "100\n",
+          "expectedOutput": "200\n",
+          "hidden": true
+        },
+        {
+          "input": "300\n",
+          "expectedOutput": "800\n",
+          "hidden": true
+        },
+        {
+          "input": "301\n",
+          "expectedOutput": "805\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000\n",
+          "expectedOutput": "4999999300\n",
+          "hidden": true
+        },
+        {
+          "input": "250\n",
+          "expectedOutput": "650\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-024",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long n;cin>>n;long long v=0;if(n>300){v+=(n-300)*5;n=300;}if(n>100){v+=(n-100)*3;n=100;}v+=n*2;cout<<v<<\"\\n\";\n}\n",
+    "pythonReference": "n=int(input())\nprint(min(n,100)*2+min(max(n-100,0),200)*3+max(n-300,0)*5)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

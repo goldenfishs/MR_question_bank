@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "c-advanced-002",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "C语言进阶",
+  "visibility": "public",
+  "task": {
+    "title": "数组有效下标",
+    "description": "已声明 int samples[5] = {0};，哪个下标范围可以访问该数组的元素？",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "C语言进阶",
+      "数组"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/array.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "1 到 5",
+        "0 到 5",
+        "0 到 4",
+        "-1 到 3"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "长度为 5 的数组具有下标 0、1、2、3、4。下标 5 的地址可以作为尾后指针，但不能解引用访问数组元素。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/array.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/c_language.json",
+    "key": "c-advanced-002",
+    "fileSha256": "1f2a8b520a860ed50c0483c85319354df4c8a0151234dba4bea571e8c1c755b2"
+  },
+  "maintenance": {}
+}

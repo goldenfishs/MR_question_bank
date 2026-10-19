@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-152",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 152 · 皇后部署总数",
+    "description": "在 n×n 棋盘放 n 个皇后，每行每列恰好一个，任意两个不能位于同一条对角线。求不同摆法数。棋盘旋转或镜像后位置不同仍分别计数。\n\n输入格式\n一行整数 n。\n范围与边界\n1≤n≤11。\n输出格式\n摆法数。\n\n示例 1 输入\n4\n示例 1 输出\n2\n\n\n示例 2 输入\n2\n示例 2 输出\n0\n\n建议复杂度：采用位掩码回溯，最坏 O(n!)。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "挑战",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "位掩码回溯"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "2\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "3\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n",
+          "expectedOutput": "10\n",
+          "hidden": true
+        },
+        {
+          "input": "6\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "7\n",
+          "expectedOutput": "40\n",
+          "hidden": true
+        },
+        {
+          "input": "1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "11\n",
+          "expectedOutput": "2680\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-152",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;cin>>n;int mask=(1<<n)-1;function<ll(int,int,int)>f=[&](int c,int l,int r)->ll{if(c==mask)return 1;int v=mask&~(c|l|r);ll ans=0;while(v){int x=v&-v;v-=x;ans+=f(c|x,((l|x)<<1)&mask,(r|x)>>1);}return ans;};cout<<f(0,0,0)<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    n=int(data);mask=(1<<n)-1\n    def f(c,l,r):\n        if c==mask:return 1\n        v=mask&~(c|l|r);ans=0\n        while v:\n            x=v&-v;v-=x;ans+=f(c|x,((l|x)<<1)&mask,(r|x)>>1)\n        return ans\n    return f(0,0,0)\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

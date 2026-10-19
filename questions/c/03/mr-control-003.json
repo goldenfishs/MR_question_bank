@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-003",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 003 · 采样脉冲换算整数转速",
+    "description": "采样期间计到P个脉冲，采样时长T毫秒，编码器每圈产生N个脉冲。求平均转速，单位为转/分钟，结果向下取整。\n输入：一行P T N，0≤P≤10^9，1≤T,N≤10^6。\n输出：一个非负整数，即floor(60000*P/(T*N))。分子最大6×10^13，分母最大10^12，全部使用64位整数可精确计算。\n\n示例 1 输入\n12345 250 2048\n示例 1 输出\n1446\n\n\n示例 2 输入\n9876 137 2048\n示例 2 输出\n2111\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "01 输入输出与表达式",
+      "单位换算与组合分母"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "12345 250 2048\n",
+          "expectedOutput": "1446\n",
+          "hidden": false
+        },
+        {
+          "input": "9876 137 2048\n",
+          "expectedOutput": "2111\n",
+          "hidden": false
+        },
+        {
+          "input": "0 1 1\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 1 1\n",
+          "expectedOutput": "60000000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1000000 1000000\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 1000000 1000000\n",
+          "expectedOutput": "60\n",
+          "hidden": true
+        },
+        {
+          "input": "1000 1000 100\n",
+          "expectedOutput": "600\n",
+          "hidden": true
+        },
+        {
+          "input": "17 60000 1\n",
+          "expectedOutput": "17\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-003",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "01 输入输出与表达式",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long p,t,n;if(scanf(\"%lld%lld%lld\",&p,&t,&n)!=3)return 0;printf(\"%lld\\n\",60000LL*p/(t*n));\nreturn 0;\n}\n",
+    "oracleNotes": "独立用Fraction(P,N)圈除以Fraction(T,60000)分钟，最后取floor，避免浮点及提前整除。"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "algorithm-progressive-14-pairs",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "算法阶梯 14 · 转运舱配对",
+    "description": "基地要运走 n 个电池箱。每个转运舱最多放两个箱子，且总重量不超过 L。每个箱子单独放入一定不超重，所有箱子必须运走。求最少所需转运舱数量。\n\n输入格式\n第一行 n、L，第二行 n 个箱子的重量；n 为 0 时第二行可省略。\n范围：0 ≤ n ≤ 1000，1 ≤ L ≤ 10^9，1 ≤ 重量 ≤ L。\n输出格式\n最少所需转运舱数量。\n\n示例 1 输入\n5 10\n2 8 4 6 5\n示例 1 输出\n3\n说明：装成 (2,8)、(4,6)、(5)。\n示例 2 输入\n4 7\n4 4 4 4\n示例 2 输出\n4\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3。\n原创说明：题面、样例和测试数据由本站围绕机器人训练独立编写。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "tags": [
+      "算法阶梯",
+      "第三阶段·贪心与搜索",
+      "双指针",
+      "贪心"
+    ],
+    "required": false,
+    "fileIds": [],
+    "team": "",
+    "dueAt": "",
+    "resourcesUrl": "",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "5 10\n2 8 4 6 5\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "4 7\n4 4 4 4\n",
+          "expectedOutput": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "0 10\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1\n1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "6 10\n5 5 5 5 5 5\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "6 10\n1 9 2 8 3 7\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "5 10\n1 2 3 4 10\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "7 1000000000\n1000000000 999999999 1 500000000 500000000 2 2\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-advanced.json",
+    "key": "algorithm-progressive-14-pairs",
+    "fileSha256": "3926a35202e5fc8211cb6d21421170a7ff4eb4644b74088f33b78f29686d75fd"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <functional>\n#include <utility>\nusing namespace std;\nint main(){int n;long long L;cin>>n>>L;vector<long long>a(n);for(auto&x:a)cin>>x;sort(a.begin(),a.end());int l=0,r=n-1,ans=0;while(l<=r){if(l<r&&a[l]+a[r]<=L)++l;--r;++ans;}cout<<ans<<'\\n';}\n",
+    "pythonReference": "import sys\na=list(map(int,sys.stdin.buffer.read().split()))\nn,limit=a[:2]\nw=sorted(a[2:])\nl,r=0,n-1\nanswer=0\nwhile l<=r:\n    if l<r and w[l]+w[r]<=limit:\n        l+=1\n    r-=1\n    answer+=1\nprint(answer)\n"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-161",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 161 · 一人一项的最小分工费",
+    "description": "n 个人与 n 项任务一一对应。给出每个人完成每项任务的费用，每人恰好一项、每项恰好一人，求最小总费用。\n\n输入格式\n第一行 n；随后 n 行，每行 n 个费用，第 i 行第 j 列为人员 i 完成任务 j 的费用。\n范围与边界\n1≤n≤9；0≤费用≤10^9。\n输出格式\n最小总费用。\n\n示例 1 输入\n3\n9 2 7\n6 4 3\n5 8 1\n示例 1 输出\n9\n\n\n示例 2 输入\n2\n23 1\n8 10\n示例 2 输出\n9\n\n建议复杂度：O(n!) 回溯，非负费用可剪枝。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "分配回溯"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3\n9 2 7\n6 4 3\n5 8 1\n",
+          "expectedOutput": "9\n",
+          "hidden": false
+        },
+        {
+          "input": "2\n23 1\n8 10\n",
+          "expectedOutput": "9\n",
+          "hidden": false
+        },
+        {
+          "input": "3\n10 2 13\n0 2 17\n14 8 21\n",
+          "expectedOutput": "21\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n16 0 22 23\n25 7 8 11\n23 27 0 4\n26 21 0 30\n",
+          "expectedOutput": "27\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n16 28 18 14 19\n0 26 6 16 19\n20 16 4 24 20\n26 0 22 30 5\n10 25 4 21 5\n",
+          "expectedOutput": "23\n",
+          "hidden": true
+        },
+        {
+          "input": "6\n27 8 8 1 10 25\n28 14 4 11 21 3\n23 4 24 10 25 5\n3 10 8 19 3 23\n23 12 0 24 3 30\n30 23 30 10 17 10\n",
+          "expectedOutput": "25\n",
+          "hidden": true
+        },
+        {
+          "input": "1\n20\n",
+          "expectedOutput": "20\n",
+          "hidden": true
+        },
+        {
+          "input": "2\n0 18\n23 6\n",
+          "expectedOutput": "6\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n18 27 22 30\n16 14 17 13\n17 4 20 22\n1 2 3 12\n",
+          "expectedOutput": "38\n",
+          "hidden": true
+        },
+        {
+          "input": "9\n1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1\n1 1 1 1 1 1 1 1 1\n",
+          "expectedOutput": "9\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-161",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;cin>>n;vector<vector<ll>>a(n,vector<ll>(n));for(auto &r:a)for(auto &x:r)cin>>x;ll best=1000000000000000LL;function<void(int,int,ll)>f=[&](int i,int mask,ll s){if(s>=best)return;if(i==n){best=s;return;}for(int j=0;j<n;j++)if(!(mask>>j&1))f(i+1,mask|1<<j,s+a[i][j]);};f(0,0,0);cout<<best<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    v=list(map(int,data.split()));n=v[0];a=[v[1+i*n:1+(i+1)*n] for i in range(n)];best=10**30\n    def f(i,mask,s):\n        nonlocal best\n        if s>=best:return\n        if i==n:best=s;return\n        for j in range(n):\n            if not(mask>>j&1):f(i+1,mask|1<<j,s+a[i][j])\n    f(0,0,0);return best\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

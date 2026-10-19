@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-001",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 001 · 编码器的整圈与余脉冲",
+    "description": "编码器每圈产生 P 个脉冲，累计计到 N 个非负脉冲。\n输入：一行 N P，0≤N≤10^15，1≤P≤10^9。\n输出：一行两个整数，依次为完整转数和不足一圈的剩余脉冲数。编码器从零位开始，不考虑方向。\n\n示例 1 输入\n10250 4096\n示例 1 输出\n2 2058\n\n\n示例 2 输入\n12345 1000\n示例 2 输出\n12 345\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "01 输入输出与表达式",
+      "整除与余量"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/operator_arithmetic.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "10250 4096\n",
+          "expectedOutput": "2 2058\n",
+          "hidden": false
+        },
+        {
+          "input": "12345 1000\n",
+          "expectedOutput": "12 345\n",
+          "hidden": false
+        },
+        {
+          "input": "0 1\n",
+          "expectedOutput": "0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000000 1\n",
+          "expectedOutput": "1000000000000000 0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000000 999999999\n",
+          "expectedOutput": "1000000 1000000\n",
+          "hidden": true
+        },
+        {
+          "input": "4095 4096\n",
+          "expectedOutput": "0 4095\n",
+          "hidden": true
+        },
+        {
+          "input": "4096 4096\n",
+          "expectedOutput": "1 0\n",
+          "hidden": true
+        },
+        {
+          "input": "99 100\n",
+          "expectedOutput": "0 99\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/operator_arithmetic.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-001",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "01 输入输出与表达式",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long n,p;if(scanf(\"%lld%lld\",&n,&p)!=2)return 0;printf(\"%lld %lld\\n\",n/p,n%p);\nreturn 0;\n}\n",
+    "oracleNotes": "Python divmod给出商余，并检查N=圈数*P+余数及0≤余数<P。"
+  }
+}

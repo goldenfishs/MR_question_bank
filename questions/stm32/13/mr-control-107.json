@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-107",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "11 采样与通信外设",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 107 · F1串口IDLE的清除动作",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nUSART接收中已检测到IDLE，程序要按本外设规定清除此标志。只讨论标志清除，不讨论DMA剩余计数或帧协议。哪组动作正确？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "11 采样与通信外设",
+      "USART状态读取顺序"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "先读USART_SR，再读USART_DR",
+        "只向USART_SR的IDLE位写1",
+        "先读USART_DR，再读USART_SR就是规定序列",
+        "只清DMA传输完成标志"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "F103 USART的IDLE通过读SR后读DR的软件序列清除。不能从EXTI的写1清除规则类推。读取DR也可能影响接收数据路径，实际驱动需结合DMA/缓冲协议设计。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-107",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "11 采样与通信外设",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第819页，27.6.1 USART_SR IDLE，核查关键词“read to the USART_DR”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

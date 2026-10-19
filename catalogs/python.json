@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "python",
+  "name": "Python题库",
+  "chapters": [
+    {
+      "order": 1,
+      "name": "基础语法",
+      "questions": [
+        "algo-009",
+        "algo-010",
+        "algo-011",
+        "algo-012",
+        "algo-013",
+        "algo-014",
+        "algo-015",
+        "algo-016"
+      ]
+    }
+  ],
+  "includes": [
+    "shared-algorithms"
+  ]
+}

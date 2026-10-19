@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-algorithm-ladder-02",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "运行计时：秒数换算",
+    "description": "给定机器人连续运行的总秒数 s，换算为小时、分钟、秒。小时数可以超过 23，不按天取模。\n输入：一个整数 s，0 ≤ s ≤ 1000000000。\n输出：一行三个整数 h m sec，以空格隔开，不补前导零；分钟和秒均在 0～59。\n\n示例输入：\n7384\n示例输出：\n2 3 4\n\n使用标准输入输出，不输出提示文字。支持 C++17 或 Python 3；在线检查输入输出结果。题面和测试由 QUT 机器人战队平台独立编写，属于算法阶梯练习。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "算法阶梯",
+      "第一阶段·编程入门",
+      "基础输入输出",
+      "C++",
+      "Python"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "7384\n",
+          "expectedOutput": "2 3 4\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "0 0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "59\n",
+          "expectedOutput": "0 0 59\n",
+          "hidden": true
+        },
+        {
+          "input": "60\n",
+          "expectedOutput": "0 1 0\n",
+          "hidden": true
+        },
+        {
+          "input": "86400\n",
+          "expectedOutput": "24 0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000\n",
+          "expectedOutput": "277777 46 40\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-basics.json",
+    "key": "mr-algorithm-ladder-02",
+    "fileSha256": "fdddd303a38750c0fecf586539e183a36b52092b411bddacb67de3da248dbb1d"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\nusing namespace std;\nint main(){long long s;cin>>s;cout<<s/3600<<' '<<s/60%60<<' '<<s%60<<endl;}\n",
+    "pythonReference": "s=int(input())\nh,r=divmod(s,3600)\nm,s=divmod(r,60)\nprint(h,m,s)\n"
+  }
+}

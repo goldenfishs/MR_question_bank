@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-153",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "11 搜索与回溯",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 153 · 禁用格上的皇后",
+    "description": "n×n 棋盘部分格子被禁用。放 n 个皇后，使每行每列恰好一个、对角线互不攻击，且均在可用格。求摆法数。旋转和镜像不合并。\n\n输入格式\n第一行 n；随后 n 行长度 n 的串，点号可用、井号禁用。\n范围与边界\n1≤n≤10。\n输出格式\n摆法数，无法部署时为 0。\n\n示例 1 输入\n4\n....\n....\n....\n....\n示例 1 输出\n2\n\n\n示例 2 输入\n2\n..\n..\n示例 2 输出\n0\n\n建议复杂度：位掩码回溯，最坏 O(n!)。\n使用标准输入输出，不输出提示文字；支持 C++17 与 Python 3.8。\n原创说明：题面、样例、测试及参考程序均由本站为系统学习路径独立编写，不转载外部题目。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "11 搜索与回溯",
+      "约束回溯"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4\n....\n....\n....\n....\n",
+          "expectedOutput": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "2\n..\n..\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "3\n...\n...\n#..\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n#..#\n..#.\n..#.\n...#\n",
+          "expectedOutput": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n.....\n#....\n....#\n...#.\n#..#.\n",
+          "expectedOutput": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "6\n......\n....#.\n......\n..#...\n......\n......\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "1\n.\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "2\n.#\n..\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n....\n...#\n.#..\n.#..\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "10\n..........\n..........\n..........\n..........\n..........\n..........\n..........\n..........\n..........\n..........\n",
+          "expectedOutput": "724\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/algorithms.json",
+    "key": "mr-curriculum-153",
+    "fileSha256": "f82a6ef8fc9e005a8abd2f93ff0e639bc9e2708fd78190ad46e8b77506dd9080"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <deque>\n#include <map>\n#include <set>\n#include <unordered_map>\n#include <numeric>\n#include <functional>\n#include <utility>\n#include <limits>\n#include <cmath>\nusing namespace std;using ll=long long;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint n;cin>>n;vector<int>a(n);for(int i=0;i<n;i++){string s;cin>>s;for(int j=0;j<n;j++)if(s[j]=='.')a[i]|=1<<j;}int mask=(1<<n)-1;function<ll(int,int,int,int)>f=[&](int i,int c,int l,int r)->ll{if(i==n)return 1;int v=a[i]&~(c|l|r);ll ans=0;while(v){int x=v&-v;v-=x;ans+=f(i+1,c|x,((l|x)<<1)&mask,(r|x)>>1);}return ans;};cout<<f(0,0,0,0)<<'\\n';\n}\n",
+    "pythonReference": "import sys,collections,heapq,itertools,functools,bisect\ndef solve(data):\n    v=data.split();n=int(v[0]);a=[sum(1<<j for j,c in enumerate(s) if c==\".\") for s in v[1:]];mask=(1<<n)-1\n    def f(i,c,l,r):\n        if i==n:return 1\n        v=a[i]&~(c|l|r);ans=0\n        while v:\n            x=v&-v;v-=x;ans+=f(i+1,c|x,((l|x)<<1)&mask,(r|x)>>1)\n        return ans\n    return f(0,0,0,0)\n\nif __name__==\"__main__\":\n    a=solve(sys.stdin.buffer.read().decode())\n    print(\" \".join(map(str,a)) if isinstance(a,(list,tuple)) else a)\n"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-027",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "02 分支判断",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 027 · 精确比较两个分数",
+    "description": "比较 a/b 与 c/d，不使用浮点近似；分子可以为负，分母始终为正。\n输入：一行 a b c d，-10^9 ≤ a,c ≤ 10^9，1 ≤ b,d ≤ 10^9。\n输出：第一个分数小于、等于、大于第二个时，分别输出 <、=、>。\n\n示例 1 输入\n1 2 2 3\n示例 1 输出\n<\n\n\n示例 2 输入\n2 4 1 2\n示例 2 输出\n=\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "02 分支判断",
+      "交叉相乘"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "1 2 2 3\n",
+          "expectedOutput": "<\n",
+          "hidden": false
+        },
+        {
+          "input": "2 4 1 2\n",
+          "expectedOutput": "=\n",
+          "hidden": false
+        },
+        {
+          "input": "-1 3 0 9\n",
+          "expectedOutput": "<\n",
+          "hidden": true
+        },
+        {
+          "input": "-5 7 -4 7\n",
+          "expectedOutput": "<\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 999999999 999999999 1000000000\n",
+          "expectedOutput": ">\n",
+          "hidden": true
+        },
+        {
+          "input": "-1000000000 1 1000000000 1\n",
+          "expectedOutput": "<\n",
+          "hidden": true
+        },
+        {
+          "input": "0 1 0 1000000000\n",
+          "expectedOutput": "=\n",
+          "hidden": true
+        },
+        {
+          "input": "7 2 10 3\n",
+          "expectedOutput": ">\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-027",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long a,b,c,d;cin>>a>>b>>c>>d;long long l=a*d,r=c*b;cout<<(l<r?\"<\":l>r?\">\":\"=\")<<\"\\n\";\n}\n",
+    "pythonReference": "a,b,c,d=map(int,input().split())\nprint(\"<\" if a*d<c*b else \">\" if a*d>c*b else \"=\")\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

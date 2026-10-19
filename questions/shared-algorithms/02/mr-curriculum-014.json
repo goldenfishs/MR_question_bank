@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-014",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "01 输入输出与表达式",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 014 · 混合长度统一为厘米",
+    "description": "长度由 k 千米、m 米、c 厘米组成，三项相加。m 和 c 不要求小于进位单位。\n输入：一行 k m c，0 ≤ k,m,c ≤ 10^9。\n输出：总厘米数，一个整数。\n\n示例 1 输入\n2 3 4\n示例 1 输出\n200304\n\n\n示例 2 输入\n0 0 0\n示例 2 输出\n0\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "01 输入输出与表达式",
+      "单位换算"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "2 3 4\n",
+          "expectedOutput": "200304\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0 0\n",
+          "expectedOutput": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "0 1000 100\n",
+          "expectedOutput": "100100\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 1000000000 1000000000\n",
+          "expectedOutput": "100101000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "1 0 0\n",
+          "expectedOutput": "100000\n",
+          "hidden": true
+        },
+        {
+          "input": "0 1 0\n",
+          "expectedOutput": "100\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 99\n",
+          "expectedOutput": "99\n",
+          "hidden": true
+        },
+        {
+          "input": "12 345 678\n",
+          "expectedOutput": "1235178\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-014",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nlong long k,m,c;cin>>k>>m>>c;cout<<k*100000+m*100+c<<\"\\n\";\n}\n",
+    "pythonReference": "k,m,c=map(int,input().split())\nprint(k*100000+m*100+c)\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

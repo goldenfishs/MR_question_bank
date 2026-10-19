@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-085",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "06 函数与递归",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 085 · 第 k 个排列",
+    "description": "将 1～n 各使用一次构成排列，按字典序从小到大排列全部结果，求第 k 个。字典序按整数序列比较，不按字符拼接比较。\n\n输入格式\n一行 n k。\n数据范围与边界\n1 ≤ n ≤ 10；1 ≤ k ≤ n!；k 从 1 开始。\n输出格式\n一行 n 个整数，空格分隔。\n\n示例 1 输入\n3 4\n示例 1 输出\n2 3 1\n\n示例 2 输入\n4 1\n示例 2 输出\n1 2 3 4\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3.8。本章用于练习函数与递归，但判题仅检查输入输出结果，不强制使用函数、递归或任何特定语法。\n原创说明：本题题面、样例、测试与参考实现由本站独立编写，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "06 函数与递归",
+      "递归分组计数"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "3 4\n",
+          "expectedOutput": "2 3 1\n",
+          "hidden": false
+        },
+        {
+          "input": "4 1\n",
+          "expectedOutput": "1 2 3 4\n",
+          "hidden": false
+        },
+        {
+          "input": "1 1\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "4 24\n",
+          "expectedOutput": "4 3 2 1\n",
+          "hidden": true
+        },
+        {
+          "input": "5 57\n",
+          "expectedOutput": "3 2 4 1 5\n",
+          "hidden": true
+        },
+        {
+          "input": "10 3628800\n",
+          "expectedOutput": "10 9 8 7 6 5 4 3 2 1\n",
+          "hidden": true
+        },
+        {
+          "input": "10 1\n",
+          "expectedOutput": "1 2 3 4 5 6 7 8 9 10\n",
+          "hidden": true
+        },
+        {
+          "input": "6 719\n",
+          "expectedOutput": "6 5 4 3 1 2\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/structures.json",
+    "key": "mr-curriculum-085",
+    "fileSha256": "3a45e09f53663624f662e2a2fd0e52e4db9d44d1962a888c20a33341740dca5a"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <sstream>\n#include <set>\n#include <map>\n#include <queue>\n#include <deque>\n#include <stack>\n#include <numeric>\n#include <functional>\n#include <cmath>\n#include <climits>\n#include <utility>\nusing namespace std;\nvoid solve(vector<int>a,long long k){if(a.empty())return;long long f=1;for(int i=2;i<(int)a.size();i++)f*=i;int j=k/f;cout<<a[j];a.erase(a.begin()+j);if(!a.empty())cout<<' ';solve(a,k%f);}int main(){int n;long long k;cin>>n>>k;vector<int>a(n);iota(a.begin(),a.end(),1);solve(a,k-1);cout<<'\\n';}\n",
+    "pythonReference": "import math\nn,k=map(int,input().split())\ndef select(a,k):\n    if not a:return []\n    block=math.factorial(len(a)-1);j,k=divmod(k,block)\n    x=a.pop(j)\n    return [x]+select(a,k)\nprint(*select(list(range(1,n+1)),k-1))\n"
+  }
+}

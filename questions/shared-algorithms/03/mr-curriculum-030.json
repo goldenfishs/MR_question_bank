@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-curriculum-030",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "02 分支判断",
+  "visibility": "public",
+  "task": {
+    "title": "学习路径 030 · 分数对应的等级",
+    "description": "成绩 s 按区间划分等级：90～100 为 A，80～89 为 B，70～79 为 C，60～69 为 D，0～59 为 F。\n输入：整数 s，0 ≤ s ≤ 100。\n输出：对应的大写字母。\n\n示例 1 输入\n90\n示例 1 输出\nA\n\n\n示例 2 输入\n59\n示例 2 输出\nF\n\n使用标准输入输出，不输出提示文字。题面、参考程序与测试由 MR 系统学习路径独立原创，未复制第三方题库。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "入门",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "",
+    "tags": [
+      "系统学习路径",
+      "02 分支判断",
+      "多段阈值"
+    ],
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "90\n",
+          "expectedOutput": "A\n",
+          "hidden": false
+        },
+        {
+          "input": "59\n",
+          "expectedOutput": "F\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "expectedOutput": "F\n",
+          "hidden": true
+        },
+        {
+          "input": "60\n",
+          "expectedOutput": "D\n",
+          "hidden": true
+        },
+        {
+          "input": "69\n",
+          "expectedOutput": "D\n",
+          "hidden": true
+        },
+        {
+          "input": "70\n",
+          "expectedOutput": "C\n",
+          "hidden": true
+        },
+        {
+          "input": "79\n",
+          "expectedOutput": "C\n",
+          "hidden": true
+        },
+        {
+          "input": "80\n",
+          "expectedOutput": "B\n",
+          "hidden": true
+        },
+        {
+          "input": "89\n",
+          "expectedOutput": "B\n",
+          "hidden": true
+        },
+        {
+          "input": "100\n",
+          "expectedOutput": "A\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/curriculum/foundations.json",
+    "key": "mr-curriculum-030",
+    "fileSha256": "bcd0d0ef70394d2064fc732db86d133c638d892c2a8f18494c6897288a18e7c2"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <numeric>\n#include <cmath>\n#include <iomanip>\n#include <set>\n#include <map>\n#include <sstream>\n#include <limits>\nusing namespace std;\nint main(){ios::sync_with_stdio(false);cin.tie(nullptr);\nint s;cin>>s;if(s>=90)cout<<\"A\";else if(s>=80)cout<<\"B\";else if(s>=70)cout<<\"C\";else if(s>=60)cout<<\"D\";else cout<<\"F\";cout<<\"\\n\";\n}\n",
+    "pythonReference": "s=int(input())\nprint(\"A\" if s>=90 else \"B\" if s>=80 else \"C\" if s>=70 else \"D\" if s>=60 else \"F\")\n",
+    "validation": {
+      "oracle": "Independent Python specification in build_foundations.py; extra boundary/property checks in verify_foundations.py."
+    }
+  }
+}

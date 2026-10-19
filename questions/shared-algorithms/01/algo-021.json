@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-021",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法入门",
+  "visibility": "public",
+  "task": {
+    "title": "算法：BFS 的适用场景",
+    "description": "在每条边权值均为1的图中，求起点到各点的最少边数，通常使用？",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "算法",
+      "图搜索"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://github.com/TheAlgorithms/Python/blob/master/graphs/breadth_first_search.py",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "只进行一次深度优先遍历",
+        "广度优先搜索（BFS）",
+        "任意顺序扫描顶点一次",
+        "二分查找"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "BFS逐层扩展，首次访问某顶点时的层数就是起点到它的最少边数。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://github.com/TheAlgorithms/Python/blob/master/graphs/breadth_first_search.py"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-021",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

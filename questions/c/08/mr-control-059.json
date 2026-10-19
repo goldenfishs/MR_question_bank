@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-059",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "06 指针与字符串",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 059 · 含零字节的数据比较",
+    "description": "unsigned char a[3]={1,0,2}; unsigned char b[3]={1,0,9};。已经包含 <string.h>。要比较全部三个字节而不把 0 当成终止符，下列哪项合适？\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "06 指针与字符串",
+      "二进制缓冲比较"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/string/byte/memcmp.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "strcmp((const char*)a,(const char*)b)",
+        "memcmp(a,b,3)",
+        "strlen((const char*)a)==strlen((const char*)b)",
+        "只比较 a[0]==b[0]"
+      ],
+      "answers": [
+        "1"
+      ],
+      "explanation": "memcmp 按指定长度比较对象表示中的字节，不依赖空字符终止。strcmp/strlen 按 C 字符串语义在首个零处停止，无法覆盖本题后面的有效数据。只使用返回值的正负/零，不依赖具体非零大小。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/string/byte/memcmp.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-059",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "06 指针与字符串",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

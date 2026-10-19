@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "algorithm-progressive-20-knapsack-bounded",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "算法阶梯 20 · 限量备件清单",
+    "description": "仓库有 n 种备件，第 i 种每个占 w_i 单位载重、提供 v_i 点价值，库存 q_i 个。总载重不能超过 C，每种选取数量不能超过库存。可以不装满，求最大价值。\n\n输入格式\n第一行 n、C，随后 n 行每行 w_i、v_i、q_i。\n范围：0 ≤ n ≤ 50，0 ≤ C ≤ 5000，1 ≤ w_i ≤ 5000，0 ≤ v_i ≤ 10^9，0 ≤ q_i ≤ 50。\n输出格式\n库存与容量限制下的最大整数价值。\n\n示例 1 输入\n2 10\n3 5 2\n4 8 1\n示例 1 输出\n18\n说明：第一种取 2 个，第二种取 1 个。\n示例 2 输入\n1 10\n2 7 3\n示例 2 输出\n21\n说明：虽然还能装，库存只允许取 3 个。\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3。\n原创说明：题面、样例和测试数据由本站围绕机器人训练独立编写。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "tags": [
+      "算法阶梯",
+      "第四阶段·动态规划",
+      "动态规划",
+      "多重背包",
+      "二进制拆分"
+    ],
+    "required": false,
+    "fileIds": [],
+    "team": "",
+    "dueAt": "",
+    "resourcesUrl": "",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "2 10\n3 5 2\n4 8 1\n",
+          "expectedOutput": "18\n",
+          "hidden": false
+        },
+        {
+          "input": "1 10\n2 7 3\n",
+          "expectedOutput": "21\n",
+          "hidden": false
+        },
+        {
+          "input": "0 10\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "2 0\n1 5 5\n2 8 2\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "2 9\n1 100 0\n3 4 2\n",
+          "expectedOutput": "8\n",
+          "hidden": true
+        },
+        {
+          "input": "2 8\n3 6 1\n4 7 2\n",
+          "expectedOutput": "14\n",
+          "hidden": true
+        },
+        {
+          "input": "1 50\n1 1000000000 50\n",
+          "expectedOutput": "50000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "3 12\n2 3 5\n3 7 2\n5 10 1\n",
+          "expectedOutput": "24\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-advanced.json",
+    "key": "algorithm-progressive-20-knapsack-bounded",
+    "fileSha256": "3926a35202e5fc8211cb6d21421170a7ff4eb4644b74088f33b78f29686d75fd"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <functional>\n#include <utility>\nusing namespace std;\nint main(){int n,C;cin>>n>>C;vector<long long>dp(C+1);for(int i=0;i<n;++i){int w,q;long long v;cin>>w>>v>>q;for(int block=1;q>0;block*=2){int take=min(block,q);q-=take;int weight=w*take;long long value=v*take;for(int c=C;c>=weight;--c)dp[c]=max(dp[c],dp[c-weight]+value);}}cout<<dp[C]<<'\\n';}\n",
+    "pythonReference": "import sys\na=list(map(int,sys.stdin.buffer.read().split()))\nn,capacity=a[:2]\ndp=[0]*(capacity+1)\nfor i in range(n):\n    w,v,quantity=a[2+3*i:5+3*i]\n    block=1\n    while quantity:\n        take=min(block,quantity)\n        quantity-=take\n        weight,value=w*take,v*take\n        for c in range(capacity,weight-1,-1):\n            dp[c]=max(dp[c],dp[c-weight]+value)\n        block*=2\nprint(dp[capacity])\n"
+  }
+}

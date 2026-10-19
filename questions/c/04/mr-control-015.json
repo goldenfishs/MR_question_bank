@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-015",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "02 条件与状态判断",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 015 · 分段线性整数校准",
+    "description": "校准函数规定：x<k时输出a*x+b；x≥k时输出c*x+d，各次仅计算一段。\n输入：一行x k a b c d，x,k在-10^6～10^6，a,b,c,d在-1000～1000。\n输出：校准后的整数，不需要连续性，两段在k处可能跳变。\n\n示例 1 输入\n7 10 3 -2 5 4\n示例 1 输出\n19\n\n\n示例 2 输入\n12 10 3 -2 5 4\n示例 2 输出\n64\n\n使用C语言标准输入输出，不输出提示文字。\n\n本题题面、示例及测试为电控系统学习路径独立原创，未复制第三方题库。",
+    "direction": "电控",
+    "difficulty": "入门",
+    "tags": [
+      "电控系统学习路径",
+      "C语言基础",
+      "02 条件与状态判断",
+      "等号归属与分段表达式"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/if.html",
+    "kind": "code",
+    "submissionType": "code",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        50
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "7 10 3 -2 5 4\n",
+          "expectedOutput": "19\n",
+          "hidden": false
+        },
+        {
+          "input": "12 10 3 -2 5 4\n",
+          "expectedOutput": "64\n",
+          "hidden": false
+        },
+        {
+          "input": "10 10 3 -2 5 4\n",
+          "expectedOutput": "54\n",
+          "hidden": true
+        },
+        {
+          "input": "-1000000 0 -1000 1000 1000 -1000\n",
+          "expectedOutput": "1000001000\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000 0 -1000 1000 1000 -1000\n",
+          "expectedOutput": "999999000\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 1 2 3 4\n",
+          "expectedOutput": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "-1 -1 7 8 9 10\n",
+          "expectedOutput": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "-2 -1 7 8 9 10\n",
+          "expectedOutput": "-6\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/if.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/basic.json",
+    "key": "mr-control-015",
+    "fileSha256": "19b0900cae9a9b6e5125986ffb4887c2924ca158ed3c5a2d1e0cdff91a392e78"
+  },
+  "maintenance": {
+    "chapter": "02 条件与状态判断",
+    "cReference": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\nint main(void){\nlong long x,k,a,b,c,d;if(scanf(\"%lld%lld%lld%lld%lld%lld\",&x,&k,&a,&b,&c,&d)!=6)return 0;printf(\"%lld\\n\",x<k?a*x+b:c*x+d);\nreturn 0;\n}\n",
+    "oracleNotes": "独立按区间选取系数对，以展开式求值；特别检查x=k必须第二段。"
+  }
+}

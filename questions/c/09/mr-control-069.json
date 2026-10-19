@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-069",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "07 结构体与内存",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 069 · 全零字节不等于任意类型的零值",
+    "description": "调用calloc成功，且分配大小非零。关于C11保证，哪项准确？不额外假定浮点或指针表示。\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "07 结构体与内存",
+      "calloc与对象表示"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/memory/calloc.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "内存字节被初始化为全零，但不能由此普遍推断所有指针对象的值都是空指针。",
+        "所有实现的空指针对象表示都保证为全零位。",
+        "calloc返回的字节保持不确定且完全不初始化。",
+        "calloc能保证每种用户自定义结构体成员都完成业务初始化。"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "calloc把分配区域所有位设为零。C11不要求空指针和浮点零都采用全零位表示；全零内存也不能代替应用层状态初始化。本题不读取未经有效初始化的任意指针值。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/memory/calloc.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-069",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "07 结构体与内存",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

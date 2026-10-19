@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "algorithm-progressive-18-knapsack01",
+  "revision": 1,
+  "subject": "shared-algorithms",
+  "chapter": "算法阶梯补充练习",
+  "visibility": "public",
+  "task": {
+    "title": "算法阶梯 18 · 单件工具装载",
+    "description": "机器人从 n 件不同工具中挑选部分装入载物箱。第 i 件占 w_i 单位载重，提供 v_i 点任务收益，每件最多选一次。总载重不能超过 C，允许留空，也可以一件不选。求最大收益。\n\n输入格式\n第一行 n、C，随后 n 行每行 w_i、v_i。\n范围：0 ≤ n ≤ 100，0 ≤ C ≤ 10000，1 ≤ w_i ≤ 10000，0 ≤ v_i ≤ 10^9。\n输出格式\n容量限制内的最大整数收益。\n\n示例 1 输入\n4 7\n2 5\n3 6\n4 9\n6 12\n示例 1 输出\n15\n说明：选择载重为 3、4 的两件工具。\n示例 2 输入\n2 2\n1 2\n2 3\n示例 2 输出\n3\n说明：第一件不能重复装两次。\n\n作答约定：使用标准输入输出，不打印提示文字；支持 C++17 与 Python 3。\n原创说明：题面、样例和测试数据由本站围绕机器人训练独立编写。",
+    "direction": "视觉算法",
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "kind": "code",
+    "submissionType": "code",
+    "difficulty": "进阶",
+    "maxScore": 100,
+    "tags": [
+      "算法阶梯",
+      "第四阶段·动态规划",
+      "动态规划",
+      "01背包"
+    ],
+    "required": false,
+    "fileIds": [],
+    "team": "",
+    "dueAt": "",
+    "resourcesUrl": "",
+    "judge": {
+      "enabled": true,
+      "languageIds": [
+        54,
+        71
+      ],
+      "timeLimitSeconds": 2,
+      "testCases": [
+        {
+          "input": "4 7\n2 5\n3 6\n4 9\n6 12\n",
+          "expectedOutput": "15\n",
+          "hidden": false
+        },
+        {
+          "input": "2 2\n1 2\n2 3\n",
+          "expectedOutput": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "0 10\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "2 0\n1 8\n2 9\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "3 3\n4 100\n5 200\n6 300\n",
+          "expectedOutput": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "3 4\n2 5\n2 5\n4 9\n",
+          "expectedOutput": "10\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4\n1 1000000000\n1 1000000000\n1 1000000000\n1 1000000000\n",
+          "expectedOutput": "4000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "4 10\n3 0\n4 8\n6 13\n10 20\n",
+          "expectedOutput": "21\n",
+          "hidden": true
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/algorithm-progressive-advanced.json",
+    "key": "algorithm-progressive-18-knapsack01",
+    "fileSha256": "3926a35202e5fc8211cb6d21421170a7ff4eb4644b74088f33b78f29686d75fd"
+  },
+  "maintenance": {
+    "referenceSolution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <queue>\n#include <functional>\n#include <utility>\nusing namespace std;\nint main(){int n,C;cin>>n>>C;vector<long long>dp(C+1);for(int i=0;i<n;++i){int w;long long v;cin>>w>>v;for(int c=C;c>=w;--c)dp[c]=max(dp[c],dp[c-w]+v);}cout<<dp[C]<<'\\n';}\n",
+    "pythonReference": "import sys\na=list(map(int,sys.stdin.buffer.read().split()))\nn,capacity=a[:2]\ndp=[0]*(capacity+1)\nfor i in range(n):\n    w,v=a[2+2*i:4+2*i]\n    for c in range(capacity,w-1,-1):\n        dp[c]=max(dp[c],dp[c-w]+v)\nprint(dp[capacity])\n"
+  }
+}

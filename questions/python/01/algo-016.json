@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-016",
+  "revision": 1,
+  "subject": "python",
+  "chapter": "基础语法",
+  "visibility": "public",
+  "task": {
+    "title": "Python：集合的去重",
+    "description": "Python 3 中 len(set([2, 2, 3, 3, 3, 5])) 的值是多少？只填写十进制整数。",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "Python",
+      "集合"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/datastructures.html#sets",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "fill_blank",
+      "options": [],
+      "answers": [
+        "3"
+      ],
+      "explanation": "集合只保留不同元素：2、3、5，共3个。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/datastructures.html#sets"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-016",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-058",
+  "revision": 1,
+  "subject": "c",
+  "chapter": "06 指针与字符串",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 058 · 数组形参不是整个数组副本",
+    "description": "C11 中定义 void inspect(int a[12]) { /* 函数体 */ }。不对其他类型大小作额外假设。哪句话正确？\n原创说明：题面、样例、测试与参考实现由本站独立创作，未转载第三方题目。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "C语言进阶",
+      "06 指针与字符串",
+      "数组形参调整"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://en.cppreference.com/w/c/language/array.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "形参 a 是一个包含 12 个 int 的局部数组副本。",
+        "函数体中的 sizeof a 等于 12*sizeof(int)，对所有实现成立。",
+        "该形参声明会调整为 int *a，函数体中的 sizeof a 为指针大小。",
+        "调用该函数必然自动检查实参数组至少有 12 个元素。"
+      ],
+      "answers": [
+        "2"
+      ],
+      "explanation": "函数参数位置的数组声明会调整为相应指针声明，sizeof a 得到调整后的指针大小，声明中的普通 12 不提供运行期长度检查。这里没有 static 数组参数限定。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://en.cppreference.com/w/c/language/array.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/advanced.json",
+    "key": "mr-control-058",
+    "fileSha256": "f1f8185e51fa013cbdf62c7ac2461e68ac680e5a5544cc8a908a98810905bfdc"
+  },
+  "maintenance": {
+    "chapter": "06 指针与字符串",
+    "oracleNotes": "Reviewed against the stated C11 assumptions; choices describe defined behavior only."
+  }
+}

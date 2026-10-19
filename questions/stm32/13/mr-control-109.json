@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "mr-control-109",
+  "revision": 1,
+  "subject": "stm32",
+  "chapter": "11 采样与通信外设",
+  "visibility": "public",
+  "task": {
+    "title": "电控路径 109 · SPI溢出后如何清状态",
+    "description": "硬件范围：STM32F103C8（中容量产品，Cortex-M3），依据 RM0008；除题面明确给出的假设外，不推广到其他 STM32 系列。\n\nSPI接收出现OVR，旧数据未及时从DR取出，新到的数据已经丢失。现在需按手册清OVR。哪组动作正确？\n\n作答约定：选择唯一正确项。\n原创说明：题目与解析由本站独立编写，官方手册仅作为机制核查来源。",
+    "direction": "电控",
+    "difficulty": "进阶",
+    "tags": [
+      "电控系统学习路径",
+      "STM32单片机基础",
+      "11 采样与通信外设",
+      "SPI OVR清除"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "先读SPI_DR，再读SPI_SR",
+        "先向SPI_SR.OVR写1",
+        "只反复读取SPI_SR，不读DR",
+        "清标志以后，硬件会自动重发已经丢失的数据"
+      ],
+      "answers": [
+        "0"
+      ],
+      "explanation": "OVR按先读DR再读SR的顺序清除。清状态并不能恢复丢失帧；上层需要错误计数与重同步/重传机制。不要把USART IDLE或I2C ADDR序列照搬到SPI。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "content/control-curriculum/stm32.json",
+    "key": "mr-control-109",
+    "fileSha256": "51b65789f5b93c8d78598c9b288d3f40c2689844e72c9bbfb51cfb0776fc8286"
+  },
+  "maintenance": {
+    "chapter": "11 采样与通信外设",
+    "oracleNotes": "RM0008 Rev 21, February 2021，第721页，25.3.10 Error flags, Overrun condition，核查关键词“Overrun condition”。适用限制：本题仅判断题面条件下的寄存器机制，不代替板级电气测试或外设实测。"
+  }
+}

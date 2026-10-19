@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "algo-012",
+  "revision": 1,
+  "subject": "python",
+  "chapter": "基础语法",
+  "visibility": "public",
+  "task": {
+    "title": "Python：浅拷贝独立追加",
+    "description": "执行后 a 的值是？\na = [1, 2]\nb = a.copy()\nb.append(3)",
+    "direction": "视觉算法",
+    "difficulty": "入门",
+    "tags": [
+      "Python",
+      "列表"
+    ],
+    "category": "problem",
+    "bankVisibility": "public",
+    "status": "published",
+    "maxScore": 100,
+    "required": false,
+    "fileIds": [],
+    "resourcesUrl": "https://docs.python.org/3/tutorial/datastructures.html",
+    "kind": "document",
+    "mechanicalProblem": {
+      "type": "single_choice",
+      "options": [
+        "程序报错",
+        "[3]",
+        "[1, 2, 3]",
+        "[1, 2]"
+      ],
+      "answers": [
+        "3"
+      ],
+      "explanation": "copy 创建新的外层列表；向 b 追加元素不会改变 a。若内部含可变对象，浅拷贝仍可能共享内部对象。",
+      "answerFileIds": []
+    }
+  },
+  "sources": [
+    "https://docs.python.org/3/tutorial/datastructures.html"
+  ],
+  "origin": {
+    "project": "goldenfishs/MR_system",
+    "path": "backend/question_banks/algorithms.json",
+    "key": "algo-012",
+    "fileSha256": "01e703964e39f957b9a53d643aa738d10f72bb8b5b8bb9d0db98244ea6cae15b"
+  },
+  "maintenance": {}
+}
